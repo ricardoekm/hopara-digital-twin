@@ -26,6 +26,6 @@ STORAGE_DIR=/mypath docker compose up
 * [Docs](https://docs.hopara.app/fundamentals/introduction)
 * [Tutorials](https://docs.hopara.app/tutorials/creating-a-room-heatmap)
 
-## SaaS version
+## SaaS
 
 * [Hopara Cloud](https://hopara.io/)
