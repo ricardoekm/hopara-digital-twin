@@ -1,0 +1,88 @@
+<svg viewBox="0 0 176 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+      font-family: 'Inter';
+      src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700') format('woff');
+      }
+      text {
+      font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- undefined --><polygon
+  fill="#ffffff"
+  points="15,15 55,15 55,55 15,55"
+>
+
+</polygon>
+  <polygon
+    fill="transparent"
+    points="15,15 55,15 55,55 15,55"
+    stroke="#333333"
+    stroke-width="1"
+  />
+  <polygon
+    fill="#ffc107"
+    points="68,15 108,15 108,55 68,55"
+  >
+    <animate
+      attributeName="fill-opacity"
+      keyTimes="0; 0.5; 1"
+      values="0.33;1;0.33"
+      begin="0s"
+      dur="1.5s"
+      fill="freeze"
+      repeatCount="indefinite"
+    />
+  </polygon>
+  <polygon
+    fill="transparent"
+    points="68,15 108,15 108,55 68,55"
+    stroke="#333333"
+    stroke-width="1"
+  />
+  <polygon
+    fill="#E41A0C"
+    points="121,15 161,15 161,55 121,55"
+  >
+    <animate
+      attributeName="fill-opacity"
+      keyTimes="0; 0.5; 1"
+      values="0.33;1;0.33"
+      begin="0s"
+      dur="1.5s"
+      fill="freeze"
+      repeatCount="indefinite"
+    />
+  </polygon>
+  <polygon
+    fill="transparent"
+    points="121,15 161,15 161,55 121,55"
+    stroke="#333333"
+    stroke-width="1"
+  />
+
+  <!-- undefined --><text
+  fill="#333333"
+  font-size="12"
+  x="35"
+  y="35"
+  text-anchor="middle"
+  dominant-baseline="middle"
+>Text</text><text
+  fill="#333333"
+  font-size="12"
+  x="88"
+  y="35"
+  text-anchor="middle"
+  dominant-baseline="middle"
+>Text</text><text
+  fill="#333333"
+  font-size="12"
+  x="141"
+  y="35"
+  text-anchor="middle"
+  dominant-baseline="middle"
+>Text</text></svg>

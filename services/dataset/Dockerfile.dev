@@ -1,0 +1,5 @@
+FROM gradle:jdk15
+
+ADD ./ ./
+RUN gradle build
+RUN cp build/libs/dataset-*.jar app.jar

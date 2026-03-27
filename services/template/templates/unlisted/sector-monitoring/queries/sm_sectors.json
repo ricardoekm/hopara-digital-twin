@@ -1,0 +1,11 @@
+{
+    "name": "sm_sectors",
+    "query": "SELECT \n    s.id,\n    s.sector_name ,\n    SUM(CASE WHEN se.alert_level > 0 THEN 1 ELSE 0 END) AS number_of_alerts, \n    count(*) as number_of_sensors,\n    max(se.alert_level) AS alert_level\nFROM \n    sm_sectors s\n    INNER JOIN sm_assets a ON a.sector_id = s.id\n    INNER JOIN sm_sensors se ON a.id = se.asset_id\nGROUP BY  \n    s.id, s.sector_name;\n",
+    "filterTables": false,
+    "smartLoad": false,
+    "writeLevel": "NONE",
+    "upsert": false,
+    "primaryKey": "id",
+    "dataSource": "sample",
+    "editableColumns": []
+}

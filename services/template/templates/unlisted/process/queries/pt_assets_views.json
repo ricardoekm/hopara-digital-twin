@@ -1,0 +1,11 @@
+{
+  "name": "pt_assets_views",
+  "query": "select * from pt_assets_views",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "asset_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

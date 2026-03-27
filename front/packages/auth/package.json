@@ -1,0 +1,33 @@
+{
+  "name": "@hopara/auth-front",
+  "version": "2.4.66",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "dependencies": {
+    "@hopara/authorization": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/design-system": "2.4.66",
+    "@hopara/http-client": "2.4.66",
+    "@hopara/i18n": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/page": "2.4.66",
+    "@mui/material": "^5.15.10",
+    "case": "^1.6.3",
+    "jwt-decode": "^3.1.2",
+    "localstorage-slim": "^2.7.0",
+    "react": "^18.3.1",
+    "react-router-dom": "^6.10.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0"
+  },
+  "scripts": {
+    "test": "jest --runInBand --ci",
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  }
+}

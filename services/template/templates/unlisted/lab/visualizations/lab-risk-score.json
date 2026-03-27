@@ -1,0 +1,154 @@
+{
+  "group": "SAMPLE",
+  "type": "CHART",
+  "layers": [
+    {
+      "helperText": "This is a bar chart where you can see and act on each individual asset. The color represents the asset risk.",
+      "encoding": {
+        "color": {
+          "field": "risk_score",
+          "scale": {
+            "scheme": "redyellowgreen",
+            "reverse": true
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "position": {
+          "x": {
+            "field": "device_type"
+          },
+          "y": {
+            "field": "count"
+          },
+          "type": "CLIENT"
+        }
+      },
+      "id": "85f38ed2-2734-4bac-a4ec-4b11769225c6",
+      "name": "Assets",
+      "type": "bar",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets_risk",
+        "transform": {
+          "type": "unit",
+          "group": {
+            "field": "device_type",
+            "limit": 20
+          },
+          "sort": {
+            "field": "risk_score"
+          }
+        }
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Equipment id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "equipment_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Device type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "device_type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Risk score",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "risk_score"
+                }
+              }
+            }
+          },
+          {
+            "title": "Model count",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "model_count"
+                }
+              }
+            }
+          },
+          {
+            "title": "Model",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "model"
+                }
+              }
+            }
+          },
+          {
+            "title": "Count",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "count"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Schedule replacement",
+          "type": "EXTERNAL_LINK_JUMP",
+          "href": "https://my-company/assets/:equipment_id",
+          "target": "_blank"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "max": {
+            "value": 24
+          },
+          "min": {
+            "value": 0
+          }
+        }
+      }
+    }
+  ],
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "filters": [],
+  "zoomRange": {
+    "max": {
+      "value": 24
+    },
+    "min": {
+      "value": 0
+    }
+  },
+  "encodingScope": "FETCH",
+  "legends": [],
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "risk-score",
+  "name": "Risk Score"
+}

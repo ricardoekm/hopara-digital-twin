@@ -1,0 +1,11 @@
+{
+    "name": "labs_buildings",
+    "query": "SELECT b.building_id, \n       b.building_name,\n       MAX(CASE\n             WHEN last_metrics.value >= al.critical THEN 2\n             WHEN last_metrics.value >= al.warning THEN 1\n             ELSE 0\n           END) AS alert_level,\n       COUNT(DISTINCT s.sensor_id) AS number_of_sensors,\n       SUM(CASE WHEN last_metrics.value >= al.critical THEN 1 ELSE 0 END) AS number_of_critical,\n       SUM(CASE WHEN last_metrics.value >= al.warning AND (al.critical IS NULL OR last_metrics.value < al.critical) THEN 1 ELSE 0 END) AS number_of_warning\nFROM labs_sensors s \nleft JOIN labs_assets a on s.asset_id = a.asset_id\nleft join labs_rooms r on r.room_id = s.room_id \ninner  JOIN labs_building b  ON b.building_id = coalesce (a.building_id, r.building_id ) \nleft JOIN (\n    select distinct on (sensor_id) timestamp, value, sensor_id \n    FROM labs_metrics m\n    ORDER BY sensor_id, timestamp DESC\n) AS last_metrics ON s.sensor_id = last_metrics.sensor_id\nLEFT JOIN labs_alerts al ON al.sensor_id = last_metrics.sensor_id\ngroup by 1,2",
+    "dataSource": "sample",
+    "primaryKey": "building_id",
+    "writeLevel": "NONE",
+    "filterTables": true,
+    "smartLoad": false,
+    "upsert": true,
+    "editableColumns": []
+  }

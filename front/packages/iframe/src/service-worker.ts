@@ -1,0 +1,1 @@
+import '@hopara/service-worker'

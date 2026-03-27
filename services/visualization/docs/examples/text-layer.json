@@ -1,0 +1,13 @@
+{
+  "name": "Text Layer",
+  "type": "text",
+  "data": {
+    "source": "hopara",
+    "query": "products_table"
+  },
+  "encoding": {
+    "text": {
+      "field": "description"
+    }
+  }
+}

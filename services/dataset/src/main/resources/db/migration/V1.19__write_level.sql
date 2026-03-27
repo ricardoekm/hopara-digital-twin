@@ -1,0 +1,1 @@
+ALTER TABLE hp_views RENAME COLUMN write_mode TO write_level;

@@ -1,0 +1,4 @@
+{
+  "drop": ["drop-isometric-whiteboard.sql"],
+  "create": ["isometric-whiteboard.sql"]
+}  

@@ -1,0 +1,33 @@
+[importlinter]
+root_packages =
+    api
+    tests
+    consumer
+
+[importlinter:contract:no-api-imports-tests]
+name = API não pode importar Test
+type = forbidden
+source_modules = api
+forbidden_modules = tests
+
+[importlinter:contract:no-api-imports-consumer]
+name = API não pode importar Consumer
+type = forbidden
+source_modules = api
+forbidden_modules = consumer
+
+[importlinter:contract:no-consumer-imports-tests]
+name = Consumer não pode importar Test
+type = forbidden
+source_modules = consumer
+forbidden_modules = tests
+
+[importlinter:contract:no-consumer-imports-api]
+name = Consumer não pode importar API
+type = forbidden
+source_modules = consumer
+forbidden_modules = api
+
+
+
+

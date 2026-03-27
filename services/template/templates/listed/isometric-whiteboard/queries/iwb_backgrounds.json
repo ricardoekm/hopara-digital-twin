@@ -1,0 +1,16 @@
+{
+  "name": "iwb_backgrounds",
+  "query": "    select * from iwb_backgrounds order by background_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "iwb_backgrounds",
+  "primaryKey": "background_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

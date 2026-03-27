@@ -1,0 +1,728 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "lab-metrics",
+  "name": "Metric History",
+  "type": "CHART",
+  "encodingScope": "FETCH",
+  "group": "SAMPLE",
+  "actions": [],
+  "scope": "CHART",
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#4c78a8"
+        },
+        "size": {
+          "value": 10
+        },
+        "position": {
+          "x": {
+            "field": "timestamp"
+          },
+          "y": {
+            "field": "value"
+          },
+          "type": "CLIENT"
+        },
+        "config": {
+          "units": "pixels"
+        }
+      },
+      "id": "1ff770bf-affe-4826-9d19-c26378cebc04",
+      "name": "Metrics Points",
+      "type": "circle",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_history"
+      },
+      "details": {
+        "fields": [
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "value",
+                  "format": ".2f"
+                }
+              }
+            }
+          },
+          {
+            "title": "Timestamp",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "timestamp",
+                  "format": "%d/%b %H:%M:%S"
+                }
+              }
+            }
+          },
+          {
+            "title": "Sensor id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#4c78a8"
+        },
+        "size": {
+          "value": 2
+        },
+        "position": {
+          "x": {
+            "field": "timestamp"
+          },
+          "y": {
+            "field": "value"
+          },
+          "scope": "CHART",
+          "type": "CLIENT"
+        },
+        "line": {
+          "segmentLength": 500,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "pixels"
+        }
+      },
+      "id": "6aaafad5-3c02-4689-8e64-ba445bd6c88b",
+      "name": "Metric History",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_history"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Value",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "value"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#FFDD00"
+        },
+        "size": {
+          "value": 1
+        },
+        "position": {
+          "y": {
+            "field": "warning"
+          },
+          "scope": "CHART",
+          "type": "CLIENT"
+        },
+        "line": {
+          "segmentLength": 500,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "pixels"
+        }
+      },
+      "id": "bfd3c5bc-b798-4103-8e13-c74746ee63e0",
+      "name": "Warning threshold",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_limits"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        },
+        "condition": {
+          "test": {
+            "field": "alert"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#E41A0C"
+        },
+        "size": {
+          "value": 1
+        },
+        "position": {
+          "y": {
+            "field": "critical"
+          },
+          "scope": "CHART",
+          "type": "CLIENT"
+        },
+        "line": {
+          "segmentLength": 500,
+          "cap": "butt"
+        }
+      },
+      "id": "6d7ab37c-083b-4eba-8b43-68741a5a219c",
+      "name": "Critical threshold",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_limits"
+      },
+      "details": {
+        "fields": [],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        },
+        "condition": {
+          "test": {
+            "field": "alert"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 0.25,
+          "value": "#FFDD00"
+        },
+        "size": {
+          "value": 3
+        },
+        "position": {
+          "y": {
+            "field": "critical"
+          },
+          "y2": {
+            "field": "warning"
+          },
+          "scope": "CHART",
+          "type": "CLIENT"
+        }
+      },
+      "id": "d4d6177d-9966-42fe-b002-4e530a6d7b29",
+      "name": "Warning threshold area",
+      "type": "rectangle",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_limits"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Warning",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "warning"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical value",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_value"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Lowest timestamp",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "lowest_timestamp"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        },
+        "condition": {
+          "test": {
+            "field": "alert"
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 0.25,
+          "value": "#E41A0C"
+        },
+        "size": {
+          "value": 3
+        },
+        "position": {
+          "y": {
+            "field": "critical"
+          },
+          "y2": {
+            "field": "critical_value"
+          },
+          "scope": "CHART",
+          "type": "CLIENT"
+        }
+      },
+      "id": "84386152-c31e-4bb5-9c2b-0d29e4d06c73",
+      "name": "Critical threshold area",
+      "type": "rectangle",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_limits"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Warning",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "warning"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical value",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_value"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Lowest timestamp",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "lowest_timestamp"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        },
+        "condition": {
+          "test": {
+            "field": "critical_alert"
+          }
+        }
+      },
+      "children": []
+    }
+  ],
+  "filters": [
+    {
+      "id": "805d9ff4-3241-4113-a5c6-d72392dfe729",
+      "field": "sensor_id",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors_metrics_history"
+      },
+      "singleChoice": true,
+      "autoFill": {
+        "mode": "IF_NO_OTHER_FILTER_FILLED",
+        "values": [
+          "abcd13CH-1223-dd57-2d74-4fdddrichard-1-temperature"
+        ]
+      },
+      "values": [
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-10-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-11-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-12-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-13-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-14-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-15-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-16-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-17-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-18-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-19-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-1-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-2-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-3-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-4-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-5-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-6-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-7-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-8-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-9-temperature",
+        "9db10d07-9bd5-4d97-ab74-56a67e924cdd-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-10-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-11-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-12-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-13-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-14-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-15-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-16-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-17-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-18-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-19-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-1-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-2-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-3-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-4-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-5-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-6-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-7-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-8-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-9-temperature",
+        "4572c86c-ac58-4754-bd77-5bc47da6bec1-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-10-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-11-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-12-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-13-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-14-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-15-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-16-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-17-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-18-temperature",
+        "392f42af-9841-41f5-9ab9-4bb2b19e8f44-19-temperature"
+      ]
+    }
+  ],
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 12
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "FIXED"
+  }
+}

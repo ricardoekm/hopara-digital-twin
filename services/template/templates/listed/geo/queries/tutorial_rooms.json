@@ -1,0 +1,11 @@
+{
+  "name": "tutorial_rooms",
+  "query": "    select * from tutorial_rooms\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": false,
+  "primaryKey": "room_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

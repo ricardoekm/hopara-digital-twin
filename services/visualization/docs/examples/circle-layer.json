@@ -1,0 +1,32 @@
+{
+  "name": "Contacts",
+  "type": "circle",
+  "data": {
+    "source": "hopara",
+    "query": "contacts"
+  },
+  "encoding": {
+    "color": {
+      "field": "category",
+      "scale": {
+        "scheme": "redyellowgreen"
+      },
+      "value": "#000"
+    },
+    "size": {
+      "field": "connections_count",
+      "scale": {
+        "range": [5, 20]
+      },
+      "value": 10
+    },
+    "position": {
+      "x": {
+        "field": "_x"
+      },
+      "y": {
+        "field": "_y"
+      }
+    }
+  }
+}

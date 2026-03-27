@@ -1,0 +1,85 @@
+FROM nvidia/cuda:12.9.0-base-ubuntu24.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    NVIDIA_VISIBLE_DEVICES=all \
+    NVIDIA_DRIVER_CAPABILITIES=all \
+    EGL_PLATFORM=surfaceless \
+    MAMBA_NO_BANNER=1 \
+    MAMBA_ROOT_PREFIX=/opt/conda \
+    MAMBA_DEFAULT_CHANNELS=conda-forge \
+    CONDA_CHANNEL_PRIORITY=strict \
+    PYTHONDONTWRITEBYTECODE=1
+
+# Pacotes de runtime essenciais (sem toolchain de build no estágio final)
+# Mantidos os libs gráficos/fonte/gtk necessários para headless + Inkscape
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        wget \
+        bzip2 \
+        xz-utils \
+        mailcap \
+        file \
+        libmagic1 \
+        poppler-utils \
+        libsm6 \
+        libxrender1 \
+        libfontconfig1 \
+        libxext6 \
+        libxi6 \
+        libxkbcommon0 \
+        libegl1 \
+        libgl1 \
+        libglx0 \
+        libopengl0 \
+        libvulkan1 \
+        mesa-utils \
+        mesa-utils-extra \
+        xvfb \
+        xdg-utils \
+        libgdk-pixbuf-2.0-0 \
+        libgdk-pixbuf2.0-bin \
+        libgtk-3-0 \
+        libglib2.0-0 \
+        fonts-dejavu-core; \
+    rm -rf /var/lib/apt/lists/*
+
+# Instala micromamba (bem menor que Mambaforge) e prepara PATH
+RUN set -eux; \
+    curl -L https://github.com/mamba-org/micromamba-releases/releases/latest/download/micromamba-linux-64 -o /usr/local/bin/micromamba; \
+    chmod +x /usr/local/bin/micromamba; \
+    mkdir -p ${MAMBA_ROOT_PREFIX}; \
+    micromamba shell init -s bash -r ${MAMBA_ROOT_PREFIX}
+ENV PATH="/opt/conda/bin:/usr/local/bin:${PATH}"
+
+# Cria o ambiente base hopara com Python 3.11
+# Se existir um spec explícito (gerado fora do Docker), usa ele para evitar OOM do solver
+COPY env/ /tmp/env/
+RUN set -eux; \
+    if [ -f /tmp/env/hopara-explicit-consumer.txt ]; then \
+      micromamba create -y -n hopara -f /tmp/env/hopara-explicit-consumer.txt; \
+    else \
+      micromamba create -y -n hopara -c conda-forge --strict-channel-priority "python=3.11.*"; \
+    fi; \
+    micromamba clean --all -y; \
+    rm -rf /opt/conda/pkgs /root/.cache
+
+# Inkscape AppImage
+RUN wget https://inkscape.org/gallery/item/53678/Inkscape-e7c3feb-x86_64_0QCD8vJ.AppImage -O Inkscape.AppImage && \
+    chmod +x Inkscape.AppImage && \
+    ./Inkscape.AppImage --appimage-extract && \
+    mkdir -p /opt/inkscape && \
+    mv squashfs-root/* /opt/inkscape && \
+    rm -rf /opt/inkscape/usr/lib/python3/dist-packages/* && \
+    ln -s /opt/inkscape/AppRun /usr/local/bin/inkscape
+
+# (Opcional, mais poda segura) Remover caches, exemplos e __pycache__
+RUN set -eux; \
+    find /opt/conda -type d -name "__pycache__" -prune -exec rm -rf {} + || true; \
+    find /opt/conda -type f -name "*.pyc" -delete || true; \
+    find /opt/conda -type f -name "*.pyo" -delete || true; \
+    find /opt/conda -type f -name "*.a"   -delete || true
+
+CMD ["bash"]

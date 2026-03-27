@@ -1,0 +1,16 @@
+{
+  "name": "wb_lines",
+  "query": "    select * from wb_lines order by line_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "wb_lines",
+  "primaryKey": "line_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

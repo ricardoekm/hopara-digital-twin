@@ -1,0 +1,3 @@
+angles = [45, 135, 225, 315]
+
+DEFAULT_ANGLE = 45

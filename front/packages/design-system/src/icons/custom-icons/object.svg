@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="toolbar/icon/objects" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M21,9 L21,4 C21,3.4477148 20.5522842,3 20,3 L15,3 C14.4477158,3 14,3.4477148 14,4 L14,9 C14,9.5522842 14.4477158,10 15,10 L20,10 C20.5522842,10 21,9.5522842 21,9 Z" id="Path" stroke="currentColor" stroke-width="1.35" fill-rule="nonzero"></path>
+        <path d="M10,6.5 C10,4.5699873 8.4300127,3 6.5,3 C4.5699873,3 3,4.5699873 3,6.5 C3,8.4300127 4.5699873,10 6.5,10 C8.4300127,10 10,8.4300127 10,6.5 Z" id="Path" stroke="currentColor" stroke-width="1.35" fill-rule="nonzero"></path>
+        <path d="M6.6311989,14.2176914 L3.066802,20.2913494 C2.8857584,20.5998421 3.0940113,21.0000005 3.4356031,21.0000005 L10.5643959,21.0000005 C10.9059887,21.0000005 11.1142406,20.5998421 10.933197,20.2913494 L7.3688011,14.2176914 C7.1984615,13.9274368 6.8015385,13.9274368 6.6311989,14.2176914 Z" id="Path" stroke="currentColor" stroke-width="1.35" fill-rule="nonzero"></path>
+        <path d="M17.5,14.5 L17.5,20.5 M20.50005,17.49995 L14.50005,17.49995" id="Path" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg
+  viewBox="0 0 48 48"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g
+    id="Icons"
+    stroke="none"
+    stroke-width="1"
+    fill="none"
+    fill-rule="evenodd"
+  >
+    <g id="icons/data-source/icons">
+      <rect id="Rectangle" x="0" y="0" width="48" height="48"/>
+      <path
+        d="M12.5,39 C16.0898509,39 19,36.0898509 19,32.5 C19,28.9101491 16.0898509,26 12.5,26 C8.91014913,26 6,28.9101491 6,32.5 C6,36.0898509 8.91014913,39 12.5,39 Z M28,26 L40,26 L40,38 L28,38 Z M15.5852635,20 L29.839258,20 L22.7122608,8 L15.5852635,20 Z"
+        id="icons"
+        fill="currentColor"
+      />
+    </g>
+  </g>
+</svg>

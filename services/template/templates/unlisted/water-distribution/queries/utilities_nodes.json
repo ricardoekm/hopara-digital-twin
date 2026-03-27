@@ -1,0 +1,11 @@
+{
+  "name": "utilities_nodes",
+  "query": "    SELECT node_id, name,\n        type, pm.measurement, pm.timestamp,\n        case when type = 'reservoirs' then 'oil-barrel' else 'water-damage' end as icon\n    FROM utilities_nodes pn\n    left join (\n        select distinct on(sensor_id) *\n        from utilities_metrics pm\n        order by sensor_id, timestamp desc\n    ) as pm on pm.sensor_id = pn.name\n    order by name",
+  "dataSource": "sample",
+  "primaryKey": "node_id",
+  "writeLevel": "NONE",
+  "filterTables": true,
+  "smartLoad": false,
+  "upsert": true,
+  "editableColumns": []
+}

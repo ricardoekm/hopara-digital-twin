@@ -1,0 +1,23 @@
+{
+  "server": {
+    "port": "PORT"
+  },
+  "logger": {
+    "level": "LOG_LEVEL",
+    "format": "LOG_FORMAT"
+  },
+  "fs": {
+    "basePath": "FS_BASE_PATH"
+  },
+  "dataset": {
+    "url": "DATASET_URL"
+  },
+  "resource": {
+    "url": "RESOURCE_URL"
+  },
+  "auth": {
+    "enabled": "AUTH_ENABLED",
+    "jwtIssuer": "AUTH_JWT_ISSUER",
+    "jwksUri": "AUTH_JWKS_URI"
+  }
+}

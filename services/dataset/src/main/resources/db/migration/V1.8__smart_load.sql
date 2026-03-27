@@ -1,0 +1,1 @@
+ALTER TABLE hp_views ADD COLUMN smart_load boolean;

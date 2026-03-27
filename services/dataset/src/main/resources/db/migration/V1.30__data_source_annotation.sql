@@ -1,0 +1,1 @@
+ALTER TABLE hp_data_sources ADD COLUMN annotation varchar(255);

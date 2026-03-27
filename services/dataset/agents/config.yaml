@@ -1,0 +1,28 @@
+---   
+lowercaseOutputLabelNames: true
+lowercaseOutputName: true
+rules:
+- pattern: 'com.mchange.v2.c3p0<type=PooledDataSource, identityToken=(.+), name=(.+)><>numBusyConnections'
+  name: db_pool_busy_connections
+  labels:
+    datasource: "$2"
+  help: Busy connections
+  type: GAUGE
+- pattern: 'com.mchange.v2.c3p0<type=PooledDataSource, identityToken=(.+), name=(.+)><>numIdleConnections'
+  name: db_pool_idle_connections
+  labels:
+    datasource: "$2"
+  help: Idle connections
+  type: GAUGE
+- pattern: 'com.mchange.v2.c3p0<type=PooledDataSource, identityToken=(.+), name=(.+)><>numConnections'
+  name: db_pool_connections
+  labels:
+    datasource: "$2"
+  help: Num connections
+  type: GAUGE
+- pattern: 'com.mchange.v2.c3p0<type=PooledDataSource, identityToken=(.+), name=(.+)><>maxPoolSize'
+  name: db_pool_max_connections
+  labels:
+    datasource: "$2"
+  help: Max connections
+  type: GAUGE

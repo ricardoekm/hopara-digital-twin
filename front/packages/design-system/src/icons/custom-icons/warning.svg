@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient cx="50%" cy="66.8691116%" r="89.7060339%" gradientTransform="translate(0.5, 0.6687), rotate(90), scale(1, 0.6996), translate(-0.5, -0.6687)" id="radialGradient-1">
+      <stop stop-color="#FFD110" offset="0"/>
+      <stop stop-color="#FFC610" offset="1"/>
+    </radialGradient>
+    <circle id="path-2" cx="12" cy="19.5" r="1.5"/>
+    <filter x="-50.0%" y="-50.0%" width="200.0%" height="200.0%" filterUnits="objectBoundingBox" id="filter-3">
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.880500402   0 0 0 0 0.428791921  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"/>
+    </filter>
+    <path d="M10.5,8 L13.5,8 L13,17 C11.6666667,17 11,17 11,17 C11,17 10.8333333,14 10.5,8 Z" id="path-4"/>
+    <filter x="-50.0%" y="-16.7%" width="200.0%" height="133.3%" filterUnits="objectBoundingBox" id="filter-5">
+      <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.880500402   0 0 0 0 0.428791921  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"/>
+    </filter>
+  </defs>
+  <path d="M 12.786 2.486 L 21.907 20.728 C 22.124 21.162 21.948 21.69 21.514 21.907 C 21.392 21.968 21.258 22 21.121 22 L 2.879 22 C 2.393 22 2 21.607 2 21.121 C 2 20.985 2.032 20.85 2.093 20.728 L 11.214 2.486 C 11.431 2.052 11.959 1.876 12.393 2.093 C 12.563 2.178 12.701 2.316 12.786 2.486 Z" id="Triangle" fill="url(#radialGradient-1)"/>
+  <circle cx="12" cy="18.318" r="1.318" fill="black" fill-opacity="1" filter="url(#filter-3)"/>
+  <circle cx="12" cy="18.318" r="1.318" fill="#000000" fill-rule="evenodd"/>
+  <path d="M 10.682 8 L 13.318 8 L 12.879 15.907 C 11.707 15.907 11.121 15.907 11.121 15.907 C 11.121 15.907 10.975 13.271 10.682 8 Z" fill="black" fill-opacity="1" filter="url(#filter-5)"/>
+  <path d="M 10.682 8.057 L 13.318 8.057 L 12.879 15.964 C 11.707 15.964 11.121 15.964 11.121 15.964 C 11.121 15.964 10.975 13.328 10.682 8.057 Z" fill="#000000" fill-rule="evenodd"/>
+</svg>

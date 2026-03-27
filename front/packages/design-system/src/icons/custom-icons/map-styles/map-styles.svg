@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 320 2020" width="320px" height="2020px" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="10" height="10"/>
+  </defs>
+  <g style="" transform="matrix(1, 0, 0, 1, 320, 80)">
+    <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(239, 248, 249);" y="-70" x="-310"/>
+    <rect y="50" width="320" height="60" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(187, 187, 187);" x="-320"/>
+    <rect x="-190" y="100" width="60" height="140" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(187, 187, 187);"/>
+    <rect x="-280" y="-40" width="60" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(144, 163, 164);"/>
+    <rect x="-200" y="-40" width="80" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(144, 163, 164);"/>
+    <rect x="-110" y="130" width="70" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(144, 163, 164);"/>
+    <rect x="-280" y="130" width="70" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(144, 163, 164);"/>
+    <rect x="-100" y="-40" width="60" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(144, 163, 164);"/>
+    <path d="M -20 220 L -20 -60 L -300 -60 L -300 220 L -20 220 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(187, 187, 187);"/>
+  </g>
+  <g style="" transform="matrix(1, 0, 0, 1, 320, 420)">
+    <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(72, 72, 72);" y="-70" x="-310"/>
+    <path d="M -20 220 L -20 110 L -130 110 L -130 220 Z M -20 -60 L -300 -60 L -300 50 L -20 50 Z M -300 220 L -190 220 L -190 110 L -300 110 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(103, 103, 103);"/>
+    <path d="M -140 220 L -180 220 L -180 100 L -300 100 L -300 60 L -20 60 L -20 100 L -140 100 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(90, 90, 90);"/>
+  </g>
+  <g style="" transform="matrix(1, 0, 0, 1, 320, 760.000061)">
+    <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(245, 245, 245);" y="-70" x="-310"/>
+    <path d="M -20 -60 L -300 -60 L -300 220 L -20 220 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke-width: 0px; stroke: rgb(224, 224, 224); fill: rgb(216, 216, 216);"/>
+    <path d="M -140 220 L -180 220 L -180 100 L -300 100 L -300 60 L -20 60 L -20 100 L -140 100 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(255, 255, 255);"/>
+  </g>
+  <g style="" transform="matrix(1, 0, 0, 1, 320, 1100)">
+    <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(245, 245, 245);" y="-70" x="-310"/>
+    <path d="M -20 220 L -20 110 L -130 110 L -130 220 Z M -20 -60 L -300 -60 L -300 50 L -20 50 Z M -300 220 L -190 220 L -190 110 L -300 110 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke-width: 0px; stroke: rgb(224, 224, 224); fill: rgb(193, 193, 193);"/>
+    <path d="M -140 220 L -180 220 L -180 100 L -300 100 L -300 60 L -20 60 L -20 100 L -140 100 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(205, 203, 203);"/>
+  </g>
+  <g style="" transform="matrix(1, 0, 0, 1, 320, 1440)">
+    <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(250, 243, 235);" y="-70" x="-310"/>
+    <path d="M -20 220 L -20 110 L -130 110 L -130 220 Z M -20 -60 L -300 -60 L -300 50 L -20 50 Z M -300 220 L -190 220 L -190 110 L -300 110 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke-width: 0px; stroke: rgb(224, 224, 224); fill: rgb(227, 225, 221);"/>
+    <path d="M -20 -60 L -300 -60 L -300 220 L -20 220 L -20 -60 Z M 0 -60 L 0 220 C 0 230 -10 240 -20 240 L -300 240 C -310 240 -320 230 -320 220 L -320 -60 C -320 -70 -310 -80 -300 -80 L -20 -80 C -10 -80 0 -70 0 -60 Z" style="stroke-width: 0px; stroke: rgb(224, 224, 224); fill: rgb(216, 216, 216);"/>
+    <path d="M -140 220 L -180 220 L -180 100 L -300 100 L -300 60 L -20 60 L -20 100 L -140 100 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(255, 255, 255);"/>
+    <rect x="-280" y="-40" width="60" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(227, 225, 221);"/>
+    <rect x="-200" y="-40" width="80" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(227, 225, 221);"/>
+    <rect x="-110" y="130" width="70" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(227, 225, 221);"/>
+    <rect x="-280" y="130" width="70" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(227, 225, 221);"/>
+    <rect x="-100" y="-40" width="60" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(227, 225, 221);"/>
+    <rect x="-100" y="20" width="60" height="10" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);"/>
+    <rect x="90" y="-40" width="10" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+    <rect x="-200" y="20" width="80" height="10" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);"/>
+    <rect x="190" y="-40" width="10" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+    <rect x="-280" y="20" width="60" height="10" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);"/>
+    <rect x="270" y="-40" width="10" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+    <rect x="-280" y="190" width="70" height="10" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);"/>
+    <rect x="270" y="130" width="10" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+    <rect x="-110" y="190" width="70" height="10" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);"/>
+    <rect x="100" y="130" width="10" height="70" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(222, 217, 210);" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <rect width="300" height="300" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(252, 252, 252);" y="1733.337" x="10" transform="matrix(1, 0, 0, 1, 5.7894567362382077e-8, -23.337036481102928)"/>
+  <path d="M 250 1798.337 L 250 1935.389 L 230 1915.389 L 230 1820.337 L 200 1831.937 L 200 1885.389 L 180 1865.389 L 180 1832.037 L 140 1818.037 L 140 1825.389 L 113.505 1798.894 L 130 1793.337 L 190 1814.337 L 243.4 1793.637 L 245 1793.337 C 247.76 1793.337 250 1795.577 250 1798.337 Z M 190 1973.337 L 130 1952.337 L 76.6 1973.037 L 75 1973.337 C 72.24 1973.337 70 1971.097 70 1968.337 L 70 1817.137 C 70 1814.837 71.5 1813.037 73.6 1812.337 L 75.419 1811.724 L 70 1806.337 L 83 1793.337 L 250 1960.337 L 238 1973.337 L 225.851 1961.26 L 190 1973.337 Z M 90 1827.937 L 90 1946.437 L 120 1934.837 L 120 1856.039 L 91.292 1827.502 L 90 1827.937 Z M 140 1934.637 L 180 1948.637 L 180 1915.682 L 140 1875.92 L 140 1934.637 Z M 200 1948.837 L 209.975 1945.479 L 200 1935.563 L 200 1948.837 Z" style="fill: rgb(216, 216, 216);" transform="matrix(1, 0, 0, 1, 5.7894567362382077e-8, -23.337036481102928)"/>
+  <path d="M 300 1743.337 L 20 1743.337 L 20 2023.337 L 300 2023.337 L 300 1743.337 Z M 320 1743.337 L 320 2023.337 C 320 2033.337 310 2043.337 300 2043.337 L 20 2043.337 C 10 2043.337 0 2033.337 0 2023.337 L 0 1743.337 C 0 1733.337 10 1723.337 20 1723.337 L 300 1723.337 C 310 1723.337 320 1733.337 320 1743.337 Z" style="stroke-width: 0px; stroke: rgb(224, 224, 224); fill: rgb(216, 216, 216);" transform="matrix(1, 0, 0, 1, 5.7894567362382077e-8, -23.337036481102928)"/>
+</svg>

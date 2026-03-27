@@ -1,0 +1,4 @@
+{
+  "drop": ["drop-sector-monitoring.sql"],
+  "create": ["sector-monitoring.sql"]
+}  

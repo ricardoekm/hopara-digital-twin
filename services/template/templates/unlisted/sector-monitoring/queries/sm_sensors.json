@@ -1,0 +1,11 @@
+{
+    "name": "sm_sensors",
+    "query": "select * from sm_sensors",
+    "filterTables": false,
+    "smartLoad": false,
+    "writeLevel": "NONE",
+    "upsert": false,
+    "primaryKey": "id",
+    "dataSource": "sample",
+    "editableColumns": []
+}

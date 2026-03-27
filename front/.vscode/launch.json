@@ -1,0 +1,39 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [     
+    {
+      "name": "Chrome",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Front",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["start"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Storybook",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}/packages/design-system",
+      "runtimeArgs": ["storybook"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test Components",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}/packages/spatial",
+      "runtimeArgs": ["test"]
+    },
+  ]
+}

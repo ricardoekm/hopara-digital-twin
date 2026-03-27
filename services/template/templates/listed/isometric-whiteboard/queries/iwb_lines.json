@@ -1,0 +1,16 @@
+{
+  "name": "iwb_lines",
+  "query": "    select * from iwb_lines order by line_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "iwb_lines",
+  "primaryKey": "line_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

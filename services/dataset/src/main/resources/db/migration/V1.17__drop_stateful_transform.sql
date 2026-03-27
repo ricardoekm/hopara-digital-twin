@@ -1,0 +1,1 @@
+DROP TABLE hp_transforms;

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "name": "3D",
+  "type": "3D",
+  "encodingScope": "QUERY",
+  "actions": [],
+  "lights": {
+    "ambientLight": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 1.15
+    },
+    "directionalLight1": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 4.5,
+      "direction": [
+        -16.25,
+        17,
+        26
+      ]
+    },
+    "directionalLight2": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 4.2,
+      "direction": [
+        17.5,
+        16,
+        -26.75
+      ]
+    },
+    "directionalLight3": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 1.25,
+      "direction": [
+        -8.75,
+        -14,
+        6.75
+      ]
+    }
+  },
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "size": {
+          "value": 25
+        },
+        "position": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 0
+          },
+          "z": {
+            "value": 0
+          },
+          "type": "CLIENT"
+        }
+      },
+      "name": "Machines",
+      "type": "model",
+      "icon": "assets",
+      "data": {
+        "source": "hopara",
+        "query": "3d_machines"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Machine id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "machine_id"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Hopara scope",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "hopara_scope"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    }
+  ],
+  "filters": [
+    {
+      "id": "3e7209a4-eb8c-426c-ba05-06ea8a58d097",
+      "field": "name",
+      "data": {
+        "source": "hopara",
+        "query": "3d_machines"
+      },
+      "singleChoice": true,
+      "values": [
+        "machine 1",
+        "machine 2",
+        "machine 3"
+      ]
+    }
+  ],
+  "initialPosition": {
+    "type": "FIXED",
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "zoom": 3,
+    "bearing": 0,
+    "rotationX": 0,
+    "rotationOrbit": 0
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 6
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  }
+}

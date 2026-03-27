@@ -1,0 +1,21 @@
+{
+  "name": "@hopara/authorization",
+  "version": "2.4.66",
+  "license": "AGPL-3.0-only",
+  "main": "src/index.ts",
+  "private": true,
+  "dependencies": {
+    "@hopara/config": "2.4.66",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "jwt-decode": "^3.1.2",
+    "localstorage-slim": "^2.7.0"
+  },
+  "scripts": {
+    "test": "jest --runInBand --ci",
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  }
+}

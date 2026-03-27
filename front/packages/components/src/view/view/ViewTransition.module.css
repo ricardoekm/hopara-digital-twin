@@ -1,0 +1,33 @@
+.transitionBlock {
+   position: relative;
+   height: 100%;
+   width: 100%;
+   transition: opacity .15s ease-in-out, transform 0.5s ease-in-out, filter 0.25s ease-in-out;
+}
+
+.enter {
+   z-index: 1;
+   opacity: 0;
+   transform: translate3d(-100%, 0, 0);
+   filter: blur(4px);
+}
+.enterActive {
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+}
+.enterDone {
+   filter: blur(0);
+}
+.exit {
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+}
+.exitActive {
+   opacity: 0;
+   transform: translate3d(100%, 0, 0);
+}
+
+.enterActive,
+.exitActive {
+  filter: blur(4px);
+}

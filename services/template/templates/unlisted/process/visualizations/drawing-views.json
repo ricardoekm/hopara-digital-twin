@@ -1,0 +1,726 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "drawing-views",
+  "name": "Drawing Views",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "actions": [],
+  "scope": "WHITEBOARD",
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_assets_views_sample_pos"
+          }
+        },
+        "image": {
+          "field": "image_view_name",
+          "scope": "hopara"
+        }
+      },
+      "id": "1ab2d392-617d-4b0d-850b-8d8a4745b0e8",
+      "name": "Assets",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "pt_assets_views"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Image view name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "image_view_name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "size": {
+          "multiplier": 0.8,
+          "referenceZoom": 0
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_sensors_views2_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common",
+          "maxResizeZoom": 1.5,
+          "referenceZoom": 0
+        }
+      },
+      "id": "02a76309-e8c2-4151-b8b8-bfe18510ef52",
+      "name": "Sensors top",
+      "type": "composite",
+      "scale": true,
+      "data": {
+        "source": "sample",
+        "query": "pt_sensors_views2"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Assets",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "assets"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "db8d517c-2ae6-44f9-90d9-4c7b7bc1146f",
+          "name": "Animated background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              }
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 27.724695034967617,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "70%": {
+                    "scale": 2
+                  },
+                  "100%": {
+                    "scale": 2
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              }
+            },
+            "icon": {
+              "value": "shadow-circle"
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 24
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "alert"
+              }
+            }
+          },
+          "children": [],
+          "transform": {}
+        },
+        {
+          "id": "4b01d74c-21a4-47e0-bb48-8dc4be7ea75b",
+          "name": "Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 30.80521670551958
+            },
+            "shadow": {
+              "outer": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        },
+        {
+          "id": "e8213e74-01bf-4a7a-a0f9-bbd78e187cd3",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#50472d",
+                  "#ffffff"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#1a1a1a"
+            },
+            "size": {
+              "value": 18.483130023311748
+            },
+            "icon": {
+              "field": "type",
+              "smartSearch": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "size": {
+          "multiplier": 0.8,
+          "referenceZoom": 0
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_sensors_views1_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common",
+          "maxResizeZoom": 1.5,
+          "referenceZoom": 0
+        }
+      },
+      "id": "0baead26-c4e6-4c17-8267-1643e9b05293",
+      "name": "Sensors side",
+      "type": "composite",
+      "scale": true,
+      "data": {
+        "source": "sample",
+        "query": "pt_sensors_views1"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "89ecc7a3-71c8-44ec-a3b5-4b73513a7b53",
+          "name": "Animated background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              }
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 27.724695034967617,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "70%": {
+                    "scale": 2
+                  },
+                  "100%": {
+                    "scale": 2
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              }
+            },
+            "icon": {
+              "value": "shadow-circle"
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 24
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "alert"
+              }
+            }
+          },
+          "children": [],
+          "transform": {}
+        },
+        {
+          "id": "bb68fa4c-c511-4256-9bc2-1154ac4fbcc2",
+          "name": "Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 30.80521670551958
+            },
+            "shadow": {
+              "outer": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        },
+        {
+          "id": "d6fa8406-e6c2-46c0-a706-25c19017ff9c",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#50472d",
+                  "#ffffff"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#1a1a1a"
+            },
+            "size": {
+              "value": 18.483130023311748
+            },
+            "icon": {
+              "field": "type",
+              "smartSearch": true
+            },
+            "offset": {
+              "y": {},
+              "value": 1.0268405568506527
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "139fc14b-ae78-405d-b69d-d596a49286f1",
+      "field": "asset_id",
+      "data": {
+        "source": "sample",
+        "query": "pt_assets_views"
+      },
+      "singleChoice": true,
+      "autoFill": {
+        "values": [
+          "1"
+        ],
+        "mode": "IF_NO_OTHER_FILTER_FILLED"
+      },
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ]
+    }
+  ],
+  "initialPosition": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "zoom": 0,
+    "bearing": 0
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 24
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": []
+}

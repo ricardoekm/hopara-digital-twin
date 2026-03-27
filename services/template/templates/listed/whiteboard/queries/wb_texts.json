@@ -1,0 +1,16 @@
+{
+  "name": "wb_texts",
+  "query": "    select * from wb_texts order by text_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "wb_texts",
+  "primaryKey": "text_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

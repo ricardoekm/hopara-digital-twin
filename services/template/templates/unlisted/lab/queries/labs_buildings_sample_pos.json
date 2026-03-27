@@ -1,0 +1,9 @@
+{
+  "name": "labs_buildings_sample_pos",
+  "query": "SELECT id, point_2d, point_3d, line, rectangle, polygon, hopara_size, hopara_size_reference_zoom, hopara_color, hopara_scale FROM labs_floorplans_sample_pos",
+  "filterTables": false,
+  "smartLoad": false,
+  "primaryKey": "id",
+  "dataSource": "hopara",
+  "editableColumns": []
+}

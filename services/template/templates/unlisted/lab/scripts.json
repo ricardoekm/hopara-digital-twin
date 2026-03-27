@@ -1,0 +1,4 @@
+{
+  "drop": ["drop-labs.sql"],
+  "create": ["labs.sql"]
+}  

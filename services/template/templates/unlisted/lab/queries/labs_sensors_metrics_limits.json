@@ -1,0 +1,10 @@
+{
+  "name": "labs_sensors_metrics_limits",
+  "query": "    SELECT\n        m.sensor_id,\n        assets.asset_id,\n        s.type,\n        assets.name AS asset_name,\n        MAX(a.warning) AS warning,\n        MAX(a.critical) AS critical,\n        MAX(m.value) >= MAX(a.warning) AS alert,\n        MAX(m.value) >= MAX(a.critical) AS critical_alert,  \n        MAX(m.value) + ABS(MAX(m.value) * 0.1) AS critical_value,\n        MIN(m.timestamp) AT TIME ZONE 'utc' AS lowest_timestamp\n    FROM labs_alerts a\n    INNER JOIN labs_metrics m ON a.sensor_id = m.sensor_id\n    JOIN labs_sensors s ON s.sensor_id = m.sensor_id\n    LEFT JOIN labs_assets assets ON assets.asset_id = s.asset_id \n    GROUP BY 1,2,3,4\n",
+  "filterTables": true,
+  "smartLoad": true,
+  "writeLevel": "NONE",
+  "upsert": false,
+  "dataSource": "sample",
+  "editableColumns": []
+}

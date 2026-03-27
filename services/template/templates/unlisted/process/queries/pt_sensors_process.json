@@ -1,0 +1,11 @@
+{
+  "name": "pt_sensors_process",
+  "query": "select s.sensor_id, s.alert, s.type ,a.name as asset_name\nfrom pt_sensors_process s\ninner join pt_assets_process a on  a.asset_id = s.asset_id",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "sensor_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

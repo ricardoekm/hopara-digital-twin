@@ -1,0 +1,15 @@
+{
+  "name": "Status",
+  "type": "text",
+  "encoding": {
+    "text": {
+      "field": "type",
+      "map": {
+        "1": "Interrupted",
+        "2": "Stopped",
+        "3": "Running"
+      },
+      "value": "Unknown"
+    }
+  }
+}

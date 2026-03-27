@@ -1,0 +1,32 @@
+{
+  "name": "@hopara/projector",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "build": "tsc",
+    "check-types": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@hopara/config": "2.4.66",
+    "@hopara/dataset": "2.4.66",
+    "@hopara/encoding": "2.4.66",
+    "@hopara/http-client": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/resource": "2.4.66",
+    "@hopara/spatial": "2.4.66",
+    "@turf/centroid": "^6.5.0",
+    "@turf/helpers": "^6.5.0",
+    "class-transformer": "^0.5.1",
+    "d3": "^6.3.1",
+    "lodash": "~4.17.23",
+    "query-string": "^6.13.8",
+    "reflect-metadata": "^0.1.13"
+  }
+}

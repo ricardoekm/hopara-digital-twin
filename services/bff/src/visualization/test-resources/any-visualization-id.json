@@ -1,0 +1,80 @@
+{
+  "id": "any-visualization-id",
+  "name": "Any Visualization Name",
+  "type": "CARTESIAN",
+  "sizeRatio": {
+    "width": 0.8,
+    "height": 0.8
+  },
+  "zoomLimits": {
+    "min": 0,
+    "max": 10
+  },
+  "layers": [
+    {
+      "name": "Circle Layer",
+      "type": "circle",
+      "data": {
+        "source": "hopara",
+        "query": "any-query-name"
+      },
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "any-column-4",
+            "scale": {
+              "type": "LINEAR"
+            }
+          },
+          "y": {
+            "field": "any-column-4",
+            "scale": {
+              "type": "LINEAR"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "WordCloud",
+      "type": "text",
+      "data": {
+        "source": "hopara",
+        "query": "any-query-name"
+      },
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "any-column-4",
+            "scale": {
+              "type": "LINEAR"
+            }
+          },
+          "y": {
+            "field": "any-column-4",
+            "scale": {
+              "type": "LINEAR"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "filters": [
+    {
+      "field": "any-field-name",
+      "data": {
+        "source": "hopara",
+        "query": "any-query-name"
+      }
+    },
+    {
+      "field": "any-field-name-2",
+      "data": {
+        "source": "hopara",
+        "query": "any-query-name"
+      }
+    }
+  ],
+  "dataBrowsers": []
+}

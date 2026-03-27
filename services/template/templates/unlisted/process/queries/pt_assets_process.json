@@ -1,0 +1,11 @@
+{
+    "name": "pt_assets_process",
+    "query": "SELECT a.asset_id, a.name, a.image_name,\n  CASE\n    WHEN COUNT(CASE WHEN s.alert = 2 THEN 1 END) > 0 THEN 2\n    WHEN COUNT(CASE WHEN s.alert = 1 THEN 1 END) > 0 THEN 1\n    ELSE 0\n  END AS alert\nFROM pt_assets_process a\nLEFT JOIN pt_sensors_process s ON a.asset_id = s.asset_id\nGROUP BY a.asset_id, a.name, a.image_name;\n\n ",
+    "dataSource": "sample",
+    "primaryKey": "asset_id",
+    "writeLevel": "NONE",
+    "upsert": true,
+    "filterTables": true,
+    "smartLoad": false,
+    "editableColumns": []
+  }

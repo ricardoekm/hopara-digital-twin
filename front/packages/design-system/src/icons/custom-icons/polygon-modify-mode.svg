@@ -1,0 +1,18 @@
+<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:.5" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="b" x1="0%" x2="100%" y1="50%" y2="50%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:.5" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path stroke="currentColor" stroke-width="1.5" fill-rule="nonzero" d="M10.019805,8.68507835 C9.90422954,8.26130497 10.3146418,7.88343831 10.7274503,8.03354926 L22.6433424,12.366566 C23.1667379,12.5568901 23.0966358,13.3182838 22.5472872,13.4098412 L16.3692227,14.4398025 L14.3059769,20.6296403 C14.1478099,21.1041376 13.5049125,21.1182191 13.3052551,20.6976416 L13.2695938,20.6008742 L10.019805,8.68507835 Z"></path>
+        <polygon fill="url(#a)" fill-rule="nonzero" points="5 8 5 22 4 22 4 8"></polygon>
+        <polygon fill="url(#b)" fill-rule="nonzero" points="23 3 23 4 8 4 8 3"></polygon>
+        <path fill="currentColor" fill-rule="nonzero" d="M4.25,0.25 C6.459139,0.25 8.25,2.040861 8.25,4.25 C8.25,6.459139 6.459139,8.25 4.25,8.25 C2.040861,8.25 0.25,6.459139 0.25,4.25 C0.25,2.040861 2.040861,0.25 4.25,0.25 Z M4.25,1.75 C2.86928813,1.75 1.75,2.86928813 1.75,4.25 C1.75,5.63071187 2.86928813,6.75 4.25,6.75 C5.63071187,6.75 6.75,5.63071187 6.75,4.25 C6.75,2.86928813 5.63071187,1.75 4.25,1.75 Z"></path>
+    </g>
+</svg>

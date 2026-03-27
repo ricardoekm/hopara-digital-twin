@@ -1,0 +1,14 @@
+{
+    "name": "pt_texts_process",
+    "query": "select * from pt_texts_process",
+    "filterTables": false,
+    "smartLoad": false,
+    "writeLevel": "INSERT",
+    "upsert": true,
+    "writeTable": "pt_texts_process",
+    "primaryKey": "text_id",
+    "dataSource": "sample",
+    "editableColumns": [{
+      "name": "name"
+    }]
+  }

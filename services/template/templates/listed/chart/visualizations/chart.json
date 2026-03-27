@@ -1,0 +1,20 @@
+{
+  "type": "CHART",
+  "layers": [],
+  "name": "Chart",
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "encodingScope": "QUERY",
+  "zoomRange": {
+    "max": {
+      "value": 12
+    },
+    "min": {
+      "value": 0
+    }
+  },
+  "group": "USER"
+}

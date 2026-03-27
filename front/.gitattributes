@@ -1,0 +1,1 @@
+packages/**/tests/golden-images/**/*.png filter= diff= merge= text=auto

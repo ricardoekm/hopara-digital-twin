@@ -1,0 +1,614 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.58",
+  "id": "lab-3d-machine",
+  "name": "3D machine",
+  "type": "3D",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "createdVersion": "0.58",
+  "actions": [],
+  "scope": "3D",
+  "lights": {
+    "createdTimestamp": "2025-05-17T00:39:07.707Z",
+    "ambientLight": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 1.15
+    },
+    "directionalLight1": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 4.5,
+      "direction": [
+        -16.25,
+        17,
+        26
+      ]
+    },
+    "directionalLight2": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 4.2,
+      "direction": [
+        17.5,
+        16,
+        -26.75
+      ]
+    },
+    "directionalLight3": {
+      "color": [
+        255,
+        255,
+        255
+      ],
+      "intensity": 1.25,
+      "direction": [
+        -8.75,
+        -14,
+        6.75
+      ]
+    }
+  },
+  "animationFps": 24,
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "size": {
+          "value": 30
+        },
+        "position": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 0
+          },
+          "z": {
+            "value": 0
+          },
+          "type": "CLIENT"
+        },
+        "model": {
+          "field": "type"
+        },
+        "config": {
+          "units": "pixels"
+        }
+      },
+      "id": "#machine-model",
+      "name": "Assets",
+      "type": "model",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Room",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "room"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Has model",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "has_model"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Is alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "is_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Alert level",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Last metric date",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_metric_date"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_alerts"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Warning alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "warning_alerts"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "point_3d"
+          },
+          "y": {
+            "field": "point_3d"
+          },
+          "z": {
+            "field": "point_3d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "labs_sensors_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 0
+        }
+      },
+      "id": "454d8aeb-6a9c-4137-bc7a-754fe655c5c9",
+      "name": "Sensor",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "labs_sensors"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Value",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "value"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Room",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "room"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          },
+          {
+            "title": "Last metric date",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_metric_date"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Show History",
+          "visualization": "lab-metrics",
+          "filters": [
+            {
+              "field": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "0e50963f-32f5-44cd-ab43-c70820ada976"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "#sensor-model",
+          "name": "Sensors",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#2e7d32",
+                  "#ffc107",
+                  "#f44336"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "black"
+            },
+            "strokeSize": {
+              "value": 0,
+              "referenceZoom": 0
+            },
+            "size": {
+              "value": 26.469896977872178,
+              "referenceZoom": 0,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "60%": {
+                    "scale": 1.2
+                  },
+                  "90%": {
+                    "scale": 1
+                  }
+                },
+                "type": "pulse",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "animation": {
+              "type": "pulse",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "scale": 1
+                },
+                "60%": {
+                  "scale": 1.2
+                },
+                "90%": {
+                  "scale": 1
+                }
+              }
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 0
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        },
+        {
+          "id": "777326c3-9255-403c-9c8d-07d53c59832d",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "size": {
+              "value": 15.376211002965912,
+              "referenceZoom": 0
+            },
+            "icon": {
+              "value": "temperature"
+            },
+            "offset": {
+              "x": {
+                "value": 0,
+                "referenceZoom": 0,
+                "units": "pixels"
+              },
+              "value": 0.7460127356411831
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 0
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "#asset_id",
+      "field": "asset_id",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets"
+      },
+      "singleChoice": true,
+      "autoFill": {
+        "mode": "IF_NO_OTHER_FILTER_FILLED",
+        "values": [
+          "abcd13CH-1223-dd57-2d74-4fdddrichard"
+        ]
+      },
+      "values": [
+        "000e36fa-68dd-475e-b982-f6cff3996732",
+        "001cd78d-d3f9-4a1f-9624-34810add05ee",
+        "003d213a-e457-451f-a391-2f9c857e50e6",
+        "008343b1-bffd-4cb3-a184-1b1e9cf65581",
+        "00e64922-e53f-4a97-bca6-89852bff3cc4",
+        "00f767be-3858-43ba-9abe-4fcea23a2e46",
+        "0108d972-529d-4896-a6da-e1240e8c68be",
+        "0133aaae-bff0-4583-9a4a-c2fa1cd80612",
+        "01b587d7-9e3a-4e3f-ad28-8d51b8d3eb03",
+        "01c745e8-2f87-4ae9-8d68-43ba53a3b05c",
+        "01f7f550-ccb2-4e5e-bd13-e2ee7092e5ba",
+        "023752d5-ef03-4897-bcef-05977dc5cbbd",
+        "023f00b5-fff2-423d-b6cd-efd9dfb7fa7c",
+        "023fb664-70ab-4806-a95a-cee4b7957d7f",
+        "02b22ad5-01d4-41e5-b5d6-0c39cdde71ec",
+        "02b7e4ae-425e-4c6c-a318-154f74797faa",
+        "0339013b-3f30-4dbf-967c-65e88e518591",
+        "0364e497-7c18-4598-a9f1-21a109070629",
+        "03ec715b-9f45-4d2e-afa6-11526aff388e",
+        "0489f7df-d3a1-4f8a-b788-95f70c0523ce",
+        "05014bd0-a323-44bc-ac81-bd951de4a9ef",
+        "05343add-2051-454b-a2f7-590d9c502997",
+        "058f7b03-7e6f-4596-8f2c-071eff72570c",
+        "059804cc-839f-4ba8-a1d0-19f044d2e7df",
+        "060422ed-91c9-45df-a420-e3471c2efb55",
+        "065bfdd3-e9cd-4555-adf9-ad7259460e2c",
+        "069e0e40-6e26-4fbb-9662-c9534f878198",
+        "0722cf3b-a699-47b7-a83c-38e4a38f3fcf",
+        "074cc4d1-1986-400c-8ab7-3051144c4a36",
+        "0773a165-8345-4548-ae10-87427f96f2d8",
+        "079f30d7-f814-43d0-b8eb-71a4b9c0b98a",
+        "07ae9d96-7b73-4559-8fc7-342dee0d382b",
+        "07e30ebc-a72d-47a6-81fd-edfa5d8fe2b5",
+        "07f568cd-ceae-400b-902b-9e384df17575",
+        "084d56da-4446-400e-903f-48f25b1fff24",
+        "08a53f23-f8b1-4006-becb-1a6fd9e42709",
+        "08d5afb7-af67-4960-bcdb-ab7e259d76d0",
+        "08e9dcc0-7510-46c1-9268-d93c80e867d0",
+        "08f23071-b41f-42a1-9488-e068f6364e1d",
+        "092760e4-ce45-462e-9f03-15043a95dcb9",
+        "096b53f4-a6a0-4058-8aff-e0500850017c",
+        "0996fc9f-49aa-4233-b229-dfc33f6fbefa",
+        "099a283f-6e98-4e1e-8ea1-b5f72200a9b6",
+        "09d1eacf-5055-4c40-ad8d-31ece560d230",
+        "09e00563-7884-484d-8e3f-4c2aa5c6f578",
+        "0ae9cd3b-16d9-4023-a257-b9db218c1c7e",
+        "0b3c81c0-57bb-4575-9983-a5e324edc7ee",
+        "0bfb109c-2e16-49a5-9f54-94a03aeafa28",
+        "0c1131b2-4784-4298-a89b-4749e6eb5021",
+        "0c28d0d4-13d3-4dfc-b1df-f6cc7df469a1"
+      ]
+    }
+  ],
+  "initialPosition": {
+    "type": "FIXED",
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "zoom": 0,
+    "bearing": 0,
+    "rotationX": 0.9999999999999858,
+    "rotationOrbit": -18.500000000000007
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 24
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": []
+}

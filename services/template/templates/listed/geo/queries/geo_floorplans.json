@@ -1,0 +1,16 @@
+{
+  "name": "geo_floorplans",
+  "query": "    select * from geo_floorplans order by floorplan_id desc\n",
+  "filterTables": false,
+  "smartLoad": true,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "geo_floorplans",
+  "primaryKey": "floorplan_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

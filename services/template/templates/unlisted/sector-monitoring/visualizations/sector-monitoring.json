@@ -1,0 +1,1874 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.58",
+  "id": "sector-monitoring",
+  "name": "Sector Monitoring",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "createdVersion": "0.58",
+  "actions": [],
+  "scope": "WHITEBOARD",
+  "animationFps": 24,
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "color": {
+          "field": "alert_level",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped",
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 0.67,
+          "value": "#000000",
+          "animation": {
+            "channel": {
+              "duration": 1500
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            },
+            "speed": 5
+          }
+        },
+        "strokeColor": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#1A1A1A"
+        },
+        "strokeSize": {
+          "value": 2,
+          "referenceZoom": 0.5821761147510175
+        },
+        "size": {
+          "multiplier": 1.7,
+          "referenceZoom": 0.5821761147510175
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_sectors_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "speed": 5,
+          "condition": {
+            "test": {
+              "field": "alert_level"
+            }
+          },
+          "channel": {
+            "duration": 1500
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          }
+        },
+        "polygon": {},
+        "config": {
+          "units": "common",
+          "referenceZoom": 0.5821761147510175
+        }
+      },
+      "id": "1339701b-0857-4a5d-8f95-7e310de2c153",
+      "name": "Sector Polygon",
+      "type": "template",
+      "data": {
+        "source": "sample",
+        "query": "sm_sectors"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sector name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sector_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of sensors",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_sensors"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_alerts"
+                }
+              }
+            }
+          },
+          {
+            "title": "id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Go to location",
+          "zoom": {
+            "field": "polygon",
+            "padding": 5
+          },
+          "bearing": {
+            "field": "polygon"
+          },
+          "type": "ZOOM_JUMP",
+          "id": "14e0ea95-3750-4f3d-b660-4056ac2fdd25",
+          "autoTrigger": true
+        }
+      ],
+      "helperText": "The colors display the sector's health status. You can click on any sector to navigate to its machine list.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 3
+          }
+        }
+      },
+      "template": {
+        "id": "text-box",
+        "alert_field": "alert_level",
+        "text_field": "sector_name",
+        "default_color": "#3B9932"
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped",
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 0,
+          "value": "#000000",
+          "animation": {
+            "channel": {
+              "duration": 1500,
+              "repeat": null
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            },
+            "speed": 5
+          }
+        },
+        "strokeColor": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#1A1A1A"
+        },
+        "strokeSize": {
+          "value": 3
+        },
+        "size": {
+          "value": 32,
+          "animation": {
+            "channel": {
+              "duration": 1500
+            },
+            "keyFrames": {
+              "0%": {},
+              "50%": {},
+              "100%": {}
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            },
+            "speed": 5
+          }
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_sectors_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "speed": 5,
+          "condition": {
+            "test": {
+              "field": "alert_level"
+            }
+          },
+          "channel": {
+            "duration": 1500,
+            "repeat": null
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          }
+        },
+        "polygon": {}
+      },
+      "id": "15c83d95-56a4-4a24-a26f-8877dfda6457",
+      "name": "Sector Polygon (Border)",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "sm_sectors"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sector name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sector_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of sensors",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_sensors"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_alerts"
+                }
+              }
+            }
+          },
+          {
+            "title": "id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [
+        {
+          "title": "Go to location",
+          "zoom": {
+            "field": "polygon"
+          },
+          "bearing": {
+            "field": "polygon"
+          },
+          "type": "ZOOM_JUMP",
+          "id": "14e0ea95-3750-4f3d-b660-4056ac2fdd25"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3
+          },
+          "max": {
+            "value": 6
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert_level",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped",
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 0.67,
+          "value": "#000000",
+          "animation": {
+            "channel": {
+              "duration": 1500
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            },
+            "speed": 5
+          }
+        },
+        "strokeColor": {
+          "scale": {
+            "scheme": "greenyellowred"
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "strokeSize": {
+          "value": 3,
+          "referenceZoom": 3.493056688506105
+        },
+        "size": {
+          "multiplier": 3,
+          "referenceZoom": 3.493056688506105
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_assets_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "speed": 5,
+          "condition": {
+            "test": {
+              "field": "alert_level"
+            }
+          },
+          "channel": {
+            "duration": 1500
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          }
+        },
+        "polygon": {},
+        "config": {
+          "units": "common",
+          "referenceZoom": 3.493056688506105
+        }
+      },
+      "id": "8f2f7572-7dc9-4edf-aaed-549e07014dcd",
+      "name": "Asset polygon",
+      "type": "template",
+      "data": {
+        "source": "sample",
+        "query": "sm_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of sensors",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_sensors"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_alerts"
+                }
+              }
+            }
+          },
+          {
+            "title": "Sector id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sector_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          },
+          {
+            "title": "Id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "14e0ea95-3750-4f3d-b660-4056ac2fdd25",
+          "title": "Go to location",
+          "type": "ZOOM_JUMP",
+          "autoTrigger": true,
+          "zoom": {
+            "value": 6.5,
+            "padding": 10
+          }
+        }
+      ],
+      "helperText": "The colors display the machine's health status. You can click on any machine to navigate to its blueprint.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3
+          },
+          "max": {
+            "value": 5
+          }
+        }
+      },
+      "template": {
+        "id": "text-box",
+        "alert_field": "alert_level",
+        "text_field": "asset_name",
+        "default_color": "#3B9932"
+      },
+      "children": [
+        {
+          "id": "bacddf2c-3862-4630-8ee4-1695f5b8cc04",
+          "name": "Polygon 2",
+          "type": "polygon",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "type": "sorted",
+                "colors": [
+                  "#3B9932",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 0.75,
+              "value": "#3B9932",
+              "animation": {
+                "channel": {
+                  "duration": 1500
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.33
+                  },
+                  "50%": {
+                    "opacity": 1
+                  },
+                  "100%": {
+                    "opacity": 0.33
+                  }
+                }
+              }
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#333333"
+            },
+            "strokeSize": {
+              "value": 2,
+              "multiplier": 3,
+              "referenceZoom": 3.493056688506105
+            },
+            "size": {
+              "multiplier": 3,
+              "referenceZoom": 3.493056688506105
+            },
+            "position": {
+              "coordinates": {
+                "field": "polygon"
+              },
+              "scope": "WHITEBOARD",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "sm_assets_sample_pos"
+              }
+            },
+            "animation": {
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              }
+            },
+            "polygon": {},
+            "config": {
+              "units": "common",
+              "referenceZoom": 3.493056688506105
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "sm_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Asset name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Number of alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Sector id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "sector_id"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 3
+              },
+              "max": {
+                "value": 5.5
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "489f4613-76af-41e0-99b6-115077ccfa40",
+          "name": "Text 2",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#333333"
+            },
+            "strokeSize": {
+              "multiplier": 3,
+              "referenceZoom": 3.493056688506105
+            },
+            "size": {
+              "value": 12,
+              "multiplier": 3,
+              "referenceZoom": 3.493056688506105
+            },
+            "text": {
+              "field": "asset_name",
+              "maxLength": {
+                "type": "AUTO"
+              }
+            },
+            "position": {
+              "coordinates": {
+                "field": "polygon"
+              },
+              "scope": "WHITEBOARD",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "sm_assets_sample_pos"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              }
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 3.493056688506105
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "sm_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Asset name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Number of alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Sector id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "sector_id"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 3
+              },
+              "max": {
+                "value": 5.5
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_assets_sample_pos"
+          }
+        },
+        "image": {
+          "field": "asset_name",
+          "scope": "hopara"
+        }
+      },
+      "id": "4947cdf9-2ad4-4c2b-bf7f-1932e901e307",
+      "name": "Asset Image",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "sm_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Sector id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sector_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of alerts",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_alerts"
+                }
+              }
+            }
+          },
+          {
+            "title": "Number of sensors",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_sensors"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "helperText": "The machine is being monitored for temperature, vibration and power.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert_level",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped",
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "strokeColor": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "strokeSize": {
+          "value": 0,
+          "referenceZoom": 5.5
+        },
+        "size": {
+          "multiplier": 1,
+          "referenceZoom": 5.5
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_sensors_sample_pos"
+          }
+        },
+        "shadow": {
+          "inner": false,
+          "outer": true
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 5.5
+        }
+      },
+      "id": "b52bf8df-6dd4-4ee5-830b-2867026d13c8",
+      "name": "Sensors",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "sm_sensors"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset position",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_position"
+                }
+              }
+            }
+          },
+          {
+            "title": "Id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "c0a5ee8d-228e-47f2-bc5f-495eccf75ef3",
+          "name": "Ripple",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false,
+                "type": "grouped"
+              },
+              "opacity": 1,
+              "value": "#FFFFFF",
+              "animation": {
+                "channel": {
+                  "duration": 1200,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                },
+                "speed": 6
+              }
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "referenceZoom": 5.5
+            },
+            "size": {
+              "value": 12.917865523618257,
+              "referenceZoom": 5.5,
+              "animation": {
+                "channel": {
+                  "duration": 1200,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "70%": {
+                    "scale": 2
+                  },
+                  "100%": {
+                    "scale": 2
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                },
+                "speed": 6
+              }
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "speed": 6,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1200,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            },
+            "shadow": {
+              "inner": false,
+              "outer": false
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 1.9185267898342924
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Type name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset position",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_position"
+                    }
+                  }
+                }
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 12
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "317d7743-4ecf-4b31-af48-d5740afe5beb",
+          "name": "Circle",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false,
+                "type": "grouped",
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "referenceZoom": 5.5
+            },
+            "size": {
+              "value": 11.924183560263003,
+              "scale": {
+                "range": [
+                  25.75,
+                  75.25
+                ]
+              },
+              "referenceZoom": 5.5
+            },
+            "shadow": {
+              "inner": false,
+              "outer": true
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 1.9185267898342924
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Type name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset position",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_position"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [],
+          "visible": {
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "315e62d7-9dfd-42eb-9801-5a86e4ca6f74",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#50472d",
+                  "#ffffff"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#FFFFFF"
+            },
+            "size": {
+              "value": 9.043277374908277,
+              "referenceZoom": 5.5
+            },
+            "icon": {
+              "field": "type_name",
+              "smartSearch": true
+            },
+            "config": {
+              "units": "common",
+              "referenceZoom": 1.9185267898342924
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Type name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_name"
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Asset position",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_position"
+                    }
+                  }
+                }
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert_level",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped",
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "size": {
+          "value": 11,
+          "referenceZoom": 6.31
+        },
+        "text": {
+          "field": "value",
+          "suffix": {
+            "field": "unit"
+          },
+          "prefix": {}
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "sm_metrics_sample_pos"
+          }
+        },
+        "offset": {
+          "x": {
+            "value": 0,
+            "referenceZoom": 6.31
+          },
+          "y": {
+            "value": 0,
+            "referenceZoom": 6.31
+          }
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 6.31
+        }
+      },
+      "id": "46b9e402-e6ba-48a3-8a63-f1dce0706edc",
+      "name": "Text Metrics",
+      "type": "text",
+      "data": {
+        "source": "sample",
+        "query": "sm_metrics"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Title",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "title"
+                }
+              }
+            }
+          },
+          {
+            "title": "Description",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "description"
+                }
+              }
+            }
+          },
+          {
+            "title": "Date",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "date"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Value",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "value"
+                }
+              }
+            }
+          },
+          {
+            "title": "Unit",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "unit"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Sensor id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "x": 1104.3669819054444,
+    "y": 412.06805452117425,
+    "z": 0,
+    "zoom": 1.9185267898342924,
+    "bearing": 0
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 12
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": []
+}

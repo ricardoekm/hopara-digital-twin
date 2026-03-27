@@ -1,0 +1,11 @@
+{
+  "name": "pt_sensors_views2",
+  "query": "select s.sensor_id, a.name as assets, s.asset_id, s.alert, s.type\nfrom pt_sensors_views2 s\ninner join pt_assets_views a on a.asset_id = s.asset_id\norder by s.sensor_id asc\n",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "sensor_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

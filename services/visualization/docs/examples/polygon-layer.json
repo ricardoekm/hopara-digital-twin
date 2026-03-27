@@ -1,0 +1,20 @@
+{
+  "name": "State Employment",
+  "type": "polygon",
+  "data": {
+    "source": "hopara",
+    "query": "employment_rate"
+  },
+  "encoding": {
+    "color": {
+      "field": "employment_rate",
+      "scale": {
+        "scheme": "redyellowgreen"
+      },
+      "value": "green"
+    },
+    "polygon": {
+      "field": "state"
+    }
+  }
+}

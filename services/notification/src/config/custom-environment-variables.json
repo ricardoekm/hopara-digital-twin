@@ -1,0 +1,12 @@
+{
+    "server": {
+        "port": "PORT"
+    },
+    "logger": {
+        "level": "LOG_LEVEL",
+        "format": "LOG_FORMAT"
+    },
+    "broadcast": {
+        "enabled": "BROADCAST_ENABLED"
+    }
+}

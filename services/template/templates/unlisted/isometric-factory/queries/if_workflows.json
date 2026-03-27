@@ -1,0 +1,12 @@
+{
+  "name": "if_workflows",
+  "query": "select * from if_workflows",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "writeTable": "if_workflows",
+  "primaryKey": "workflow_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

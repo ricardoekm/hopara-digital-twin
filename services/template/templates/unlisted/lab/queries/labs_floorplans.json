@@ -1,0 +1,11 @@
+{
+  "name": "labs_floorplans",
+  "query": "    select \n    f.floorplan_id ,\n    f.name as image_name,\n    f.building_id,\n    b.building_name\n    from labs_floorplans f\n    inner join labs_building b on b.building_id = f.building_id\n    order by floorplan_id\n",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "floorplan_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

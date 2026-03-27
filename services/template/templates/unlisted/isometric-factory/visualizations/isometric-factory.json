@@ -1,0 +1,2859 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.59",
+  "id": "isometric-factory",
+  "name": "Isometric Factory",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "createdVersion": "0.58",
+  "actions": [],
+  "refreshPeriod": 60,
+  "scope": "WHITEBOARD",
+  "animationFps": 24,
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "saturation": 1
+        },
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_workflows_sample_pos"
+          }
+        },
+        "image": {
+          "field": "name",
+          "scope": "hopara",
+          "view": {
+            "value": "45",
+            "field": "hopara_view"
+          },
+          "resolution": "xl"
+        }
+      },
+      "id": "d3da75f3-497a-42af-bee2-fa51584049cc",
+      "name": "Backgroud",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "if_workflows"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Workflow id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "workflow_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": false,
+        "enabled": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "saturation": 1
+        },
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_workflows_overlay_sample_pos"
+          }
+        },
+        "image": {
+          "field": "name",
+          "scope": "hopara",
+          "view": {
+            "value": "45",
+            "field": "hopara_view"
+          },
+          "resolution": "md"
+        }
+      },
+      "id": "39ebd251-4adb-4420-82e5-9a0782f27b80",
+      "name": "Warehouse",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "if_workflows_overlay"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Workflow id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "workflow_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 3.5
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped"
+          },
+          "opacity": 0.43,
+          "value": "#000000"
+        },
+        "strokeColor": {
+          "field": "alert",
+          "scale": {
+            "scheme": "greenyellowred"
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "strokeSize": {
+          "value": 0,
+          "scale": {
+            "range": [
+              7.5,
+              22.5
+            ]
+          },
+          "referenceZoom": 5.100818450092059
+        },
+        "size": {
+          "field": "hopara_size",
+          "value": 20,
+          "referenceZoom": 5.100818450092059
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_lines_sample_pos"
+          }
+        },
+        "polygon": {},
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "9189d63b-b40e-4edf-a640-1094cc95e823",
+      "name": "Line Polygons",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "if_lines"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Stage id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Oee line",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line Availability",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "availability_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line Performance",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "performance_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line Quality",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "quality_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "943a2305-d152-4007-8c7d-78dd432a6d4e",
+          "title": "Fit",
+          "type": "ZOOM_JUMP",
+          "filters": []
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3.5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "animation": {
+            "channel": {
+              "duration": null
+            },
+            "keyFrames": {}
+          }
+        },
+        "strokeSize": {
+          "value": 0,
+          "referenceZoom": 5.320163690018411
+        },
+        "size": {
+          "field": "hopara_size",
+          "value": 7,
+          "referenceZoom": 5.320163690018411
+        },
+        "position": {
+          "coordinates": {
+            "field": "line"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_pipes_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "flow",
+          "enabled": true
+        },
+        "line": {
+          "segmentLength": 500,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "d3949205-852d-48e4-a7a7-54ae88be0781",
+      "name": "Pipes",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "if_pipes"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Pipe id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "pipe_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3.5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "saturation": 1
+        },
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_assets_sample_pos"
+          }
+        },
+        "image": {
+          "field": "type_image",
+          "scope": "hopara",
+          "view": {
+            "value": "45",
+            "field": "hopara_view"
+          },
+          "resolution": "md"
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 0
+        }
+      },
+      "id": "5bee66d5-39e4-4924-90d6-ba2806d41554",
+      "name": "Asset Images",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "if_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Stage id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Type image",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_image"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type drawing",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_drawing"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Availability",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "availability",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Performance",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "performance",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Quality",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "quality",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "OEE",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_value",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Status alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "status_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "f3d90d53-d2c2-4a1d-8dc0-0059cdbd0ba1",
+          "title": "Fit",
+          "type": "ZOOM_JUMP",
+          "filters": [],
+          "zoom": {
+            "padding": 10
+          },
+          "autoTrigger": true,
+          "trigger": "OBJECT_CLICK"
+        }
+      ],
+      "helperText": "You can click on any machine to zoom in to it",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3.5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": [],
+      "helper": "You can click on any machine to zoom in to it"
+    },
+    {
+      "encoding": {
+        "strokeSize": {
+          "value": 0,
+          "referenceZoom": 5.50328783481752
+        },
+        "size": {
+          "multiplier": 1
+        },
+        "position": {
+          "x": {
+            "field": "rectangle"
+          },
+          "y": {
+            "field": "rectangle"
+          },
+          "scope": "WHITEBOARD",
+          "type": "REF",
+          "data": {
+            "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554"
+          }
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "fa908d0c-91f6-4a1b-a36f-ddfe08ff8dc7",
+      "name": "Asset Names",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "if_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Availability",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "availability"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Performance",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "performance"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "OEE",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_value"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Quality",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "quality"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Status alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "status_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type drawing",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_drawing"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type image",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_image"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 7
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "4252f6fc-5956-4082-a939-fd322b86d8eb",
+          "name": "Shadow",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "multiplier": 1,
+              "referenceZoom": 5.50328783481752
+            },
+            "size": {
+              "value": 30,
+              "multiplier": 1,
+              "referenceZoom": 7.5
+            },
+            "text": {
+              "field": "name",
+              "maxLength": {
+                "type": "NONE",
+                "value": 0
+              },
+              "weight": 500
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "scope": "WHITEBOARD",
+              "type": "REF",
+              "data": {
+                "layerId": "b2782f99-01be-48f3-9f24-91d0de7d5aa3"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 2,
+                "referenceZoom": 7.84578562008118
+              },
+              "y": {
+                "value": -1,
+                "referenceZoom": 7.84578562008118
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Type",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Unidade",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "unidade"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Linha",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "linha"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "OEE REAL",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "OEE REAL"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "OEE META",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "OEE META"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 7.5
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "362defcd-6202-4159-9603-14633852de00",
+          "name": "Text",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#FFFFFF"
+            },
+            "strokeSize": {
+              "multiplier": 1,
+              "referenceZoom": 5.50328783481752
+            },
+            "size": {
+              "value": 30,
+              "multiplier": 1,
+              "referenceZoom": 7.5
+            },
+            "text": {
+              "field": "name",
+              "prefix": {
+                "value": ""
+              },
+              "maxLength": {
+                "type": "NONE",
+                "value": 0
+              },
+              "weight": 500
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "scope": "WHITEBOARD",
+              "type": "REF",
+              "data": {
+                "layerId": "b2782f99-01be-48f3-9f24-91d0de7d5aa3"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Type",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Unidade",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "unidade"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Linha",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "linha"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "OEE REAL",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "OEE REAL"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "OEE META",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "OEE META"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 7.5
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "strokeSize": {
+          "value": 0,
+          "referenceZoom": 6.51473457195897
+        },
+        "size": {
+          "multiplier": 0.8,
+          "referenceZoom": 6.51473457195897
+        },
+        "position": {
+          "x": {
+            "field": "rectangle"
+          },
+          "y": {
+            "field": "rectangle"
+          },
+          "scope": "WHITEBOARD",
+          "type": "REF",
+          "data": {
+            "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554"
+          }
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "53be8fd4-e04e-4f54-bc0c-b5c0c1c31ffe",
+      "name": "OEE Tooltip",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "if_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Type image",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_image"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type drawing",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type_drawing"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Availability",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "availability",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Performance",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "performance",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Quality",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "quality",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "OEE",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_value",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Status alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "status_alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "a9028512-ed87-4f09-806d-92c086ee9370",
+          "title": "Fit",
+          "type": "ZOOM_JUMP",
+          "autoTrigger": true,
+          "zoom": {
+            "padding": 10
+          },
+          "filters": [],
+          "trigger": "OBJECT_CLICK"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3.5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "dae094a7-3601-4a2c-ac44-066cef0cd825",
+          "name": "OEE Tooltip Shadow",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "multiplier": 0.8,
+              "referenceZoom": 6.673237713460518
+            },
+            "size": {
+              "value": 80,
+              "multiplier": 0.8,
+              "referenceZoom": 5.261809332236963
+            },
+            "icon": {
+              "value": "oee-tooltip-shadow",
+              "smartSearch": false
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "scope": "WHITEBOARD",
+              "type": "REF",
+              "data": {
+                "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554"
+              }
+            },
+            "offset": {
+              "y": {
+                "value": 55,
+                "referenceZoom": 5.441962347513889
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "if_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Asset id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Type image",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_image"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Type drawing",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_drawing"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Availability",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Oee value",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_value"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Status alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "status_alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4
+              },
+              "max": {
+                "value": 12
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "oee_value"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "f52ac5b6-ce84-4bd6-8d0e-4cdfba50a0b6",
+          "name": "OEE Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "status_alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false,
+                "type": "grouped"
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "multiplier": 0.8,
+              "referenceZoom": 6.673237713460518
+            },
+            "size": {
+              "value": 80,
+              "multiplier": 0.8,
+              "referenceZoom": 5.261809332236963
+            },
+            "icon": {
+              "value": "oee-tooltip",
+              "smartSearch": false
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "scope": "WHITEBOARD",
+              "type": "REF",
+              "data": {
+                "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554"
+              }
+            },
+            "offset": {
+              "y": {
+                "value": 55,
+                "referenceZoom": 5.441962347513889
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "if_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Asset id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Type image",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_image"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Type drawing",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_drawing"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Availability",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Oee value",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_value",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Status alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "status_alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4
+              },
+              "max": {
+                "value": 12
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "oee_value"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "38a5ae39-2dad-46a2-adba-f874d68c1251",
+          "name": "OEE Status",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "field": "status_alert",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#FFF",
+                  "#000",
+                  "#FFF"
+                ],
+                "type": "grouped"
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "multiplier": 0.8,
+              "referenceZoom": 6.51473457195897
+            },
+            "size": {
+              "value": 55,
+              "multiplier": 0.8,
+              "referenceZoom": 7.488867787669832
+            },
+            "text": {
+              "field": "oee_value",
+              "prefix": {
+                "value": "OEE "
+              },
+              "format": ".0%",
+              "weight": 600,
+              "value": "Texto"
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "scope": "WHITEBOARD",
+              "type": "REF",
+              "data": {
+                "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0,
+                "referenceZoom": 5.261809332236963
+              },
+              "y": {
+                "value": 57.5,
+                "referenceZoom": 5.441962347513889
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "if_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Asset id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Type image",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_image"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Type drawing",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type_drawing"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Availability",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Oee value",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_value",
+                      "format": ".0%"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Status alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "status_alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4
+              },
+              "max": {
+                "value": 12
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "oee_value"
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "oee_status_level",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false,
+            "type": "grouped"
+          },
+          "opacity": 0.37,
+          "value": "#000000",
+          "animation": {
+            "channel": {
+              "duration": 1500
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            }
+          }
+        },
+        "strokeColor": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "strokeSize": {
+          "value": 0
+        },
+        "size": {
+          "field": "hopara_size",
+          "referenceZoom": 3.100818450092059,
+          "animation": {
+            "channel": {
+              "duration": 1500
+            },
+            "keyFrames": {
+              "0%": {},
+              "50%": {},
+              "100%": {}
+            }
+          }
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_stages_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "condition": {
+            "test": {
+              "field": "oee_status_level",
+              "reverse": false
+            }
+          }
+        },
+        "polygon": {},
+        "config": {
+          "units": "common",
+          "referenceZoom": 3.100818450092059
+        }
+      },
+      "id": "3300e770-1c59-4cf3-9c2c-29c5306b61fe",
+      "name": "Sector Polygon",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "if_stages"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Stage Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Average OEE",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_oee",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Oee status level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_status_level"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Stage id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_id"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Low  OEE count",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_alert_count"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Regular OEE count",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_warning_count"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Efficient OEE count",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_efficient_count"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "50a7f764-e633-4b75-b433-27b44437ce30",
+          "title": "Go to location",
+          "type": "ZOOM_JUMP",
+          "autoTrigger": true,
+          "zoom": {
+            "padding": 0
+          },
+          "filters": [],
+          "trigger": "OBJECT_CLICK"
+        }
+      ],
+      "helperText": "The color indicates the sector OEE status. You can click on any sector to see its machines.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 3.5
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "strokeSize": {
+          "value": 0,
+          "referenceZoom": 4.5
+        },
+        "size": {
+          "multiplier": 1.3
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "if_lines_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "eec23143-b6af-48bf-aad1-fc9cc6002c2b",
+      "name": "Lines",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "if_lines"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Stage id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "stage_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line"
+                }
+              }
+            },
+            "primaryKey": true
+          },
+          {
+            "title": "Line Availability",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "availability_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line Performance",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "performance_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line Quality",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "quality_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Oee line",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "oee_line",
+                  "format": ".0%"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Line id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 3.5
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "c90126db-2e13-4a2f-b141-85e3cd54f963",
+          "name": "Badge",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false,
+                "type": "grouped"
+              },
+              "opacity": 1,
+              "value": "#FFFFFF"
+            },
+            "strokeColor": {
+              "field": "alert",
+              "scale": {
+                "colors": [
+                  "#FFFFFF",
+                  "#FFF"
+                ]
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 3,
+              "multiplier": 1.1,
+              "referenceZoom": 5.120163690018412
+            },
+            "size": {
+              "field": "hopara_size",
+              "value": 20,
+              "multiplier": 1.1,
+              "referenceZoom": 4.5
+            },
+            "position": {
+              "x": {
+                "field": "point_2d"
+              },
+              "y": {
+                "field": "point_2d"
+              },
+              "scope": "WHITEBOARD",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "if_lines_sample_pos"
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Line",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Availability line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Oee line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4.5
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "24972482-1c2e-4611-a1ae-c5f80abf9033",
+          "name": "OEE",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "field": "hopara_color",
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false,
+                "type": "sorted"
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "multiplier": 1.1,
+              "referenceZoom": 4.5
+            },
+            "size": {
+              "field": "hopara_size",
+              "value": 18.18181818181818,
+              "multiplier": 1.1,
+              "referenceZoom": 5.380163690018412
+            },
+            "text": {
+              "field": "oee_line",
+              "maxLength": {
+                "value": 0,
+                "type": "NONE"
+              },
+              "format": ".0%",
+              "value": "Text"
+            },
+            "position": {
+              "x": {
+                "field": "point_2d"
+              },
+              "y": {
+                "field": "point_2d"
+              },
+              "scope": "WHITEBOARD",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "if_lines_sample_pos"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 6.153846153846153,
+                "referenceZoom": 5.042381386788678
+              },
+              "y": {
+                "value": -35.38461538461539,
+                "referenceZoom": 5.353592460281409
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Availability line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Line",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Oee line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4.5
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "d21d6972-898c-4feb-ae2e-053b7a574042",
+          "name": "Name",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "field": "hopara_color",
+              "scale": {
+                "reverse": false,
+                "type": "grouped",
+                "colors": [
+                  "#1A1A1A",
+                  "#FFF"
+                ]
+              },
+              "opacity": 1,
+              "value": "#FFFFFF"
+            },
+            "strokeSize": {
+              "multiplier": 1.1,
+              "referenceZoom": 4.5
+            },
+            "size": {
+              "field": "hopara_size",
+              "value": 12,
+              "multiplier": 1.1,
+              "referenceZoom": 4.5
+            },
+            "text": {
+              "field": "line",
+              "value": "Text"
+            },
+            "position": {
+              "x": {
+                "field": "point_2d"
+              },
+              "y": {
+                "field": "point_2d"
+              },
+              "scope": "WHITEBOARD",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "if_lines_sample_pos"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0,
+                "referenceZoom": 5.380163690018412
+              },
+              "y": {
+                "value": -0.9090909090909091,
+                "referenceZoom": 5.380163690018412
+              }
+            },
+            "config": {
+              "units": "common"
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Availability line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "availability_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Line",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "line"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Oee line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "oee_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Performance line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "performance_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Quality line",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "quality_line"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 4.5
+              },
+              "max": {
+                "value": 12
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "type": "FIT_TO_CONTENT",
+    "x": 348.89377648550015,
+    "y": 573.0649359890178,
+    "zoom": 0.74,
+    "bearing": -180,
+    "layerId": "d3da75f3-497a-42af-bee2-fa51584049cc",
+    "padding": 5
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 12
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": [
+    {
+      "layerId": "5bee66d5-39e4-4924-90d6-ba2806d41554",
+      "encoding": {
+        "strokeColor": {
+          "opacity": 0.6,
+          "value": "#000"
+        },
+        "strokeSize": {
+          "value": 1,
+          "referenceZoom": 5.259672619963176
+        },
+        "size": {
+          "value": 32,
+          "referenceZoom": 5.331943479126783
+        },
+        "config": {
+          "units": "common"
+        },
+        "angle": {
+          "value": 30
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:.5" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="b" x1="0%" x2="100%" y1="50%" y2="50%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:.5" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="url(#a)" fill-rule="nonzero" points="4 8 4 22 3 22 3 8"></polygon>
+        <polygon fill="url(#b)" fill-rule="nonzero" points="22 3 22 4 8 4 8 3"></polygon>
+        <path d="M8,1 L8,8 L1,8 L1,1 L8,1 Z M6.5,2.5 L2.5,2.5 L2.5,6.5 L6.5,6.5 L6.5,2.5 Z" fill="currentColor" fill-rule="nonzero"></path>
+        <path d="M13.2299553,4.96024183 C13.6886726,4.96024183 14.0570462,5.13688964 14.3125021,5.43528713 C14.6282034,5.80405728 14.7781913,6.32947457 14.7781957,6.89222409 L14.7597705,12.2427335 C15.785979,11.8035602 16.7163507,11.5733067 17.5538214,11.5733067 C18.0543532,11.5733067 19.878891,12.9463244 21.0807476,13.9694717 C21.9934659,14.7464739 21.9959519,15.0447761 21.9662547,15.8578528 C21.9354628,17.9283054 21.9808523,20.5977658 19.1765842,22.3830362 C18.0421311,23.1052587 16.7400536,23.249655 15.5276915,23.127554 C13.6173623,22.9351584 11.895982,22.0847089 11.3254712,21.5748673 C10.6515467,20.9726093 9.05148742,19.454046 6.52499657,17.0195541 C6.4190245,16.4242264 6.45694594,15.9395238 6.77486694,15.6216028 C7.08620508,15.3102647 7.46645142,15.1702864 7.9110611,15.1892971 L11.5624874,16.9302359 L11.5757102,6.78073769 C11.5757102,6.24607455 11.735141,5.76945209 12.0473611,5.43564239 C12.3323435,5.13095381 12.7414428,4.96024183 13.2299553,4.96024183 Z" id="Path" stroke="currentColor" stroke-width="1.5" fill-rule="nonzero" transform="translate(14.2232, 14.0633) rotate(-15) translate(-14.2232, -14.0633)"></path>
+    </g>
+</svg>

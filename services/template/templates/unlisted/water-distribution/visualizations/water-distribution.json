@@ -1,0 +1,474 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "water-distribution",
+  "name": "Water Distribution",
+  "type": "GEO",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "actions": [],
+  "scope": "GEO",
+  "legends": [
+    {
+      "layer": "#neighborhoods"
+    }
+  ],
+  "layers": [
+    {
+      "encoding": {
+        "map": {
+          "value": "light"
+        }
+      },
+      "id": "map-layer-migration",
+      "name": "Map",
+      "type": "map",
+      "data": {},
+      "details": {
+        "fields": [],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "type": "hashed",
+            "reverse": false
+          },
+          "opacity": 1,
+          "value": "#2d9bf0",
+          "animation": {
+            "type": "flow",
+            "speed": 5
+          },
+          "conditions": [
+            {
+              "test": {
+                "field": "alert"
+              },
+              "value": "#FF4341"
+            }
+          ]
+        },
+        "size": {
+          "value": 8
+        },
+        "position": {
+          "coordinates": {
+            "field": "line"
+          },
+          "data": {
+            "source": "hopara",
+            "query": "utilities_edges_sample_pos"
+          },
+          "type": "MANAGED"
+        },
+        "line": {
+          "segmentLength": 500,
+          "cap": "round"
+        },
+        "config": {
+          "units": "pixels"
+        },
+        "animation": {
+          "enabled": true,
+          "type": "flow",
+          "speed": 5
+        }
+      },
+      "id": "#pipes",
+      "name": "Pipes",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "utilities_edges"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Pipe id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "edges_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "helperText": "The colors display the pipe's status. You can also click on any consumption point to see how much water they are receiving.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 11
+          },
+          "max": {}
+        }
+      },
+      "highlight": true,
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "data": {
+            "source": "hopara",
+            "query": "utilities_nodes_sample_pos"
+          },
+          "type": "MANAGED"
+        }
+      },
+      "id": "d1482853-2319-4936-855e-1f0fb75819ae",
+      "name": "Stations",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "utilities_nodes"
+      },
+      "details": {
+        "fields": [
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Last measurement",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "measurement",
+                  "suffix": {
+                    "value": " m³"
+                  },
+                  "format": ".2f"
+                }
+              }
+            }
+          },
+          {
+            "title": "Updated at",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "timestamp",
+                  "format": "%d/%b %H:%M"
+                }
+              }
+            }
+          },
+          {
+            "title": "Icon",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "icon"
+                }
+              }
+            }
+          },
+          {
+            "title": "Node id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "node_id"
+                }
+              }
+            }
+          },
+          {
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 11
+          },
+          "max": {}
+        }
+      },
+      "children": [
+        {
+          "id": "#station-bg",
+          "name": "Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "scale": {
+                "type": "hashed",
+                "reverse": false
+              },
+              "opacity": 0.67,
+              "value": "#ffffff"
+            },
+            "size": {
+              "value": 31
+            },
+            "config": {
+              "units": "pixels"
+            }
+          },
+          "details": {
+            "fields": []
+          },
+          "visible": {},
+          "children": []
+        },
+        {
+          "id": "#station",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "scale": {
+                "type": "hashed",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "rgb(0, 121, 193)"
+            },
+            "size": {
+              "value": 30
+            },
+            "icon": {
+              "value": "water-damage"
+            },
+            "config": {
+              "units": "pixels"
+            }
+          },
+          "details": {
+            "fields": []
+          },
+          "visible": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "last_measurements",
+          "scale": {
+            "type": "grouped",
+            "reverse": false,
+            "scheme": "tealblues"
+          },
+          "opacity": 0.94,
+          "value": "#9dd3d1",
+          "animation": {
+            "channel": {
+              "duration": 1500,
+              "repeat": null
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert"
+              }
+            }
+          },
+          "conditions": [
+            {
+              "value": "#ff0000",
+              "test": {
+                "field": "alert"
+              }
+            }
+          ]
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "data": {
+            "source": "hopara",
+            "query": "utilities_neighborhoods_sample_pos"
+          },
+          "type": "MANAGED"
+        },
+        "polygon": {},
+        "animation": {
+          "enabled": true,
+          "channel": {
+            "duration": 1500,
+            "repeat": null
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          },
+          "type": "fadeInOut",
+          "condition": {
+            "test": {
+              "field": "alert"
+            }
+          }
+        }
+      },
+      "id": "#neighborhoods",
+      "name": "Regions",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "utilities_neighborhoods"
+      },
+      "details": {
+        "fields": [
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_measurements",
+                  "suffix": {
+                    "value": " m³"
+                  },
+                  "format": ".2f"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "id": "a25287aa-bd66-4dc3-b803-39be62ce20a8",
+          "title": "Zoom",
+          "type": "ZOOM_JUMP",
+          "zoom": {
+            "value": 11.5
+          },
+          "bearing": {
+            "value": 0.7697841726618702
+          },
+          "filters": []
+        }
+      ],
+      "helperText": "The colors display the distribution status for each region. You can click on any region to see the individual pipes of that location.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 11
+          }
+        }
+      },
+      "highlight": true,
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "x": -122.40469527815418,
+    "y": 37.66219063415429,
+    "z": 0,
+    "zoom": 9.83458197656823,
+    "bearing": 0.7697841726618702
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 24
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "mapStyle": "building"
+}

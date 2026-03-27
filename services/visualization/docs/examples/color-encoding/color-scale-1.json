@@ -1,0 +1,13 @@
+{
+  "name": "Asset",
+  "type": "icon",
+  "encoding": {
+    "color": {
+      "field": "status",
+      "scale": {
+        "type": "sorted",
+        "scheme": "greenyellowred"
+      }
+    }
+  }
+}

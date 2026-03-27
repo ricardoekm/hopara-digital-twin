@@ -1,0 +1,12 @@
+{
+    "server": {
+         "port": 8085
+    },
+    "logger": {
+        "level": "info",
+        "format": "json"
+    },
+    "broadcast": {
+        "enabled": false
+    }
+}

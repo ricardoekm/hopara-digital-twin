@@ -1,0 +1,27 @@
+{
+  "name": "@hopara/resource",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@hopara/authorization": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@loaders.gl/core": "^3.0.0",
+    "@loaders.gl/images": "^3.0.0",
+    "@luma.gl/constants": "^8.5.20",
+    "@luma.gl/core": "^8.5.20",
+    "lodash": "~4.17.23",
+    "query-string": "^6.13.8"
+  }
+}

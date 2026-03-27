@@ -1,0 +1,11 @@
+{
+  "name": "pt_workflows_process",
+  "query": "select * from pt_workflows_process\n",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "workflow_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

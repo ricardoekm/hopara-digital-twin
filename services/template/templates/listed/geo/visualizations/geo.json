@@ -1,0 +1,116 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "name": "Geo",
+  "type": "GEO",
+  "encodingScope": "QUERY",
+  "actions": [],
+  "legends": [],
+  "bleedFactor": 8,
+  "layers": [
+    {
+      "encoding": {
+        "map": {
+          "value": "light-street"
+        }
+      },
+      "id": "map",
+      "name": "Map",
+      "type": "map",
+      "data": {},
+      "details": {
+        "fields": [],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "data": {
+            "source": "hopara",
+            "query": "geo_floorplans_hopara_pos"
+          },
+          "type": "MANAGED"
+        },
+        "image": {
+          "field": "floorplan_id"
+        }
+      },
+      "name": "Floorplans",
+      "type": "image",
+      "data": {
+        "source": "hopara",
+        "query": "geo_floorplans"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Floorplan id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "floorplan_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 1
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "x": -1.4,
+    "y": 30,
+    "z": 0,
+    "zoom": 1.5
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 24
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  }
+}

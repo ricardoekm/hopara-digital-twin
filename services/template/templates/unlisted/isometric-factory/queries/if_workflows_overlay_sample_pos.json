@@ -1,0 +1,12 @@
+{
+    "name": "if_workflows_overlay_sample_pos",
+    "query": "SELECT id, point_2d, point_3d, line, rectangle, polygon, floor, hopara_size, hopara_size_reference_zoom, hopara_color, hopara_scale from if_workflows_overlay_sample_pos",
+    "dataSource": "hopara",
+    "primaryKey": "id",
+    "writeTable": "if_workflows_overlay_sample_pos",
+    "writeLevel": "UPDATE",
+    "filterTables": true,
+    "smartLoad": false,
+    "upsert": true,
+    "editableColumns": []
+  }

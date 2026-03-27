@@ -1,0 +1,11 @@
+{
+  "name": "utilities_neighborhoods",
+  "query": "select \n  ne.name,\n  CAST(COALESCE(SUM(no.stations), 0) AS INTEGER) as number_of_stations,\n  CAST(SUM(no.alert) AS INTEGER) as alert,\n  sum(no.last_measurements) as last_measurements\nfrom utilities_neighborhoods ne\nleft join (\n    select neighborhoods, count(node_id) stations, sum(cast(pe.alert as int)) as alert, sum(pm.measurement) as last_measurements\n    from utilities_nodes no\n    left join utilities_edges pe on pe.to_node = no.node_id\n    left join (\n        select distinct on(sensor_id) *\n        from utilities_metrics pm\n        order by sensor_id, timestamp desc\n    ) as pm on pm.sensor_id = no.name\n    group by neighborhoods\n) no on no.neighborhoods = ne.name\ngroup by ne.name\norder by ne.name\n\n",
+  "dataSource": "sample",
+  "primaryKey": "name",
+  "writeLevel": "NONE",
+  "filterTables": true,
+  "smartLoad": false,
+  "upsert": true,
+  "editableColumns": []
+}

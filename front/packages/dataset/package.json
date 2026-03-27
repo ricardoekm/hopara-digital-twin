@@ -1,0 +1,37 @@
+{
+  "name": "@hopara/dataset",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "dependencies": {
+    "@hopara/authorization": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/http-client": "2.4.66",
+    "@hopara/i18n": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/object": "2.4.66",
+    "@hopara/spatial": "2.4.66",
+    "accounting-js": "^1.1.1",
+    "case": "^1.6.3",
+    "class-transformer": "^0.5.1",
+    "d3": "^6.3.1",
+    "dayjs": "^1.11.7",
+    "imurmurhash": "^0.1.4",
+    "lodash": "~4.17.23",
+    "memoizee": "^0.4.17",
+    "reflect-metadata": "^0.1.13"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "devDependencies": {
+    "@types/memoizee": "^0.4.11"
+  }
+}

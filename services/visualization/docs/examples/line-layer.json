@@ -1,0 +1,33 @@
+{
+  "type": "line",
+  "name": "City Routes",
+  "data": {
+    "source": "hopara",
+    "query": "city_routes"
+  },
+  "encoding": {
+    "position": {
+      "coordinates": {
+        "field": "location"
+      }
+    },
+    "color": {
+      "scale": {
+        "range": [
+          "#ff0000"
+        ]
+      },
+      "value": "blue"
+    },
+    "size": {
+      "field": "count",
+      "value": 5,
+      "scale": { 
+        "range": [1,10]
+      }
+    },
+    "line": {
+      "cap": "round"
+    }
+  }
+}

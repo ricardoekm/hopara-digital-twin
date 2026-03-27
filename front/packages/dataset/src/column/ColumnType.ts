@@ -1,0 +1,14 @@
+export enum ColumnType {
+  STRING = 'STRING',
+  JSON = 'JSON',
+  INTEGER = 'INTEGER',
+  DECIMAL = 'DECIMAL',
+  STRING_ARRAY = 'STRING_ARRAY',
+  DATETIME = 'DATETIME',
+  GEOMETRY = 'GEOMETRY',
+  BOOLEAN = 'BOOLEAN'
+}
+
+export const DEFAULT_COLUMN_TYPE = ColumnType.STRING
+
+

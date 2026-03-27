@@ -1,0 +1,38 @@
+{
+  "name": "@hopara/system-test",
+  "version": "2.4.66",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "Lucas Nascimento <lucsbarros@gmail.com>",
+  "homepage": "https://bitbucket.org/kyrix/front#readme",
+  "license": "AGPL-3.0-only",
+  "main": "src/index.cjs",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/kyrix/front.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/kyrix/front/issues"
+  },
+  "dependencies": {
+    "@hopara/fpsmeter": "2.4.66",
+    "canvas": "^3.1.0",
+    "chromedriver": "^138.0.5",
+    "config": "~3.3.6",
+    "d3": "^6.3.1",
+    "mime": "^3.0.0",
+    "resemblejs": "^5.0.0"
+  },
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  }
+}

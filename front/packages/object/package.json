@@ -1,0 +1,22 @@
+{
+  "name": "@hopara/object",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "lodash": "~4.17.23"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}

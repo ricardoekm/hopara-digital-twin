@@ -1,0 +1,2810 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.58",
+  "id": "lab-facilities",
+  "name": "Lab Facilities",
+  "type": "GEO",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "actions": [],
+  "scope": "GEO",
+  "animationFps": 24,
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "map": {
+          "value": "light-street"
+        }
+      },
+      "id": "map-layer-migration",
+      "name": "Map",
+      "type": "map",
+      "data": {},
+      "details": {
+        "fields": [],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "saturation": 1
+        },
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "scope": "GEO",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "labs_floorplans_sample_pos"
+          }
+        },
+        "image": {
+          "field": "image_name",
+          "scope": "hopara"
+        }
+      },
+      "id": "17cba5fb-a28a-40a6-a128-bd9dff31f365",
+      "name": "Floorplans",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "labs_floorplans"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Building name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Floorplan id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "floorplan_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Image name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "image_name"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 13
+          },
+          "max": {
+            "value": 22
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert_level",
+          "scale": {
+            "reverse": false,
+            "type": "grouped",
+            "colors": [
+              "#2d9cf0",
+              "#ffc107",
+              "#E41A0C"
+            ],
+            "values": [
+              0,
+              1,
+              2
+            ]
+          },
+          "opacity": 0.7,
+          "value": "#2d9cf0",
+          "animation": {
+            "channel": {
+              "duration": 1500,
+              "repeat": null
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            }
+          }
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "labs_rooms_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "condition": {
+            "test": {
+              "field": "alert_level"
+            }
+          },
+          "channel": {
+            "duration": 1500,
+            "repeat": null
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          }
+        },
+        "polygon": {}
+      },
+      "id": "#sensors-area",
+      "name": "Rooms",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "labs_rooms"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Temperature",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.temperature",
+                  "suffix": {
+                    "value": " °C"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.temperature"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.temperature"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "CO2",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.co2",
+                  "suffix": {
+                    "value": " ppm"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.co2"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.co2"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "O2",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.o2",
+                  "suffix": {
+                    "value": " ppm"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.o2"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.o2"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "Humidity",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.humidity",
+                  "suffix": {
+                    "value": " g/m3"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.humidity"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.humidity"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "Pressure",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.pressure",
+                  "suffix": {
+                    "value": " bar"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.pressure"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.pressure"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "Light",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.light",
+                  "suffix": {
+                    "value": " lx"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts.light"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts.light"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Room id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "room_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Description",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "description"
+                }
+              }
+            }
+          },
+          {
+            "title": "Is alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "is_alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          },
+          {
+            "title": "Last metric date",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_metric_date"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Temperature History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.temperature"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.temperature",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "60130ced-79ca-4e59-b62b-6185827efa26",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "CO2 History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.co2"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.co2",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "418531c6-9dc7-4c83-a229-899a122b3460",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "O2 History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.o2"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.o2",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "c8926de1-09c8-46ab-8612-70d0eb60c50f",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Humidity History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.humidity"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.humidity",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "83eaef5c-ced3-426e-bd61-a7bbcd30b03a",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Pressure History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.pressure"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.pressure",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "90552ad4-b39e-4c69-89d3-32d44f344e71",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Light History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.light"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.light",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "afa1eba9-7ce9-4fca-910d-d0689eeb0711",
+          "visualization": "lab-metrics"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 8.5
+          },
+          "max": {
+            "value": 22
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "scope": "GEO",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "labs_assets_sample_pos"
+          }
+        }
+      },
+      "id": "0b4ba20e-e935-4d48-9879-59ef56c52ad0",
+      "name": "Assets Dots",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Room",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "room"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Has model",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "has_model"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Critical alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_alerts"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Warning alerts",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "warning_alerts"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Building name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Last metric date",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_metric_date"
+                }
+              }
+            }
+          },
+          {
+            "title": "Is alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "is_alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 13
+          },
+          "max": {
+            "value": 16
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "d1178a87-8df5-4477-9424-ec96b7fd97b0",
+          "name": "Dots",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "type": "sorted",
+                "colors": [
+                  "#2d9cf0",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 9
+            },
+            "position": {
+              "x": {
+                "field": "point_2d"
+              },
+              "y": {
+                "field": "point_2d"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "labs_assets_sample_pos"
+              }
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "labs_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Is alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "is_alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Last metric date",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "last_metric_date"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Critical alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "critical_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Warning alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "warning_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Asset id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Building id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Room",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "room"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Type",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Has model",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "has_model"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 13
+              },
+              "max": {
+                "value": 16
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "1e22805d-264c-4281-869f-72264e1ff27e",
+          "name": "Ripple",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "type": "sorted",
+                "colors": [
+                  "#2d9cf0",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#000000",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0
+            },
+            "size": {
+              "value": 10,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "70%": {
+                    "scale": 2
+                  },
+                  "100%": {
+                    "scale": 2
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "position": {
+              "x": {
+                "field": "point_2d"
+              },
+              "y": {
+                "field": "point_2d"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "MANAGED",
+              "data": {
+                "source": "hopara",
+                "query": "labs_assets_sample_pos"
+              }
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            }
+          },
+          "data": {
+            "source": "sample",
+            "query": "labs_assets"
+          },
+          "details": {
+            "fields": [
+              {
+                "title": "Name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Is alert",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "is_alert"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Last metric date",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "last_metric_date"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Critical alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "critical_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Warning alerts",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "warning_alerts"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Asset id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "asset_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Building id",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Room",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "room"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Type",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "type"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Has model",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "has_model"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 13
+              },
+              "max": {
+                "value": 16
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "is_alert"
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "labs_assets_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common",
+          "maxResizeZoom": 19,
+          "referenceZoom": 16
+        }
+      },
+      "id": "4c95a163-54cc-42cb-ac9e-e3b524007a86",
+      "name": "Assets",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building name",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_name"
+                }
+              }
+            },
+            "primaryKey": false
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Temperature",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "metrics.temperature",
+                  "suffix": {
+                    "value": " °C"
+                  },
+                  "format": ".2f"
+                },
+                "color": {
+                  "conditions": [
+                    {
+                      "test": {
+                        "field": "critical_alerts"
+                      },
+                      "value": "#E41A0C"
+                    },
+                    {
+                      "test": {
+                        "field": "warning_alerts"
+                      },
+                      "value": "#eeb600"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": "Warning alerts",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "warning_alerts"
+                }
+              }
+            }
+          },
+          {
+            "title": "Critical alerts",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "critical_alerts"
+                }
+              }
+            }
+          },
+          {
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "room"
+                }
+              }
+            }
+          },
+          {
+            "title": "Last metric date",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "last_metric_date"
+                }
+              }
+            }
+          },
+          {
+            "title": "Is alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "is_alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          },
+          {
+            "title": "Has model",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "has_model"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Show Asset",
+          "filters": [
+            {
+              "field": "asset_id",
+              "targetField": "asset_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "bd9018cf-f12b-40ee-9f22-6bf238fd3c3d",
+          "visualization": "lab-3d-machine",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "has_model"
+              }
+            }
+          }
+        },
+        {
+          "title": "Temperature History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.temperature"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.temperature",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "3f4663ac-6bab-4e90-aadd-c71dfb8ab871",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "CO2 History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.co2"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.co2",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "92ead71d-3cea-489d-bf46-3a8ecb5b50b5",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "O2 History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.o2"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.o2",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "61bc53b4-7a6d-4e4a-81b0-f66929041163",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Humidity History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.humidity"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.humidity",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "09bd55c6-46b8-443b-80ef-a4c99135475b",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Pressure History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.pressure"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.pressure",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "eb3d5eeb-3ab0-4209-98d1-412c71023658",
+          "visualization": "lab-metrics"
+        },
+        {
+          "title": "Light History",
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "metrics.light"
+              }
+            }
+          },
+          "filters": [
+            {
+              "field": "sensor_ids.light",
+              "targetField": "sensor_id"
+            }
+          ],
+          "type": "VISUALIZATION_JUMP",
+          "id": "74deabf7-58c3-4fe6-a70b-ceb2efe65284",
+          "visualization": "lab-metrics"
+        }
+      ],
+      "helperText": "This lab is monitoring rooms and assets for temperature, humidity and pressure. You can click on any of them to see the metric details.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 16
+          },
+          "max": {
+            "value": 22
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "#assets-pulse",
+          "name": "Ripple Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "type": "sorted",
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#ffffff",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "size": {
+              "value": 21,
+              "referenceZoom": 16,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1,
+                    "radiusScale": 1,
+                    "radiusMaxPixels": 84
+                  },
+                  "70%": {
+                    "scale": 2,
+                    "radiusScale": 2,
+                    "radiusMaxPixels": 168
+                  },
+                  "100%": {
+                    "scale": 2,
+                    "radiusScale": 2,
+                    "radiusMaxPixels": 168
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "#assets-bg",
+          "name": "Pulse Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "type": "sorted",
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#ffffff"
+            },
+            "size": {
+              "value": 21,
+              "referenceZoom": 16,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1,
+                    "radiusScale": 1,
+                    "radiusMaxPixels": 84
+                  },
+                  "60%": {
+                    "scale": 1.2,
+                    "radiusScale": 1.2,
+                    "radiusMaxPixels": 100.8
+                  },
+                  "90%": {
+                    "scale": 1,
+                    "radiusScale": 1,
+                    "radiusMaxPixels": 84
+                  }
+                },
+                "type": "pulse",
+                "condition": {
+                  "test": {
+                    "field": "alert_level"
+                  }
+                }
+              }
+            },
+            "animation": {
+              "type": "pulse",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "scale": 1,
+                  "radiusScale": 1,
+                  "radiusMaxPixels": 84
+                },
+                "60%": {
+                  "scale": 1.2,
+                  "radiusScale": 1.2,
+                  "radiusMaxPixels": 100.8
+                },
+                "90%": {
+                  "scale": 1,
+                  "radiusScale": 1,
+                  "radiusMaxPixels": 84
+                }
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "#assets",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "type": "sorted",
+                "reverse": false,
+                "colors": [
+                  "#2d9cf0",
+                  "#545454",
+                  "#ffffff"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#2d9cf0"
+            },
+            "size": {
+              "value": 12.5,
+              "referenceZoom": 16
+            },
+            "icon": {
+              "value": "machine",
+              "field": "type",
+              "map": {
+                "electric-generator": "fuel-cell"
+              },
+              "smartSearch": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "highlight": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "size": {
+          "multiplier": 1
+        },
+        "position": {
+          "x": {
+            "field": "rectangle"
+          },
+          "y": {
+            "field": "rectangle"
+          },
+          "floor": {
+            "field": "floor"
+          },
+          "scope": "GEO",
+          "type": "CUSTOM",
+          "data": {
+            "source": "hopara",
+            "query": "labs_buildings_sample_pos"
+          }
+        }
+      },
+      "id": "276614fd-2397-49ea-9c6b-fa4748ff4c3b",
+      "name": "Labs",
+      "type": "composite",
+      "data": {
+        "source": "sample",
+        "query": "labs_buildings"
+      },
+      "details": {
+        "fields": [
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_sensors"
+                }
+              }
+            }
+          },
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_critical"
+                }
+              }
+            }
+          },
+          {
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "number_of_warning"
+                }
+              }
+            }
+          },
+          {
+            "title": "Building id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_id"
+                }
+              }
+            }
+          },
+          {
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "building_name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert level",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert_level"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [
+        {
+          "title": "Go to location",
+          "zoom": {
+            "padding": 10
+          },
+          "type": "ZOOM_JUMP",
+          "id": "14e0ea95-3750-4f3d-b660-4056ac2fdd25",
+          "autoTrigger": true
+        }
+      ],
+      "helperText": "The colors display the lab's health status. You can click on any lab to navigate to its floor plan.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 13
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "#location-pulse",
+          "name": "Ripple Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "type": "grouped",
+                "colors": [
+                  "#2d9cf0",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#2d9cf0",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple"
+              }
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "multiplier": 1
+            },
+            "size": {
+              "value": 25,
+              "multiplier": 1,
+              "referenceZoom": 1.613631192362184,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1,
+                    "radiusScale": 1
+                  },
+                  "70%": {
+                    "scale": 2,
+                    "radiusScale": 2
+                  },
+                  "100%": {
+                    "scale": 2,
+                    "radiusScale": 2
+                  }
+                },
+                "type": "ripple"
+              }
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "REF",
+              "data": {
+                "layerId": "17cba5fb-a28a-40a6-a128-bd9dff31f365"
+              }
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Building name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of critical",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_critical"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of warning",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_warning"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Building id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 13
+              }
+            },
+            "condition": {
+              "test": {
+                "field": "alert_level"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "#location-bg",
+          "name": "Pulse Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert_level",
+              "scale": {
+                "reverse": false,
+                "type": "grouped",
+                "colors": [
+                  "#2d9cf0",
+                  "#ffc107",
+                  "#E41A0C"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#2d9cf0",
+              "animation": {
+                "channel": {
+                  "duration": 1500
+                },
+                "keyFrames": {
+                  "0%": {},
+                  "60%": {},
+                  "90%": {}
+                }
+              }
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "multiplier": 1
+            },
+            "size": {
+              "value": 24,
+              "multiplier": 1,
+              "referenceZoom": 1.613631192362184,
+              "animation": {
+                "channel": {
+                  "duration": 1500
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "60%": {
+                    "scale": 1.2
+                  },
+                  "90%": {
+                    "scale": 1
+                  }
+                }
+              }
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "REF",
+              "data": {
+                "layerId": "17cba5fb-a28a-40a6-a128-bd9dff31f365"
+              }
+            },
+            "animation": {
+              "type": "pulse",
+              "enabled": false,
+              "condition": {
+                "test": {
+                  "field": "alert_level"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "scale": 1,
+                  "radiusScale": 1
+                },
+                "60%": {
+                  "scale": 1.2,
+                  "radiusScale": 1.2
+                },
+                "90%": {
+                  "scale": 1,
+                  "radiusScale": 1
+                }
+              }
+            },
+            "shadow": {
+              "inner": false,
+              "outer": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Building name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of critical",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_critical"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of warning",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_warning"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Building id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 13
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "fa1c87b8-d042-4bb0-8b4f-8c323cbb6c19",
+          "name": "Circle 3",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#FFFFFF"
+            },
+            "strokeColor": {
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "multiplier": 1
+            },
+            "size": {
+              "value": 12,
+              "multiplier": 1,
+              "referenceZoom": 1.613631192362184
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "REF",
+              "data": {
+                "layerId": "17cba5fb-a28a-40a6-a128-bd9dff31f365"
+              }
+            },
+            "shadow": {
+              "inner": true,
+              "outer": false
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Building name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Building id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of critical",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_critical"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of warning",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_warning"
+                    }
+                  }
+                },
+                "primaryKey": false
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 13
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "#location-text",
+          "name": "Name",
+          "type": "text",
+          "encoding": {
+            "color": {
+              "scale": {
+                "scheme": "redyellowgreen",
+                "reverse": false,
+                "type": "hashed"
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "size": {
+              "value": 12,
+              "multiplier": 1,
+              "referenceZoom": 1.2667515501630082
+            },
+            "text": {
+              "field": "building_name",
+              "align": "center",
+              "weight": 600
+            },
+            "position": {
+              "x": {
+                "field": "rectangle"
+              },
+              "y": {
+                "field": "rectangle"
+              },
+              "floor": {
+                "field": "floor"
+              },
+              "scope": "GEO",
+              "type": "REF",
+              "data": {
+                "layerId": "17cba5fb-a28a-40a6-a128-bd9dff31f365"
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -22,
+                "referenceZoom": 1.2667515501630082
+              }
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": [
+              {
+                "title": "Building name",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_name"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Alert level",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "alert_level"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of sensors",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_sensors"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of critical",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_critical"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Number of warning",
+                "visible": true,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "number_of_warning"
+                    }
+                  }
+                },
+                "primaryKey": false
+              },
+              {
+                "title": "Building id",
+                "visible": false,
+                "value": {
+                  "encoding": {
+                    "text": {
+                      "field": "building_id"
+                    }
+                  }
+                },
+                "primaryKey": true
+              }
+            ],
+            "tooltip": true
+          },
+          "actions": [],
+          "visible": {
+            "value": true,
+            "zoomRange": {
+              "min": {
+                "value": 0
+              },
+              "max": {
+                "value": 13
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "2ebd2e93-0e40-46d7-8641-8c5e2d25dcbe",
+      "field": "type",
+      "data": {
+        "source": "sample",
+        "query": "labs_assets"
+      },
+      "values": [
+        "REFRIGERATOR",
+        "COMPUTER",
+        "BALANCE",
+        "FREEZER",
+        "INCUBATOR",
+        "ULTRA LOW FREEZER",
+        "CENTRIFUGE",
+        "AUTOSAMPLER",
+        "SHAKER",
+        "MICROPLATE READER",
+        "MICROCENTRIFUGE",
+        "PH METER",
+        "ANIMAL EQUIPMENT",
+        "CAPILLARY ELECTROPHORESIS",
+        "REFRIGERATED CENTRIFUGE",
+        "BIOREACTOR SYSTEM",
+        "WATER BATH",
+        "BIOSAFETY CABINET",
+        "BIOMASS MONITOR",
+        "FRACTION COLLECTOR",
+        "MISC LAB EQUIPMENT",
+        "PROTEIN CHROMATOGRAPH",
+        "SPECTROPHOTOMETER",
+        "BIOREACTOR CONTROLLER",
+        "CO2 INCUBATOR",
+        "MICROSCOPE",
+        "COLUMN MANAGER",
+        "OVEN",
+        "ANALYTICAL BALANCE",
+        "FLUORESCENCE DETECTOR",
+        "HEATING SHAKER",
+        "HPLC PUMP",
+        "THERMAL CYCLER",
+        "WATER PURIFICATION SYSTEM",
+        "AUTOMATED LIQUID HANDLER",
+        "COLUMN COMPARTMENT",
+        "COLUMN HEATER COOLER",
+        "QUATERNARY PUMP",
+        "SAMPLE PUMP",
+        "UV SPECTROPHOTOMETER",
+        "CELL VIABILITY ANALYZER",
+        "CHROMATOGRAPHY SYSTEM",
+        "FILTRATION COLUMN",
+        "IMAGER",
+        "INCUBATOR SHAKER",
+        "MICROPLATE WASHER",
+        "UPLC FLUORESCENCE DETECTOR",
+        "UPLC TUV DETECTOR",
+        "UV/VISIBLE DETECTOR",
+        "BALANCE/SCALE"
+      ]
+    }
+  ],
+  "initialPosition": {
+    "type": "FIT_TO_CONTENT",
+    "layerId": "276614fd-2397-49ea-9c6b-fa4748ff4c3b",
+    "padding": 10
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 22
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": [],
+  "mapStyle": "building"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Asset",
+  "type": "icon",
+  "encoding": {
+    "icon": {
+      "value":  "sensors",
+      "conditions": [
+        {
+          "test": {
+            "field": "offline"
+          },
+          "value": "wifi-off"
+        }
+      ]
+    }
+ }
+}

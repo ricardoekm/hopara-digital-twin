@@ -1,0 +1,11 @@
+{
+  "name": "labs_sensors_metrics_history",
+  "query": " select m.sensor_id, m.\"timestamp\", m.value, room_id, asset_id\n    from labs_metrics m\n    join labs_sensors s on s.sensor_id = m.sensor_id\n    order by timestamp desc",
+  "filterTables": true,
+  "smartLoad": true,
+  "writeLevel": "NONE",
+  "upsert": false,
+  "primaryKey": "sensor_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

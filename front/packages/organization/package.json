@@ -1,0 +1,44 @@
+{
+  "name": "@hopara/organization",
+  "version": "2.4.66",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "dependencies": {
+    "@hopara/auth-front": "2.4.66",
+    "@hopara/authorization": "2.4.66",
+    "@hopara/browser": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/dataset": "2.4.66",
+    "@hopara/design-system": "2.4.66",
+    "@hopara/http-client": "2.4.66",
+    "@hopara/i18n": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/page": "2.4.66",
+    "@hopara/state": "2.4.66",
+    "@mui/material": "^5.15.10",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@types/react-beforeunload": "^2.1.4",
+    "@types/react-helmet": "^6.1.9",
+    "case": "^1.6.3",
+    "lodash": "~4.17.23",
+    "react": "^18.3.1",
+    "react-beforeunload": "^2.5.3",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.10.0",
+    "react-toastify": "^8.0.3",
+    "react-virtualized-auto-sizer": "^1.0.7",
+    "react-window": "^1.8.8",
+    "react-window-infinite-loader": "^1.0.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0"
+  },
+  "scripts": {
+    "test": "jest --runInBand --ci",
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  }
+}

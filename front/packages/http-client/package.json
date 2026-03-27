@@ -1,0 +1,28 @@
+{
+  "name": "@hopara/http-client",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "build": "tsc",
+    "check-types": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@hopara/authorization": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/i18n": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/page": "2.4.66",
+    "axios": "^1.13.5",
+    "axios-retry": "^4.5.0",
+    "jwt-decode": "^3.1.2",
+    "lodash": "~4.17.23",
+    "query-string": "^6.13.8"
+  }
+}

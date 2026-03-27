@@ -1,0 +1,22 @@
+{
+  "name": "Asset",
+  "type": "icon",
+  "encoding": {
+    "color": {
+      "field": "status",
+      "scale": {
+        "type": "sorted",
+        "values": [
+            "ok",
+            "warning",
+            "risk"
+        ],
+        "colors": [
+          "#2d9cf0",
+          "#545454",
+          "#ffffff"
+        ]
+      }
+    }
+  }
+}

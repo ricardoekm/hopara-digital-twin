@@ -1,0 +1,26 @@
+{
+  "name": "@hopara/rum",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@datadog/browser-rum": "^6.6.4",
+    "@hopara/config": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/page": "2.4.66",
+    "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.10.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "if_workflows_overlay",
+    "query": "select * from if_workflows_overlay",
+    "dataSource": "sample",
+    "primaryKey": "workflow_id",
+    "writeTable": "if_workflows_overlay",
+    "writeLevel": "NONE",
+    "filterTables": true,
+    "smartLoad": false,
+    "upsert": true,
+    "editableColumns": []
+  }

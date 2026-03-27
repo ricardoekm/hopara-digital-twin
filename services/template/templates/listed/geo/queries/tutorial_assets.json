@@ -1,0 +1,11 @@
+{
+  "name": "tutorial_assets",
+  "query": "    select * from tutorial_assets\n",
+  "filterTables": false,
+  "smartLoad": true,
+  "writeLevel": "NONE",
+  "upsert": false,
+  "primaryKey": "asset_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

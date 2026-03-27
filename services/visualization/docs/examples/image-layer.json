@@ -1,0 +1,18 @@
+{
+  "name": "Floorplans",
+  "type": "image",
+  "data": {
+    "source": "hopara",
+    "query": "floorplans"
+  },
+  "encoding": {
+    "position": {
+      "coordinates": {
+        "field": "location"
+      }
+    },
+    "image": {
+      "field": "floorplan_id"
+    }
+  }
+}

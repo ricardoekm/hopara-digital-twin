@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS sm_sectors CASCADE;
+DROP TABLE IF EXISTS sm_sectors_sample_pos CASCADE;
+DROP TABLE IF EXISTS sm_assets CASCADE;
+DROP TABLE IF EXISTS sm_assets_sample_pos CASCADE;
+DROP TABLE IF EXISTS sm_sensors CASCADE;
+DROP TABLE IF EXISTS sm_sensors_sample_pos CASCADE;
+DROP TABLE IF EXISTS sm_metrics CASCADE;
+DROP TABLE IF EXISTS sm_metrics_sample_pos CASCADE;

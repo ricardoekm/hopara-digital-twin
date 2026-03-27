@@ -1,0 +1,54 @@
+{
+  "name": "@hopara/react",
+  "version": "2.4.66",
+  "description": "Hopara React Component",
+  "author": "Hopara",
+  "homepage": "https://hopara.io",
+  "license": "AGPL-3.0-only",
+  "main": "build/index.js",
+  "types": "build/types/index.d.ts",
+  "directories": {
+    "lib": "build"
+  },
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:hopara-io/react-sample.git"
+  },
+  "scripts": {
+    "build": "DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
+    "build:types": "tsc -p ./tsconfig-typings.json",
+    "test": "echo \"not implemented\"",
+    "lint": "echo \"not implemented\"",
+    "check-types": "echo \"not implemented\""
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/kyrix/front/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.22.15",
+    "@hopara/components": "2.4.66",
+    "@hopara/iframe": "2.4.66",
+    "babel-loader": "8.1.0",
+    "customize-cra": "^1.0.0",
+    "lodash": "~4.17.23",
+    "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.3.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "browserslist": [
+    "defaults, not ie 11"
+  ]
+}

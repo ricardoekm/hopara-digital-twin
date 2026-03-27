@@ -1,0 +1,1 @@
+ALTER TABLE hp_views DROP COLUMN referenced_table_names;

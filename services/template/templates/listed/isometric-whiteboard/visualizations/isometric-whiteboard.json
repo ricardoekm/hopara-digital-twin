@@ -1,0 +1,273 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.58",
+  "name": "Isometric Whiteboard",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "group": "USER",
+  "actions": [],
+  "animationFps": 24,
+  "bleedFactor": 4,
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "iwb_backgrounds_hopara_pos"
+          }
+        },
+        "image": {
+          "field": "background_id"
+        }
+      },
+      "id": "6c038412-c20d-4f8b-9748-9f8f46e5a9c7",
+      "name": "Background",
+      "type": "image",
+      "data": {
+        "source": "hopara",
+        "query": "iwb_backgrounds"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Background id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "background_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "iwb_images_hopara_pos"
+          }
+        },
+        "image": {
+          "field": "image_id"
+        }
+      },
+      "id": "6c038412-c20d-4f8b-9748-9f8f46e5a9c4",
+      "name": "Images",
+      "type": "image",
+      "data": {
+        "source": "hopara",
+        "query": "iwb_images"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Image id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "image_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#808080",
+          "animation": {
+            "type": "flow",
+            "speed": 15
+          }
+        },
+        "size": {
+          "field": "hopara_size",
+          "value": 10,
+          "referenceZoom": 6
+        },
+        "position": {
+          "coordinates": {
+            "field": "line"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "iwb_lines_hopara_pos"
+          }
+        },
+        "animation": {
+          "type": "flow",
+          "enabled": true,
+          "speed": 15
+        },
+        "line": {
+          "segmentLength": 1000,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "a3dca353-335a-4f7f-bd94-4a8da291205b",
+      "name": "Lines",
+      "type": "line",
+      "data": {
+        "source": "hopara",
+        "query": "iwb_lines"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Line id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "zoom": 6
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 12
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": [
+    {
+      "layerId": "6c038412-c20d-4f8b-9748-9f8f46e5a9c7",
+      "alwaysVisible": true,
+      "encoding": {
+        "strokeColor": {
+          "opacity": 0.6,
+          "value": "#000"
+        },
+        "strokeSize": {
+          "value": 1,
+          "referenceZoom": 12
+        },
+        "size": {
+          "value": 94,
+          "referenceZoom": 6
+        },
+        "config": {
+          "units": "common"
+        },
+        "angle": {
+          "value": 30
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "service": {
+    "name": "SERVICE_NAME",
+    "baseUrl": "SERVICE_URL"
+  },
+  "server": {
+    "port": "PORT"
+  },
+  "logger": {
+    "level": "LOG_LEVEL",
+    "format": "LOG_FORMAT"
+  },
+  "google": {
+    "key": "GOOGLE_KEY"
+  },
+  "visualization": {
+    "url": "VISUALIZATION_URL"
+  },
+  "resource": {
+    "url": "RESOURCE_URL"
+  },
+  "dataset": {
+    "url": "DATASET_URL"
+  },
+  "template": {
+    "url": "TEMPLATE_URL"
+  },
+  "auth": {
+    "enabled": "AUTH_ENABLED",
+    "jwtIssuer": "AUTH_JWT_ISSUER",
+    "jwksUri": "AUTH_JWKS_URI"
+  }
+}

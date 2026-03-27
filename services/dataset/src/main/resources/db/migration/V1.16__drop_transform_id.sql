@@ -1,0 +1,1 @@
+ALTER TABLE hp_columns DROP COLUMN transform_id;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Hopara Embeded</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}</style>
+  <script>
+    window.document.addEventListener("DOMContentLoaded", () => {
+      if (location.search.includes('test=true')) return
+
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'})
+      const gtmScript = document.createElement('script')
+      gtmScript.async = true
+      gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=%GTM_KEY%'
+      document.head.appendChild(gtmScript);
+
+      window.gtag = function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "%GTAG_KEY%", {
+        app_name: "%GTAG_APP_NAME%",
+        app_version: "%GTAG_APP_VERSION%",
+        send_page_view: false,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+    })
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+ </body>
+</html>

@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS if_workflows;
+DROP TABLE IF EXISTS if_workflows_sample_pos;
+DROP TABLE IF EXISTS if_workflows_overlay;
+DROP TABLE IF EXISTS if_workflows_overlay_sample_pos;
+DROP TABLE IF EXISTS if_assets;
+DROP TABLE IF EXISTS if_assets_sample_pos;
+DROP TABLE IF EXISTS if_assets_oee;
+DROP TABLE IF EXISTS if_pipes;
+DROP TABLE IF EXISTS if_pipes_sample_pos;
+DROP TABLE IF EXISTS if_stages;
+DROP TABLE IF EXISTS if_stages_sample_pos;
+DROP TABLE IF EXISTS if_lines_sample_pos;

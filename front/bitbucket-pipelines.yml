@@ -1,0 +1,400 @@
+image:
+  name: 275067427606.dkr.ecr.us-east-1.amazonaws.com/node-chrome:latest
+  aws:
+    access-key: $AWS_ACCESS_KEY_ID
+    secret-key: $AWS_SECRET_ACCESS_KEY
+
+definitions:
+  caches:
+    frontnode: ./packages/web/node_modules
+    yarn: /usr/local/share/.cache/yarn
+    chromedata: ./packages/system-test/src/user-data
+
+  steps:
+    - step: &test
+        name: test
+        size: 2x
+        caches:
+          - node
+          - frontnode
+          - yarn
+        script:
+          - ./yarn-config.sh
+          - yarn
+          - yarn test
+    - step: &lint
+        name: security & lint
+        size: 2x
+        caches:
+          - node
+          - frontnode
+          - yarn
+        script:
+          - ./yarn-config.sh
+          - yarn
+          - yarn npm audit --all --exclude vega
+          - yarn lint
+    - step: &system-test
+        name: system test
+        size: 2x
+        caches:
+          - node
+          - frontnode
+          - yarn
+        artifacts:
+          - packages/**/tests/golden-images/temp/**
+          - packages/**/tests/golden-images/diff/**
+        script:
+          - export TZ=America/Sao_Paulo
+          - ./yarn-config.sh
+          - yarn
+          - export DISABLE_ESLINT_PLUGIN=true
+          - export TSC_COMPILE_ON_ERROR=true
+          - export PORT=3456
+          - export REACT_APP_HOPARA_ENV=systemTest
+          - export HTML_VERSION=test
+          - yarn build-web --profile
+          - yarn system-test
+    - step: &system-test-iframe
+        name: iframe system test
+        size: 2x
+        caches:
+          - node
+          - frontnode
+          - yarn
+          - chromedata
+        artifacts:
+          - packages/**/tests/golden-images/temp/**
+          - packages/**/tests/golden-images/diff/**
+        script:
+          - export TZ=America/Sao_Paulo
+          - ./yarn-config.sh
+          - yarn
+          - export GENERATE_SOURCEMAP=false
+          - export DISABLE_ESLINT_PLUGIN=true
+          - export TSC_COMPILE_ON_ERROR=true
+          - export PORT=3456
+          - export REACT_APP_HOPARA_ENV=systemTest
+          - export MODULE_NAME=view
+          - export HTML_VERSION=test
+          - yarn build-iframe
+          - yarn system-test-iframe
+    - step: &perf-test
+        name: perf test
+        runs-on: 
+          - 'self.hosted'
+        size: 4x
+        caches:
+          - node
+          - frontnode
+          - yarn
+          - chromedata
+        artifacts:
+          - packages/**/tests/golden-images/temp/**
+          - packages/**/tests/golden-images/diff/**
+        script:
+          - export TZ=America/Sao_Paulo
+          - ./yarn-config.sh
+          - yarn
+          - export DISABLE_ESLINT_PLUGIN=true
+          - export TSC_COMPILE_ON_ERROR=true
+          - export PORT=3456
+          - export REACT_APP_HOPARA_ENV=systemTest
+          - export HTML_VERSION=test
+          - yarn build-web --profile
+          - yarn perf-test
+    - step: &start-perf-instance
+        name: start perf instance
+        image: atlassian/pipelines-awscli
+        script:
+          - sh ./start-ec2-runner-instance.sh
+    - step: &stop-perf-instance
+        name: stop perf instance
+        image: atlassian/pipelines-awscli
+        script:
+          - sh ./stop-ec2-runner-instance.sh
+
+  scripts:
+    - script: &script-base-build-vars
+        export REACT_APP_BUILD_NUMBER="${BITBUCKET_BUILD_NUMBER}";
+        export REACT_APP_PACKAGE_VERSION=$(cat ./packages/web/package.json | jq .version | tr -d '"');
+        export BUILD_NUMBER=$REACT_APP_BUILD_NUMBER;
+        export DISABLE_ESLINT_PLUGIN=true;
+        export TSC_COMPILE_ON_ERROR=true;
+    - script: &script-base-build
+        apt-get update && apt-get install jq -y && ./yarn-config.sh && yarn
+        
+
+pipelines:
+  default:
+    - step: *start-perf-instance
+    - step: *perf-test
+    - step: *stop-perf-instance
+  branches:
+    master:
+      - step: *start-perf-instance
+      - parallel:
+        - step: *lint
+        - step: *test
+        - step: *system-test
+        - step: *perf-test
+        - step: *system-test-iframe
+        - step:
+            name: build dev
+            size: 2x
+            caches:
+              - node
+              - frontnode
+              - yarn
+            artifacts:
+              - packages/web/build-dev/**
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export REACT_APP_HOPARA_ENV=development
+              - yarn build-web
+              - mv packages/web/build packages/web/build-dev
+        - step:
+            name: build test
+            size: 2x
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export REACT_APP_HOPARA_ENV=test
+              - yarn build-web
+              - mv packages/web/build packages/web/build-test
+            artifacts:
+              - packages/web/build-test/**
+              - package.json
+              - upload-source-maps.sh
+        - step:
+            name: build iframe
+            size: 2x
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export REACT_APP_HOPARA_ENV=test
+              - export BUILD_ENV=test
+              - export MODULE_NAME=view
+              - export REACT_APP_BASE_PATHNAME=/embedded/latest
+              - export PUBLIC_URL=https://statics.test.hopara.app/embedded/latest
+              - yarn
+              - yarn build-iframe
+            artifacts:
+              - packages/iframe/build/**
+      - step: *stop-perf-instance
+      - parallel:
+        - step:
+            name: build & push dev image
+            image: atlassian/pipelines-awscli
+            deployment: docker
+            services:
+              - docker
+            caches:
+              - docker
+            script:
+              - eval $(aws ecr get-login --region us-east-1 --no-include-email)
+              - docker build --build-arg BUILD_DIR=./build-dev -t kyrix/${APPLICATION} -f ./packages/web/Dockerfile ./packages/web
+              - docker tag kyrix/${APPLICATION}:latest ${AWS_REGISTRY_URL}:latest
+              - docker push ${AWS_REGISTRY_URL}:latest
+              - docker tag ${AWS_REGISTRY_URL}:latest ${AWS_REGISTRY_URL}:${BITBUCKET_BUILD_NUMBER}
+              - docker push ${AWS_REGISTRY_URL}:${BITBUCKET_BUILD_NUMBER}
+        - step:
+            name: deploy test
+            deployment: test
+            script:
+              - ./yarn-config.sh
+              - yarn
+              - yarn upload-source-maps test
+              - pipe: atlassian/aws-s3-deploy:1.1.0
+                variables:
+                  S3_BUCKET: 'test.hopara.app'
+                  LOCAL_PATH: 'packages/web/build-test'
+              - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+                variables:
+                  DISTRIBUTION_ID: E1R7J70RJN8P55
+        - step:
+            name: deploy iframe
+            deployment: iframe-view-test
+            script:
+              - pipe: atlassian/aws-s3-deploy:0.4.1
+                variables:
+                  S3_BUCKET: 'statics.test.hopara.app/embedded/latest'
+                  LOCAL_PATH: './packages/iframe/build'
+              - pipe: atlassian/aws-cloudfront-invalidate:0.4.0
+                variables:
+                  DISTRIBUTION_ID: E2U5IGJ00TADZY
+                  PATHS: '/embedded/*'
+      - step:
+          name: end to end test
+          script:
+            - pipe: atlassian/trigger-pipeline:5.5.1
+              variables:
+                BITBUCKET_USERNAME: ${BITBUCKET_USERNAME}
+                BITBUCKET_APP_PASSWORD: ${BITBUCKET_APP_PASSWORD}
+                REPOSITORY: 'e2e-test'
+                CUSTOM_PIPELINE_NAME: 'test-visualizations'
+                PIPELINE_VARIABLES: >
+                  [{
+                    "key": "PIPELINE_SOURCE_TRIGGER",
+                    "value": "$APPLICATION"
+                  },
+                  {
+                    "key": "PIPELINE_SOURCE_BUILD_NUMBER",
+                    "value": "$BITBUCKET_BUILD_NUMBER"
+                  }]
+                WAIT: 'true'
+    prod:
+      - parallel:
+        - step: *lint
+        - step: *test
+        - step:
+            name: build
+            size: 2x
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export GENERATE_SOURCEMAP=true
+              - export REACT_APP_HOPARA_ENV=production
+              - export BUILD_ENV=production
+              - yarn build-web
+            artifacts:
+              - packages/**/build/**
+              - package.json
+              - upload-source-maps.sh
+      - step:
+          name: deploy
+          deployment: production
+          trigger: manual
+          caches:
+              - node
+              - frontnode
+              - yarn
+          script:
+            - export DATADOG_API_KEY=$DATADOG_API_KEY
+            - ./yarn-config.sh
+            - yarn
+            - yarn upload-source-maps web
+            - pipe: atlassian/aws-s3-deploy:1.1.0
+              variables:
+                S3_BUCKET: 'hopara.app'
+                LOCAL_PATH: 'packages/web/build'
+            - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+              variables:
+                DISTRIBUTION_ID: E27TCWZX6BMRHH
+      - step:
+          name: end to end test
+          trigger: manual
+          script:
+            - pipe: atlassian/trigger-pipeline:5.5.1
+              variables:
+                BITBUCKET_USERNAME: ${BITBUCKET_USERNAME}
+                BITBUCKET_APP_PASSWORD: ${BITBUCKET_APP_PASSWORD}
+                REPOSITORY: 'e2e-test'
+                CUSTOM_PIPELINE_NAME: 'test-production-visualizations'
+                REF_NAME: 'prod'
+                PIPELINE_VARIABLES: >
+                  [{
+                    "key": "PIPELINE_SOURCE_TRIGGER",
+                    "value": "$APPLICATION"
+                  },
+                  {
+                    "key": "PIPELINE_SOURCE_BUILD_NUMBER",
+                    "value": "$BITBUCKET_BUILD_NUMBER"
+                  }]
+                WAIT: 'true'
+  tags:
+    v*:
+      - parallel:
+        - step: *lint
+        - step: *test
+        - step: *system-test-iframe
+      - parallel:
+        - step:
+            name: build and deploy iframe
+            size: 2x
+            deployment: iframe-view
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export GENERATE_SOURCEMAP=true
+              - export REACT_APP_HOPARA_ENV=production
+              - export BUILD_ENV=production
+              - export MODULE_NAME=view
+              - export REACT_APP_BASE_PATHNAME=/embedded/latest
+              - export PUBLIC_URL=https://statics.hopara.app/embedded/latest
+              - yarn
+              - yarn build-iframe
+              - yarn upload-source-maps iframe
+              - pipe: atlassian/aws-s3-deploy:0.4.1
+                variables:
+                  S3_BUCKET: 'statics.hopara.app/embedded/latest'
+                  LOCAL_PATH: './packages/iframe/build'
+            artifacts:
+              - packages/iframe/build-iframe/**
+        - step:
+            name: build and deploy iframe client
+            size: 2x
+            deployment: iframe-client
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export GENERATE_SOURCEMAP=false
+              - export MODULE_NAME=client
+              - yarn build-iframe
+              - cd ./packages/iframe
+              - rm -f ./build/asset-manifest.json
+              - rm -f ./build/index.html
+              - rm -f ./build/client.js.map
+              - pipe: atlassian/aws-s3-deploy:0.4.1
+                variables:
+                  S3_BUCKET: 'statics.hopara.app/embedded/latest'
+                  LOCAL_PATH: './build'
+              - pipe: atlassian/npm-publish:0.2.0
+                variables:
+                  NPM_TOKEN: $NPM_TOKEN
+        - step:
+            name: build and deploy react lib
+            size: 2x
+            deployment: hopara-react
+            caches:
+              - node
+              - frontnode
+              - yarn
+            script:
+              - *script-base-build
+              - *script-base-build-vars
+              - export GENERATE_SOURCEMAP=false
+              - export MODULE_NAME=client
+              - yarn build-react
+              - cd ./packages/react
+              - pipe: atlassian/npm-publish:0.2.0
+                variables:
+                  NPM_TOKEN: $NPM_TOKEN
+      - step:
+          name: cloudfront invalidate
+          script:
+            - pipe: atlassian/aws-cloudfront-invalidate:0.4.0
+              variables:
+                DISTRIBUTION_ID: E2A4OSZYTHB4UI
+                PATHS: '/embedded/*'

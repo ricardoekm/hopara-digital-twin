@@ -1,0 +1,54 @@
+{
+  "name": "@hopara/iframe",
+  "version": "2.4.66",
+  "main": "build/client.js",
+  "types": "build/types/src/client/index.d.ts",
+  "scripts": {
+    "prestart": "yarn run preprocess-html",
+    "start": "REACT_APP_IS_EMBEDDED=true DISABLE_ESLINT_PLUGIN=true react-app-rewired start",
+    "prebuild": "yarn run preprocess-html",
+    "build": "REACT_APP_IS_EMBEDDED=true DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
+    "build:types": "tsc -p ./tsconfig-typings.json",
+    "eject": "react-app-rewired eject",
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "check-types": "tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "system-test": "nightwatch",
+    "preprocess-html": "node ./tasks/preprocessHTML.js"
+  },
+  "browserslist": [
+    "defaults, not ie 11"
+  ],
+  "eslintConfig": {
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@babel/register": "^7.15.3",
+    "@hopara/components": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/design-system": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/rum": "2.4.66",
+    "@hopara/service-worker": "2.4.66",
+    "@hopara/system-test": "2.4.66",
+    "babel-loader": "8.1.0",
+    "customize-cra": "^1.0.0",
+    "lodash": "~4.17.23",
+    "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.10.0",
+    "typescript": "^4.5.2"
+  },
+  "license": "AGPL-3.0-only"
+}

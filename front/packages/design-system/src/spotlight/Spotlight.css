@@ -1,0 +1,9 @@
+.spotlight-visible {
+  opacity: 1;
+  transition: opacity 150ms,
+}
+
+.spotlight-hidden {
+  opacity: 0;
+  transition: opacity 150ms,
+}

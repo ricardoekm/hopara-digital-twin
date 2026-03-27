@@ -1,0 +1,32 @@
+{
+  "type": "icon",
+  "name": "Sensors",
+  "data": {
+    "source": "hopara",
+    "query": "industry_sensors"
+  },
+  "encoding": {
+    "icon": {
+      "field": "type"
+    },
+    "size": {
+      "value": 30
+    },
+    "color": {
+      "field": "temperature",
+      "scale": {
+        "scheme": "redyellowgreen",
+        "reverse": true
+      },
+      "value": "#ff0000"
+    },
+    "position": {
+      "x": {
+        "field": "longitude"
+      },
+      "y": {
+        "field": "latitude"
+      }
+    }
+  }
+}

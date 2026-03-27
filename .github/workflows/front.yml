@@ -1,0 +1,123 @@
+name: Front
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'front/**'
+      - '.github/workflows/front.yml'
+  pull_request:
+    paths:
+      - 'front/**'
+      - '.github/workflows/front.yml'
+
+defaults:
+  run:
+    working-directory: front
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    container:
+      image: hopara/node-chrome:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run tests
+        run: yarn test
+
+  lint:
+    name: Security & Lint
+    runs-on: ubuntu-latest
+    container:
+      image: hopara/node-chrome:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Audit dependencies
+        run: yarn npm audit --all --exclude vega
+
+      - name: Lint
+        run: yarn lint
+
+  system-test:
+    name: System Test
+    runs-on: ubuntu-latest
+    container:
+      image: hopara/node-chrome:latest
+    env:
+      TZ: America/Sao_Paulo
+      DISABLE_ESLINT_PLUGIN: 'true'
+      TSC_COMPILE_ON_ERROR: 'true'
+      PORT: 3456
+      REACT_APP_HOPARA_ENV: systemTest
+      HTML_VERSION: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build web (profile)
+        run: yarn build-web --profile
+
+      - name: Run system tests
+        run: yarn system-test
+
+      - name: Upload golden image diffs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-image-diffs
+          path: |
+            front/packages/**/tests/golden-images/temp/**
+            front/packages/**/tests/golden-images/diff/**
+
+  build-and-push:
+    name: Build & Push Image
+    needs: [test, lint, system-test]
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    env:
+      DISABLE_ESLINT_PLUGIN: 'true'
+      TSC_COMPILE_ON_ERROR: 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node & Yarn
+        uses: ./.github/actions/setup-node-yarn
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build web
+        run: yarn build-web
+        env:
+          REACT_APP_AUTH_ENABLED: 'false'
+          REACT_APP_CLOUD_FEATURES_ENABLED: 'false'
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: front/packages/web
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            hopara/front:latest
+            hopara/front:${{ github.run_number }}

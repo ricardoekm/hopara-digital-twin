@@ -1,0 +1,4 @@
+{
+  "drop": ["drop-isometric-factory.sql"],
+  "create": ["isometric-factory.sql"]
+}  

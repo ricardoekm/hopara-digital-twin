@@ -1,0 +1,13 @@
+name: Setup Node & Yarn
+description: Sets up Node.js 22 and Yarn 4.7.0 via Corepack
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Enable Corepack
+      run: corepack enable && corepack prepare yarn@4.7.0 --activate
+      shell: bash

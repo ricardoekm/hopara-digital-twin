@@ -1,0 +1,12 @@
+{
+    "name": "sm_metrics",
+    "query": "select * from sm_metrics",
+    "filterTables": false,
+    "smartLoad": true,
+    "writeLevel": "UPDATE",
+    "upsert": false,
+    "writeTable": "sm_metrics",
+    "primaryKey": "id",
+    "dataSource": "sample",
+    "editableColumns": []
+}

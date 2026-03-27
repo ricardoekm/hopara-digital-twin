@@ -1,0 +1,110 @@
+<svg viewBox="0 0 176 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700') format('woff');
+      }
+      text {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </defs>
+<!-- Dots -->
+<circle
+      fill="#2d9cf0"
+      style="transform-origin: 35px 35px"
+      cx="35"
+       cy="35"
+      r="4.5"
+    ></circle>
+<circle
+      fill="#ffc107"
+      style="transform-origin: 89.66666666666666px 35px"
+      cx="89.66666666666666"
+       cy="35"
+      r="4.5"
+    ></circle>
+<circle
+      fill="#E41A0C"
+      style="transform-origin: 144.33333333333331px 35px"
+      cx="144.33333333333331"
+       cy="35"
+      r="4.5"
+    ></circle>
+<!-- Ripple -->
+<circle
+      fill="#2d9cf0"
+      style="transform-origin: 35px 35px"
+      cx="35"
+       cy="35"
+      r="5"
+    > <animate
+              attributeName="fill-opacity"
+              keyTimes="0; 0.7; 1"
+              values="0.7;0;0"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /><animateTransform
+              type="scale"
+              additive="sum"
+              attributeName="transform"
+              keyTimes="0; 0.7; 1"
+              values="1; 2; 2"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /></circle>
+<circle
+      fill="#ffc107"
+      style="transform-origin: 89.66666666666666px 35px"
+      cx="89.66666666666666"
+       cy="35"
+      r="5"
+    > <animate
+              attributeName="fill-opacity"
+              keyTimes="0; 0.7; 1"
+              values="0.7;0;0"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /><animateTransform
+              type="scale"
+              additive="sum"
+              attributeName="transform"
+              keyTimes="0; 0.7; 1"
+              values="1; 2; 2"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /></circle>
+<circle
+      fill="#E41A0C"
+      style="transform-origin: 144.33333333333331px 35px"
+      cx="144.33333333333331"
+       cy="35"
+      r="5"
+    > <animate
+              attributeName="fill-opacity"
+              keyTimes="0; 0.7; 1"
+              values="0.7;0;0"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /><animateTransform
+              type="scale"
+              additive="sum"
+              attributeName="transform"
+              keyTimes="0; 0.7; 1"
+              values="1; 2; 2"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /></circle></svg>

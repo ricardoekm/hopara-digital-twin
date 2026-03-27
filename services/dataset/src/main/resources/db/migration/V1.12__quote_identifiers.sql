@@ -1,0 +1,1 @@
+ALTER TABLE hp_data_sources ADD COLUMN quote_identifiers BOOLEAN DEFAULT TRUE;

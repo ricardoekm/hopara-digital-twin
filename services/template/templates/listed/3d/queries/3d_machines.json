@@ -1,0 +1,16 @@
+{
+  "name": "3d_machines",
+  "query": "    select * from threed_machines order by machine_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "threed_machines",
+  "primaryKey": "machine_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+target-version = "py311"
+exclude = ["tools", "notebooks"]
+
+[lint]
+select = [
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort rules
+]
+ignore = [
+    "E701",
+    "E501"
+]

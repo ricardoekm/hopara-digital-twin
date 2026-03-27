@@ -1,0 +1,35 @@
+{
+  "name": "@hopara/encoding",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@deck.gl/core": "^8.9.27",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@hopara/config": "2.4.66",
+    "@hopara/dataset": "2.4.66",
+    "@hopara/i18n": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/memoize": "2.4.66",
+    "@hopara/spatial": "2.4.66",
+    "case": "^1.6.3",
+    "class-transformer": "^0.5.1",
+    "d3": "^6.3.1",
+    "d3-color": "^3.0.1",
+    "d3-format": "^3.1.0",
+    "lodash": "~4.17.23",
+    "react-color": "^2.19.3",
+    "vega": "^5.33.0"
+  }
+}

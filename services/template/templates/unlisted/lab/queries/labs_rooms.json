@@ -1,0 +1,11 @@
+{
+  "name": "labs_rooms",
+  "query": "SELECT r.room_id,\n         r.name,\n         r.description,\n         r.building_id,\n         max(case when (last_metrics.value >= al.warning or last_metrics.value >= al.critical) then 1 else 0 end) as is_alert,\n         jsonb_object_agg(coalesce(s.type, 'unknown'), value) as metrics,\n         jsonb_object_agg(coalesce(s.type, 'unknown'), s.sensor_id) as sensor_ids,\n         jsonb_object_agg(s.type, last_metrics.value >= al.warning) \n            FILTER (WHERE s.type IS NOT null and al.warning is not null) as alerts,\n         jsonb_object_agg(s.type, last_metrics.value >= al.warning and last_metrics.value < al.critical)\n            FILTER (WHERE s.type IS NOT null and al.warning is not null) as warning_alerts,\n         jsonb_object_agg(s.type, last_metrics.value >= al.critical) \n          FILTER (WHERE s.type IS NOT null and al.critical is not null) as critical_alerts, \n         max(case when last_metrics.value >= al.critical then 2\n                  when last_metrics.value >= al.warning then 1\n                  else 0\n              end) as alert_level,\n         max(last_metrics.timestamp) as last_metric_date\n  FROM labs_sensors s\n  INNER JOIN labs_rooms r on s.room_id = r.room_id\n  INNER JOIN LATERAL (\n      SELECT timestamp, value, sensor_id \n      FROM labs_metrics m\n      WHERE s.sensor_id = m.sensor_id\n      ORDER BY timestamp DESC\n      LIMIT 1\n  ) last_metrics ON TRUE\n  LEFT JOIN labs_alerts al on al.sensor_id = last_metrics.sensor_id\n  GROUP BY 1, 2, 3,4",
+  "dataSource": "sample",
+  "primaryKey": "room_id",
+  "writeLevel": "NONE",
+  "filterTables": true,
+  "smartLoad": false,
+  "upsert": true,
+  "editableColumns": []
+}

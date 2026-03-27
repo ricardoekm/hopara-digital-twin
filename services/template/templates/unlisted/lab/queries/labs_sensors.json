@@ -1,0 +1,11 @@
+{
+  "name": "labs_sensors",
+  "query": "    select s.sensor_id, \n            a.asset_id, \n            a.name as asset_name, \n            a.room,\n            s.type,\n            max(last_metrics.value) as value,\n            max(case when last_metrics.value >= al.critical then 2\n                  when last_metrics.value >= al.warning then 1\n                  else 0\n                end) as alert_level,\n            max(last_metrics.timestamp) as last_metric_date\n    from labs_sensors s\n    inner join labs_assets a on s.asset_id = a.asset_id\n    LEFT JOIN  (\n      select distinct on (sensor_id) *\n      from labs_metrics m\n      order by sensor_id, \"timestamp\" desc\n    ) AS last_metrics ON s.sensor_id = last_metrics.sensor_id\n    LEFT JOIN labs_alerts al on al.sensor_id = last_metrics.sensor_id\n    GROUP BY 1, 2, 3, 4,5",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "NONE",
+  "upsert": true,
+  "primaryKey": "sensor_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

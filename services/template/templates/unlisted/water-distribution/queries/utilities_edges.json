@@ -1,0 +1,11 @@
+{
+  "name": "utilities_edges",
+  "query": "select\n    pe.edges_id,\n    pe.alert\nfrom utilities_edges pe\ninner join utilities_nodes pn1 on pn1.node_id = pe.from_node\ninner join utilities_nodes pn2 on pn2.node_id = pe.to_node\n\n",
+  "dataSource": "sample",
+  "primaryKey": "edges_id",
+  "writeLevel": "NONE",
+  "filterTables": true,
+  "smartLoad": false,
+  "upsert": true,
+  "editableColumns": []
+}

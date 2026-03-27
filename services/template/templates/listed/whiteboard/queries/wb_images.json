@@ -1,0 +1,16 @@
+{
+  "name": "wb_images",
+  "query": "    select * from wb_images order by image_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "wb_images",
+  "primaryKey": "image_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

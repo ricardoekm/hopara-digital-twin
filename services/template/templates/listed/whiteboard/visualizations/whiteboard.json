@@ -1,0 +1,343 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.58",
+  "name": "Whiteboard",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "actions": [],
+  "legends": [],
+  "bleedFactor": 4,
+  "layers": [
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "wb_images_hopara_pos"
+          }
+        },
+        "image": {
+          "field": "image_id"
+        }
+      },
+      "id": "6c038412-c20d-4f8b-9748-9f8f46e5a9c4",
+      "name": "Images",
+      "type": "image",
+      "data": {
+        "source": "hopara",
+        "query": "wb_images"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Image id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "image_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen",
+            "reverse": false
+          },
+          "opacity": 0.07,
+          "value": "#1A1A1A"
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "wb_polygons_hopara_pos"
+          }
+        },
+        "polygon": {}
+      },
+      "id": "e23eccef-d325-4f87-9c3d-37aabfb1f404",
+      "name": "Polygons",
+      "type": "polygon",
+      "data": {
+        "source": "hopara",
+        "query": "wb_polygons"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Hopara scope",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "hopara_scope"
+                }
+              }
+            }
+          },
+          {
+            "title": "Polygon id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "polygon_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#808080",
+          "animation": {
+            "type": "flow",
+            "speed": 15
+          }
+        },
+        "size": {
+          "value": 10,
+           "referenceZoom": 2
+        },
+        "position": {
+          "coordinates": {
+            "field": "line"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "wb_lines_hopara_pos"
+          }
+        },
+        "animation": {
+          "type": "flow",
+          "enabled": true,
+          "speed": 15
+        },
+        "line": {
+          "segmentLength": 2000,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "common"
+        }
+      },
+      "id": "a3dca353-335a-4f7f-bd94-4a8da291205b",
+      "name": "Lines",
+      "type": "line",
+      "data": {
+        "source": "hopara",
+        "query": "wb_lines"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Line id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "line_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 12
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "size": {
+          "value": 32.5,
+          "referenceZoom": 2
+        },
+        "text": {
+          "field": "name"
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "wb_texts_hopara_pos"
+          }
+        },
+        "offset": {
+          "x": {
+            "value": 0,
+            "referenceZoom": 2
+          },
+          "y": {
+            "value": 0,
+            "referenceZoom": 2
+          }
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 2
+        }
+      },
+      "id": "2d2eb8d6-18b8-4668-b959-6baf7c3fd434",
+      "name": "Texts",
+      "type": "text",
+      "data": {
+        "source": "hopara",
+        "query": "wb_texts"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Text id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "text_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Hopara scope",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "hopara_scope"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true
+      },
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "zoom": 6
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 12
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": [],
+  "grids": [],
+  "group": "USER"
+}

@@ -1,0 +1,7 @@
+{
+  "field": "salesAmount",
+  "scale": {
+    "range": [5,10]
+  },
+  "value": 7
+}

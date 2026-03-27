@@ -1,0 +1,21 @@
+{
+  "name": "@hopara/browser",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "build-browserslist": "(echo \"// eslint-disable-next-line max-len\" ; echo \"export default $(browserslist-useragent-regexp --allowHigherVersions)\") > ./src/SupportedBrowsers.ts",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "ua-parser-js": "^2.0.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only"
+}

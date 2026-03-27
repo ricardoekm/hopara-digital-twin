@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "e2e-test-create-chart",
+  "name": "Test chart view - do not remove",
+  "type": "CHART",
+  "group": "SAMPLE",
+  "layers": [],
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "encodingScope": "QUERY",
+  "zoomRange": {
+    "max": {
+      "value": 12
+    },
+    "min": {
+      "value": 0
+    }
+  },
+  "filters": [],
+  "actions": []
+}

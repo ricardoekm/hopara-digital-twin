@@ -1,0 +1,1 @@
+ALTER TABLE hp_views RENAME COLUMN write_id_column_name TO primary_key_name;

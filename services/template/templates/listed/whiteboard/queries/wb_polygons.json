@@ -1,0 +1,16 @@
+{
+  "name": "wb_polygons",
+  "query": "    select * from wb_polygons order by polygon_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "wb_polygons",
+  "primaryKey": "polygon_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Asset",
+  "type": "icon",
+  "encoding": {
+    "icon": {
+      "field": "type",
+      "map": {
+        "calorimeter": "thermostat",
+        "biosafety": "cabinet"
+      }
+    }
+  }
+}

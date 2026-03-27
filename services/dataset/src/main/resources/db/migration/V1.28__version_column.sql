@@ -1,0 +1,1 @@
+ALTER TABLE hp_views ADD COLUMN version_column_name varchar(255);

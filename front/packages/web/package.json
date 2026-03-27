@@ -1,0 +1,60 @@
+{
+  "name": "@hopara/web",
+  "version": "2.4.66",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "scripts": {
+    "prestart": "yarn run preprocess-html",
+    "start": "DISABLE_ESLINT_PLUGIN=true react-app-rewired start",
+    "prebuild": "yarn run preprocess-html",
+    "build": "react-app-rewired build",
+    "eject": "react-app-rewired eject",
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "preprocess-html": "node ./tasks/preprocessHTML.js",
+    "check-types": "tsc --noEmit",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "test": "echo \"not implemented\"",
+    "system-test": "nightwatch"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults, > 0.2% and not dead"
+  ],
+  "dependencies": {
+    "@babel/register": "^7.15.3",
+    "@hopara/auth-front": "2.4.66",
+    "@hopara/browser": "2.4.66",
+    "@hopara/components": "2.4.66",
+    "@hopara/config": "2.4.66",
+    "@hopara/design-system": "2.4.66",
+    "@hopara/fpsmeter": "2.4.66",
+    "@hopara/internals": "2.4.66",
+    "@hopara/organization": "2.4.66",
+    "@hopara/page": "2.4.66",
+    "@hopara/rum": "2.4.66",
+    "@hopara/service-worker": "2.4.66",
+    "babel-loader": "8.1.0",
+    "config": "~3.3.6",
+    "d3": "^6.3.1",
+    "mime": "^3.0.0",
+    "query-string": "^6.13.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.10.0",
+    "react-transition-group": "~4.4.1",
+    "typesafe-actions": "^5.1.0"
+  }
+}

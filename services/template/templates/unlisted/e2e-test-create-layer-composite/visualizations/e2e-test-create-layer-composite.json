@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "e2e-test-create-layer-composite",
+  "name": "Test create layer composite - do not remove",
+  "type": "GEO",
+  "layers": [
+    {
+      "id": "map-layer-migration",
+      "name": "Map",
+      "type": "map",
+      "encoding": {
+        "map": {
+          "value": "light-street"
+        }
+      }
+    }
+  ],
+  "filters": [],
+  "legends": [],
+  "scope": "GEO",
+  "initialPosition": {
+    "x": -115.20404830530181,
+    "y": 36.18390693216619,
+    "z": 0,
+    "zoom": 15.740327380036824,
+    "bearing": 0.00015300548486962517
+  },
+  "encodingScope": "QUERY",
+  "zoomRange": {
+    "max": {
+      "value": 24
+    },
+    "min": {
+      "value": 0
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "group": "SAMPLE",
+  "actions": []
+}

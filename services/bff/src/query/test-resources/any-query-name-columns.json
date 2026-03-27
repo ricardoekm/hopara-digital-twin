@@ -1,0 +1,100 @@
+[
+  {
+    "name": "any-column",
+    "type": "STRING",
+    "uniqueKey": false,
+    "primaryKey": false,
+    "searchable": false,
+    "stats": {
+      "percentiles": [],
+      "values": [
+        "Any value 1",
+        "Any value 2",
+        "Any value 3",
+        "Any value 4"
+      ],
+      "max": 0.0,
+      "min": 0.0
+    },
+    "updateOnUpsert": true,
+    "quantitative": false,
+    "temporal": false
+  },
+  {
+    "name": "any-column-2",
+    "type": "DECIMAL",
+    "uniqueKey": false,
+    "primaryKey": false,
+    "searchable": false,
+    "stats": {
+      "percentiles": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        12,
+        25,
+        143
+      ],
+      "values": [],
+      "max": 143.0,
+      "min": 0.0
+    },
+    "updateOnUpsert": true,
+    "quantitative": true,
+    "temporal": false
+  },
+  {
+    "name": "any-column-3",
+    "type": "DATETIME",
+    "uniqueKey": false,
+    "primaryKey": false,
+    "searchable": false,
+    "stats": {
+      "percentiles": [
+        1121126400000,
+        1275609600000,
+        1337040000000,
+        1374710400000,
+        1428019200000,
+        1496707200000,
+        1515110400000,
+        1548115200000,
+        1616112000000
+      ],
+      "values": [],
+      "max": 1.616112E12,
+      "min": 1.1211264E12
+    },
+    "updateOnUpsert": true,
+    "quantitative": false,
+    "temporal": true
+  },
+  {
+    "name": "any-column-4",
+    "type": "INTEGER",
+    "uniqueKey": false,
+    "primaryKey": false,
+    "searchable": false,
+    "stats": {
+      "percentiles": [
+        126,
+        362,
+        677,
+        1349,
+        1967,
+        2466,
+        3586,
+        6534,
+        62324
+      ],
+      "values": [],
+      "max": 62324.0,
+      "min": 126.0
+    },
+    "updateOnUpsert": true,
+    "quantitative": true,
+    "temporal": false
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "@hopara/i18n",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "echo \"not implemented\"",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "dependencies": {
+    "@hopara/browser": "2.4.66"
+  }
+}

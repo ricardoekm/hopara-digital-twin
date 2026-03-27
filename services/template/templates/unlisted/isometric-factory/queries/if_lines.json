@@ -1,0 +1,11 @@
+{
+    "name": "if_lines",
+    "query": "SELECT\n  ((stage_id - 1) * 4 + line) AS line_id,  -- ID único da linha\n  stage_id,\n  line,\n  availability_line,\n  performance_line,\n  quality_line,\n  ROUND(availability_line * performance_line * quality_line, 4) AS oee_line,\n  CASE\n    WHEN ROUND(availability_line * performance_line * quality_line, 2) >= 0.83 THEN 0\n    WHEN ROUND(availability_line * performance_line * quality_line, 2) >= 0.70 THEN 1\n    ELSE 2\n  END AS alert\nFROM (\n  SELECT\n    a.stage_id,\n    a.line,\n    MIN(o.availability) AS availability_line,\n    MIN(o.performance)  AS performance_line,\n    MIN(o.quality)      AS quality_line\n  FROM if_assets a\n  JOIN if_assets_oee o\n    ON o.asset_id = a.asset_id\n  WHERE a.line IS NOT NULL\n  GROUP BY a.stage_id, a.line\n) x\nORDER BY stage_id, line;\n",
+    "filterTables": false,
+    "smartLoad": false,
+    "writeLevel": "NONE",
+    "upsert": false,
+    "primaryKey": "line_id",
+    "dataSource": "sample",
+    "editableColumns": []
+  }

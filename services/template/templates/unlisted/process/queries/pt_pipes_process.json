@@ -1,0 +1,14 @@
+{
+  "name": "pt_pipes_process",
+  "query": "select * from pt_pipes_process",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": true,
+  "writeTable": "pt_pipes_process",
+  "primaryKey": "pipe_id",
+  "dataSource": "sample",
+  "editableColumns": [{
+    "name": "name"
+  }]
+}

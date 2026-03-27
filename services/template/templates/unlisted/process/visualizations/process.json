@@ -1,0 +1,957 @@
+{
+  "$schema": "https://schema.hopara.app/app/0.57",
+  "id": "process",
+  "name": "Process",
+  "type": "WHITEBOARD",
+  "encodingScope": "QUERY",
+  "group": "SAMPLE",
+  "actions": [],
+  "scope": "WHITEBOARD",
+  "legends": [],
+  "layers": [
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_workflows_process_sample_pos"
+          }
+        },
+        "image": {
+          "field": "name",
+          "scope": "hopara"
+        }
+      },
+      "id": "0356a8a8-b281-4609-8eee-380f7acbde47",
+      "name": "Workflow",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "pt_workflows_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Workflow id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "workflow_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [
+        {
+          "id": "f73e05fa-73dc-4a3d-adfc-b67a3075fae0",
+          "title": "Zoom to fit",
+          "type": "ZOOM_JUMP",
+          "filters": []
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "position": {
+          "coordinates": {
+            "field": "rectangle"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_assets_process_sample_pos"
+          }
+        },
+        "image": {
+          "field": "image_name",
+          "scope": "hopara"
+        }
+      },
+      "id": "c793acaa-0368-4676-8dc9-b3c9b8f5a262",
+      "name": "Asset images",
+      "type": "image",
+      "data": {
+        "source": "sample",
+        "query": "pt_assets_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Image name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "image_name"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [
+        {
+          "id": "82d196ba-12c9-4037-9738-bcd1e31bbee5",
+          "title": "Drawing Views",
+          "type": "VISUALIZATION_JUMP",
+          "filters": [
+            {
+              "field": "asset_id"
+            }
+          ],
+          "visualization": "drawing-views"
+        }
+      ],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 4.5
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false
+          },
+          "opacity": 0.5,
+          "value": "#000000",
+          "animation": {
+            "channel": {
+              "duration": 1500,
+              "repeat": null
+            },
+            "keyFrames": {
+              "0%": {
+                "opacity": 0
+              },
+              "50%": {
+                "opacity": 1
+              },
+              "100%": {
+                "opacity": 0
+              }
+            },
+            "type": "fadeInOut",
+            "condition": {
+              "test": {
+                "field": "alert"
+              }
+            }
+          }
+        },
+        "position": {
+          "coordinates": {
+            "field": "polygon"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_assets_process_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "fadeInOut",
+          "enabled": true,
+          "condition": {
+            "test": {
+              "field": "alert"
+            }
+          },
+          "channel": {
+            "duration": 1500,
+            "repeat": null
+          },
+          "keyFrames": {
+            "0%": {
+              "opacity": 0
+            },
+            "50%": {
+              "opacity": 1
+            },
+            "100%": {
+              "opacity": 0
+            }
+          }
+        },
+        "polygon": {}
+      },
+      "id": "b1062163-09e2-405d-9c83-b0cf15fc9a6d",
+      "name": "Asset polygons",
+      "type": "polygon",
+      "data": {
+        "source": "sample",
+        "query": "pt_assets_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [
+        {
+          "id": "e6ae9342-1c98-4ed1-81ee-20a265b38b7b",
+          "title": "Zoom",
+          "type": "ZOOM_JUMP",
+          "zoom": {
+            "field": "polygon"
+          }
+        }
+      ],
+      "helperText": "The colors display the machine's health status. You can click on any machine to navigate to its blueprint.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 4.5
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "size": {
+          "multiplier": 0.4,
+          "referenceZoom": 4.5
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_sensors_process_sample_pos"
+          }
+        },
+        "config": {
+          "units": "common",
+          "maxResizeZoom": 6,
+          "referenceZoom": 4.5
+        }
+      },
+      "id": "a31f6d58-818a-45e4-9d69-73fddf7a921e",
+      "name": "Sensors",
+      "type": "composite",
+      "scale": true,
+      "data": {
+        "source": "sample",
+        "query": "pt_sensors_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "helperText": "The machines are being monitored for temperature and vibration. You can click on a blueprint and select drawing views to see different perspectives of the same machine.",
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 4.5
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "8cc27ddf-6db4-4b6c-8474-7952829a5ec9",
+          "name": "Ripple Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "black",
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "opacity": 0.7
+                  },
+                  "70%": {
+                    "opacity": 0
+                  },
+                  "100%": {
+                    "opacity": 0
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              }
+            },
+            "strokeSize": {
+              "value": 0,
+              "referenceZoom": 4.5
+            },
+            "size": {
+              "value": 46.25028612296957,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "70%": {
+                    "scale": 2
+                  },
+                  "100%": {
+                    "scale": 2
+                  }
+                },
+                "type": "ripple",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              },
+              "referenceZoom": 4.5
+            },
+            "animation": {
+              "type": "ripple",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "opacity": 0.7
+                },
+                "70%": {
+                  "opacity": 0
+                },
+                "100%": {
+                  "opacity": 0
+                }
+              }
+            },
+            "shadow": {
+              "outer": false
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {
+            "condition": {
+              "test": {
+                "field": "alert"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "d5e22cec-5790-4c7b-bcf3-a276bddf93ec",
+          "name": "Pulse Background",
+          "type": "circle",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "scheme": "greenyellowred",
+                "reverse": false
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "strokeSize": {
+              "value": 0,
+              "referenceZoom": 4.5
+            },
+            "size": {
+              "value": 41.223081109603314,
+              "animation": {
+                "channel": {
+                  "duration": 1500,
+                  "repeat": null
+                },
+                "keyFrames": {
+                  "0%": {
+                    "scale": 1
+                  },
+                  "60%": {
+                    "scale": 1.2
+                  },
+                  "90%": {
+                    "scale": 1
+                  }
+                },
+                "type": "pulse",
+                "condition": {
+                  "test": {
+                    "field": "alert"
+                  }
+                }
+              },
+              "referenceZoom": 4.5
+            },
+            "animation": {
+              "type": "pulse",
+              "enabled": true,
+              "condition": {
+                "test": {
+                  "field": "alert"
+                }
+              },
+              "channel": {
+                "duration": 1500,
+                "repeat": null
+              },
+              "keyFrames": {
+                "0%": {
+                  "scale": 1
+                },
+                "60%": {
+                  "scale": 1.2
+                },
+                "90%": {
+                  "scale": 1
+                }
+              }
+            },
+            "offset": {
+              "x": {
+                "value": 0,
+                "referenceZoom": 4.5
+              },
+              "y": {
+                "referenceZoom": 4.5
+              },
+              "value": 0.08950420639974353
+            },
+            "shadow": {
+              "outer": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        },
+        {
+          "id": "e6cb51a1-33bc-48f5-b8d7-2307cc07176b",
+          "name": "Icon",
+          "type": "icon",
+          "encoding": {
+            "color": {
+              "field": "alert",
+              "scale": {
+                "reverse": false,
+                "colors": [
+                  "#ffffff",
+                  "#50472d",
+                  "#ffffff"
+                ],
+                "values": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "opacity": 1,
+              "value": "#000000"
+            },
+            "size": {
+              "value": 32.174112085544046,
+              "referenceZoom": 4.5
+            },
+            "icon": {
+              "field": "type",
+              "smartSearch": true
+            }
+          },
+          "data": {},
+          "details": {
+            "fields": []
+          },
+          "actions": [],
+          "visible": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "alert",
+          "scale": {
+            "scheme": "greenyellowred",
+            "reverse": false
+          },
+          "opacity": 1,
+          "value": "#000000"
+        },
+        "size": {
+          "value": 9
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "scope": "WHITEBOARD",
+          "type": "REF",
+          "data": {
+            "layerId": "a31f6d58-818a-45e4-9d69-73fddf7a921e"
+          }
+        },
+        "offset": {
+          "x": {
+            "value": 0
+          },
+          "y": {}
+        },
+        "config": {
+          "units": "pixels"
+        }
+      },
+      "id": "768adf7b-8383-4033-a80d-879aeaa0ff51",
+      "name": "Sensors (small)",
+      "type": "circle",
+      "scale": true,
+      "data": {
+        "source": "sample",
+        "query": "pt_sensors_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Sensor id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "sensor_id"
+                }
+              }
+            }
+          },
+          {
+            "title": "Type",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "type"
+                }
+              }
+            }
+          },
+          {
+            "title": "Alert",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "alert"
+                }
+              }
+            }
+          },
+          {
+            "title": "Asset name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "asset_name"
+                }
+              }
+            },
+            "primaryKey": false
+          }
+        ],
+        "tooltip": true
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 4.5
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "hopara_color",
+          "scale": {
+            "scheme": "redyellowgreen",
+            "reverse": false,
+            "type": "sorted"
+          },
+          "opacity": 1,
+          "value": "#808080"
+        },
+        "size": {
+          "value": 11.664617976673542,
+          "referenceZoom": 3.65
+        },
+        "text": {
+          "field": "name",
+          "weight": 300
+        },
+        "position": {
+          "x": {
+            "field": "point_2d"
+          },
+          "y": {
+            "field": "point_2d"
+          },
+          "scope": "WHITEBOARD",
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_texts_process_sample_pos"
+          }
+        },
+        "offset": {
+          "x": {
+            "value": 0,
+            "referenceZoom": 3.65
+          },
+          "y": {
+            "value": 0,
+            "referenceZoom": 3.65
+          }
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 3.65
+        }
+      },
+      "id": "814109f9-1f9d-4e71-84b5-7c5c74585432",
+      "name": "Texts",
+      "type": "text",
+      "data": {
+        "source": "sample",
+        "query": "pt_texts_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Text id",
+            "visible": false,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "text_id"
+                }
+              }
+            },
+            "primaryKey": true
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    },
+    {
+      "encoding": {
+        "color": {
+          "scale": {
+            "scheme": "redyellowgreen"
+          },
+          "opacity": 1,
+          "value": "#808080",
+          "animation": {
+            "type": "flow",
+            "speed": 5
+          }
+        },
+        "size": {
+          "value": 8.80524902297076,
+          "referenceZoom": 3.65
+        },
+        "position": {
+          "coordinates": {
+            "field": "line"
+          },
+          "type": "MANAGED",
+          "data": {
+            "source": "hopara",
+            "query": "pt_pipes_process_sample_pos"
+          }
+        },
+        "animation": {
+          "type": "flow",
+          "enabled": true,
+          "speed": 5
+        },
+        "line": {
+          "segmentLength": 1000,
+          "cap": "butt"
+        },
+        "config": {
+          "units": "common",
+          "referenceZoom": 3.65
+        }
+      },
+      "id": "dd59bcaf-dda1-4039-9f1d-dc59a33a2ea7",
+      "name": "Pipes",
+      "type": "line",
+      "data": {
+        "source": "sample",
+        "query": "pt_pipes_process"
+      },
+      "details": {
+        "fields": [
+          {
+            "title": "Name",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "name"
+                }
+              }
+            }
+          },
+          {
+            "title": "Pipe id",
+            "visible": true,
+            "value": {
+              "encoding": {
+                "text": {
+                  "field": "pipe_id"
+                }
+              }
+            }
+          }
+        ],
+        "tooltip": false
+      },
+      "actions": [],
+      "visible": {
+        "value": true,
+        "zoomRange": {
+          "min": {
+            "value": 0
+          },
+          "max": {
+            "value": 24
+          }
+        }
+      },
+      "children": []
+    }
+  ],
+  "filters": [],
+  "initialPosition": {
+    "x": -82.07130661597984,
+    "y": 136.11678694133204,
+    "z": 0,
+    "zoom": 3.65,
+    "bearing": 0
+  },
+  "zoomRange": {
+    "min": {
+      "value": 0
+    },
+    "max": {
+      "value": 24
+    }
+  },
+  "zoomBehavior": {
+    "x": "SCALE",
+    "y": "SCALE"
+  },
+  "floors": []
+}

@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS pt_workflows_process;
+DROP TABLE IF EXISTS pt_workflows_process_sample_pos;
+DROP TABLE IF EXISTS pt_assets_process;
+DROP TABLE IF EXISTS pt_assets_process_sample_pos;
+DROP TABLE IF EXISTS pt_pipes_process;
+DROP TABLE IF EXISTS pt_pipes_process_sample_pos;
+DROP TABLE IF EXISTS pt_texts_process;
+DROP TABLE IF EXISTS pt_texts_process_sample_pos;
+DROP TABLE IF EXISTS pt_sensors_process;
+DROP TABLE IF EXISTS pt_sensors_process_sample_pos;
+DROP TABLE IF EXISTS pt_assets_views;
+DROP TABLE IF EXISTS pt_assets_views_sample_pos;
+DROP TABLE IF EXISTS pt_sensors_views1;
+DROP TABLE IF EXISTS pt_sensors_views1_sample_pos;
+DROP TABLE IF EXISTS pt_sensors_views2;
+DROP TABLE IF EXISTS pt_sensors_views2_sample_pos;

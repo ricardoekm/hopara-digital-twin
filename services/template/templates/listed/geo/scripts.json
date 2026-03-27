@@ -1,0 +1,4 @@
+{
+  "drop": ["drop-geo.sql"],
+  "create": ["geo-floorplans.sql", "tutorial-assets.sql", "tutorial-rooms.sql"]
+}

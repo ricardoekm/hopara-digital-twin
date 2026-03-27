@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg"  width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <filter id="3dFilter" width="144.7%" height="138.6%" x="-22.4%" y="-14.8%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.171984266 0"/>
+    </filter>
+    <path id="3dPath" d="M40.025 18 59 28.89l-.026.014V51.2L40 61.985V62l-.012-.008-.012.008-.001-.015L21 51.2V28.904l7.979 4.536-7.928-4.55L40.025 18Z"/>
+  </defs>
+  <g fill="none">
+    <use xlink:href="#3dPath" fill="#000" filter="url(#3dFilter)"/>
+    <g fill="currentColor">
+      <path opacity=".58" d="m18.975 21.704 18.999-10.8V33.2L18.975 44z" transform="translate(21 18)"/>
+      <path d="M.051 10.89 19.025 0 38 10.89 19.025 21.78z" transform="translate(21 18)"/>
+      <path opacity=".794" d="M19 21.704.001 10.904V33.2L19 44z" transform="translate(21 18)"/>
+    </g>
+  </g>
+</svg>

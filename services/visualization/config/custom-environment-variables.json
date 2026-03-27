@@ -1,0 +1,38 @@
+{
+  "server": {
+    "port": "PORT",
+    "parserLimit": "SERVER_PARSER_LIMIT"
+  },
+  "logger": {
+    "level": "LOG_LEVEL",
+    "format": "LOG_FORMAT"
+  },
+  "dataset": {
+    "url": "DATASET_URL"
+  },
+  "template": {
+    "url": "TEMPLATE_URL"
+  },
+  "notification": {
+    "url": "NOTIFICATION_URL"
+  },
+  "database": {
+    "user": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME",
+    "host": "DB_HOST",
+    "port": "DB_PORT",
+    "poolMin": "DB_POOL_MIN",
+    "poolMax": "DB_POOL_MAX",
+    "connectionTimeoutMillis": "DB_CONN_TIMEOUT",
+    "idleTimeoutMillis": "DB_IDLE_TIMEOUT",
+    "keepAlive": "DB_KEEP_ALIVE",
+    "retryAttempts": "DB_RETRY_ATTEMPTS",
+    "retryDelayMs": "DB_RETRY_DELAY_MS"
+  },
+  "auth": {
+    "enabled": "AUTH_ENABLED",
+    "jwtIssuer": "AUTH_JWT_ISSUER",
+    "jwksUri": "AUTH_JWKS_URI"
+  }
+}

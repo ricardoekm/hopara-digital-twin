@@ -1,0 +1,4 @@
+numpy=1.26.4
+scipy=1.12.0
+shapely=2.1.1
+import-linter=2.3

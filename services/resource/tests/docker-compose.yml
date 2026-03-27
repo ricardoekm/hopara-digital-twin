@@ -1,0 +1,30 @@
+services:
+  localstack:
+    image: localstack/localstack:3.5.0
+    ports:
+      - "4566:4566"
+      - "8080:8080"
+    environment:
+      - SERVICES=s3,cloudfront,sqs
+      - AWS_DEFAULT_REGION=us-east-1
+  db:
+    image: ankane/pgvector:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: kyrix
+      POSTGRES_PASSWORD: kyrix
+      POSTGRES_DB: kyrix
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kyrix -d kyrix"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+    postgres_data:
+      driver: local

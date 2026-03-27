@@ -1,0 +1,21 @@
+{
+  "name": "@hopara/internals",
+  "version": "2.4.66",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}' && tsc --noEmit",
+    "test": "jest --runInBand --ci",
+    "check-types": "echo \"not implemented\"",
+    "build": "echo \"not implemented\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "localstorage-slim": "^2.7.0",
+    "lodash": "~4.17.23",
+    "query-string": "^6.13.8"
+  }
+}

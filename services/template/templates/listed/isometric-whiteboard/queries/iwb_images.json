@@ -1,0 +1,16 @@
+{
+  "name": "iwb_images",
+  "query": "    select * from iwb_images order by image_id desc\n",
+  "filterTables": false,
+  "smartLoad": false,
+  "writeLevel": "INSERT",
+  "upsert": false,
+  "writeTable": "iwb_images",
+  "primaryKey": "image_id",
+  "dataSource": "hopara",
+  "editableColumns": [
+    {
+      "name": "name"
+    }
+  ]
+}

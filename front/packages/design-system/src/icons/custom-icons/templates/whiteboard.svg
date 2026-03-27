@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <filter id="whiteboardFilter" width="128.3%" height="147.2%" x="-14.2%" y="-18.1%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.171984266 0"/>
+    </filter>
+    <path id="whiteboardPath" d="M12.564 22h54.872c.892 0 1.215.093 1.54.267.327.174.583.43.757.756.174.326.267.65.267 1.54v30.873c0 .892-.093 1.215-.267 1.54a1.81 1.81 0 0 1-.756.757c-.326.174-.65.267-1.54.267H12.563c-.892 0-1.215-.093-1.54-.267a1.817 1.817 0 0 1-.757-.756c-.174-.326-.267-.65-.267-1.54V24.563c0-.892.093-1.215.267-1.54a1.81 1.81 0 0 1 .756-.757c.326-.174.65-.267 1.54-.267Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="currentColor" d="M40 15a1 1 0 0 1 1 1v4h-2v-4a1 1 0 0 1 1-1Zm-9.123 52.546a1 1 0 0 1-1.323.353l-.048-.025a.935.935 0 0 1-.352-1.317l2.569-4.144h-6.47a1 1 0 0 1-1-1v-1h32v1a1 1 0 0 1-1 1h-6.976l2.569 4.144a.935.935 0 0 1-.352 1.317l-.048.025a1 1 0 0 1-1.323-.353l-3.181-5.133H34.058Z" opacity=".33"/>
+    <g fill-rule="nonzero">
+      <use xlink:href="#whiteboardPath" fill="#000" filter="url(#whiteboardFilter)"/>
+      <use xlink:href="#whiteboardPath" fill="currentColor"/>
+    </g>
+  </g>
+</svg>

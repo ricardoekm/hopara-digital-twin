@@ -1,0 +1,11 @@
+{
+  "name": "labs_assets_risk",
+  "query": "    SELECT a.equipment_id as equipment_id, a.device_type as device_type, a.model, a.risk_score, model_count\n    FROM labs_assets_risk a \n    INNER JOIN (\n        SELECT count(*) as model_count, device_type, model\n        FROM labs_assets_risk \n        GROUP BY device_type, model\n    ) AS model_aggregation\n    ON a.model = model_aggregation.model and a.device_type = model_aggregation.device_type\n",
+  "filterTables": false,
+  "smartLoad": true,
+  "writeLevel": "NONE",
+  "upsert": false,
+  "primaryKey": "equipment_id",
+  "dataSource": "sample",
+  "editableColumns": []
+}

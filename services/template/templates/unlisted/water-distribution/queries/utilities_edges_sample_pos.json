@@ -1,0 +1,12 @@
+{
+  "name": "utilities_edges_sample_pos",
+  "query": "SELECT id, point_2d, point_3d, line, rectangle, polygon, floor, hopara_size, hopara_size_reference_zoom, hopara_color, hopara_scale FROM utilities_edges_sample_pos",
+  "filterTables": true,
+  "smartLoad": false,
+  "writeLevel": "UPDATE",
+  "upsert": true,
+  "writeTable": "utilities_edges_sample_pos",
+  "primaryKey": "id",
+  "dataSource": "hopara",
+  "editableColumns": []
+}

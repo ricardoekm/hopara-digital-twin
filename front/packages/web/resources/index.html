@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hopara</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Hopara - Find your focus" />
+    <meta name="app-version" content="%VERSION%" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/icons/favicon/ms-icon-144x144.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" media="(prefers-color-scheme: dark)" content="black" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="%PUBLIC_URL%/config.js"></script>
+
+    <script>
+      window.document.addEventListener("DOMContentLoaded", () => {
+        if (location.search.includes('test=true')) return
+
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'})
+        const gtmScript = document.createElement('script')
+        gtmScript.async = true
+        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=%GTM_KEY%'
+        document.head.appendChild(gtmScript);
+
+        window.gtag = function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "%GTAG_KEY%", {
+          app_name: "%GTAG_APP_NAME%",
+          app_version: "%GTAG_APP_VERSION%",
+          send_page_view: false,
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

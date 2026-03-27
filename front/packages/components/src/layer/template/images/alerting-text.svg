@@ -1,0 +1,76 @@
+<svg viewBox="0 0 176 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700') format('woff');
+      }
+      text {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </defs>
+<!-- Background -->
+<circle
+      fill="#2d9cf0"
+      style="transform-origin: 35px 35px"
+      cx="35"
+       cy="35"
+      r="15"
+    ></circle>
+<circle
+      fill="#ffc107"
+      style="transform-origin: 89.66666666666666px 35px"
+      cx="89.66666666666666"
+       cy="35"
+      r="15"
+    ><animateTransform
+              type="scale"
+              additive="sum"
+              attributeName="transform"
+              keyTimes="0; 0.6; 0.9; 1"
+              values="1; 1.2; 1; 1"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /></circle>
+<circle
+      fill="#E41A0C"
+      style="transform-origin: 144.33333333333331px 35px"
+      cx="144.33333333333331"
+       cy="35"
+      r="15"
+    ><animateTransform
+              type="scale"
+              additive="sum"
+              attributeName="transform"
+              keyTimes="0; 0.6; 0.9; 1"
+              values="1; 1.2; 1; 1"
+              begin="0s"
+              dur="1.5s"
+              fill="freeze"
+              repeatCount="indefinite"
+            /></circle>
+<!-- Text --><text
+      fill="#ffffff"
+      font-size="16"
+      x="35"
+      y="36"
+      text-anchor="middle"
+      dominant-baseline="middle"
+    >0</text><text
+      fill="#545454"
+      font-size="16"
+      x="89.66666666666666"
+      y="36"
+      text-anchor="middle"
+      dominant-baseline="middle"
+    >1</text><text
+      fill="#ffffff"
+      font-size="16"
+      x="144.33333333333331"
+      y="36"
+      text-anchor="middle"
+      dominant-baseline="middle"
+    >2</text></svg>

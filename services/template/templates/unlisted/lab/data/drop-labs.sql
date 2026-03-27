@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS labs_building CASCADE;
+DROP TABLE IF EXISTS labs_building_sample_pos CASCADE;
+DROP TABLE IF EXISTS labs_floorplans CASCADE;
+DROP TABLE IF EXISTS labs_floorplans_sample_pos CASCADE;
+DROP TABLE IF EXISTS labs_assets CASCADE;
+DROP TABLE IF EXISTS labs_assets_sample_pos CASCADE;
+DROP TABLE IF EXISTS labs_rooms CASCADE;
+DROP TABLE IF EXISTS labs_rooms_sample_pos CASCADE;
+DROP TABLE IF EXISTS labs_sensors CASCADE;
+DROP TABLE IF EXISTS labs_sensors_sample_pos CASCADE;
+DROP TABLE IF EXISTS labs_alerts CASCADE;
+DROP TABLE IF EXISTS labs_assets_risk CASCADE;

@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'custom';
+  src: url('fonts/custom-font.woff2') format('woff2'),
+       url('fonts/custom-font.woff') format('woff');
+  unicode-range: U+E800;
+}
