@@ -1,5 +1,6 @@
 import {DataLoaders, Queries, Query} from '@hopara/dataset'
 import { DataLoader, PlainDataLoader } from '@hopara/dataset/src/loader/DataLoader'
+import { isEmpty } from 'lodash'
 
 class QueryStore {
   queries: Queries
@@ -38,6 +39,8 @@ class QueryStore {
   }
 
   setLoaders(dataLoaders: (DataLoader | PlainDataLoader)[]): QueryStore {
+    if ( isEmpty(dataLoaders) ) return this
+
     return new QueryStore({
       ...this,
       loaders: new DataLoaders(...dataLoaders.map((loader) => new DataLoader(loader))),
