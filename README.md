@@ -1,6 +1,8 @@
 # Hopara
 
-Hopara is an open source digital twin plataform, where you can easily build a digital representation of an operation and show all its data in one place, in real-time. Technically speaking, you can think of Hopara as an interesting combination of Grafana, Figma and Prezi. 
+Hopara is an open source digital twin plataform, where you can easily build a digital representation of an operation and show all its data in one place, in real-time. 
+
+Technically speaking, you can think of Hopara as an interesting combination of Grafana, Figma and Prezi. 
 
 The original version of this project was built at MIT by Michael Stonebraker (Postgres), Wenbo Tao and Remco Chang.
 
