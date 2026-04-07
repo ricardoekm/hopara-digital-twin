@@ -1,53 +1,53 @@
 # Hopara Digital Twin
 
-Plataforma open source de digital twin — representação visual em tempo real de operações. Tecnicamente, uma combinação de Grafana, Figma e Prezi.
+Open source digital twin platform — real-time visual representation of operations. Technically, a combination of Grafana, Figma, and Prezi.
 
-## Estrutura do monorepo
+## Monorepo structure
 
 ```
-front/          # Frontend React (yarn workspaces, múltiplos packages)
+front/          # React frontend (yarn workspaces, multiple packages)
 services/
-  bff/          # BFF Node/TS — gateway entre front e serviços internos
-  visualization/ # Node/TS — gerencia visualizações, usa PostgreSQL
-  dataset/      # Java/Spring Boot — ingestão e consulta de dados
-  template/     # Node/TS — gerencia templates de visualização
-  notification/ # Node/TS — serviço de notificações
-  resource/     # Python — gerencia recursos (imagens, arquivos)
+  bff/          # BFF Node/TS — gateway between frontend and internal services
+  visualization/ # Node/TS — manages visualizations, uses PostgreSQL
+  dataset/      # Java/Spring Boot — data ingestion and querying
+  template/     # Node/TS — manages visualization templates
+  notification/ # Node/TS — notification service
+  resource/     # Python — manages resources (images, files)
 docker-compose.yml
-storage/        # Volumes locais (postgres, resource, data-files)
+storage/        # Local volumes (postgres, resource, data-files)
 ```
 
-## Configuração inicial
+## Initial setup
 
 ```bash
 git submodule update --init --recursive
 ```
 
-## Ambiente local
+## Local environment
 
 ```bash
 docker compose up
 ```
 
-Portas dos serviços:
+Service ports:
 
-| Serviço       | Porta |
-|---------------|-------|
-| front         | 3000  |
-| bff           | 8086  |
-| visualization | 8081  |
-| dataset       | 8000  |
-| template      | 8089  |
-| notification  | 8085  |
-| resource-api  | 2022  |
-| PostgreSQL    | 5432  |
+| Service       | Port |
+|---------------|------|
+| front         | 3000 |
+| bff           | 8086 |
+| visualization | 8081 |
+| dataset       | 8000 |
+| template      | 8089 |
+| notification  | 8085 |
+| resource-api  | 2022 |
+| PostgreSQL    | 5432 |
 
-Dados persistidos em `storage/` (não commitar).
+Data is persisted in `storage/` (do not commit).
 
-## Convenções gerais
+## General conventions
 
-- Licença: AGPL-3.0
-- TypeScript em todos os serviços Node.js
-- Cada serviço tem seu próprio `yarn.lock` ou `gradlew` — não usar o gerenciador de pacotes errado
-- Sempre rodar o `pre-commit` do serviço antes de commitar (ver CLAUDE.md de cada serviço)
-- Não editar arquivos em diretórios `out/`, `build/` ou `dist/` — são gerados
+- License: AGPL-3.0
+- TypeScript across all Node.js services
+- Each service has its own `yarn.lock` or `gradlew` — do not mix package managers
+- Always run the service's `pre-commit` script before committing (see each service's AGENTS.md)
+- Do not edit files in `out/`, `build/`, or `dist/` directories — they are generated

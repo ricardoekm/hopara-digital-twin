@@ -1,46 +1,46 @@
 # Visualization Service
 
-Node.js + TypeScript. Gerencia visualizações e specs, persiste no PostgreSQL via TypeORM.
+Node.js + TypeScript. Manages visualizations and specs, persisted in PostgreSQL via TypeORM.
 
-## Comandos principais
+## Main commands
 
 ```bash
-yarn start              # Desenvolvimento (nodemon, porta 8081)
-yarn build              # Compila TypeScript para out/
-yarn unit-test          # Testes unitários
-yarn integration-test   # Testes de integração (requer PostgreSQL rodando)
+yarn start              # Development mode (nodemon, port 8081)
+yarn build              # Compile TypeScript to out/
+yarn unit-test          # Unit tests
+yarn integration-test   # Integration tests (requires PostgreSQL running)
 yarn test               # lint + unit + integration
-yarn pre-commit         # build-schemas + build-docs + test (rodar antes de commitar)
+yarn pre-commit         # build-schemas + build-docs + test (run before committing)
 ```
 
-## Comandos especiais
+## Special commands
 
 ```bash
-yarn migrate            # Roda migrações do banco
-yarn build-schemas      # Gera JSON Schema a partir dos tipos TypeScript (out/schemas/schema.json)
-yarn build-docs         # Gera documentação
+yarn migrate            # Run database migrations
+yarn build-schemas      # Generate JSON Schema from TypeScript types (out/schemas/schema.json)
+yarn build-docs         # Generate documentation
 ```
 
-## Estrutura
+## Structure
 
 ```
 src/
   index.ts              # Entrypoint
-  migrate.ts            # Script de migração
-  build/                # Geração de docs e schemas
-out/                    # Compilado — não editar
-out/schemas/            # Schemas JSON gerados — não editar manualmente
+  migrate.ts            # Migration script
+  build/                # Docs and schema generation
+out/                    # Compiled output — do not edit
+out/schemas/            # Generated JSON schemas — do not edit manually
 ```
 
-## Banco de dados
+## Database
 
 - PostgreSQL via TypeORM
-- Variáveis: `DB_HOST`, `DB_USER`, `DB_PASSWORD`
-- Localmente: `db` no docker-compose (porta 5432, user/pass: kyrix)
-- Sempre rodar `yarn migrate` após pull se houver migrações novas
+- Variables: `DB_HOST`, `DB_USER`, `DB_PASSWORD`
+- Locally: `db` in docker-compose (port 5432, user/pass: kyrix)
+- Always run `yarn migrate` after pulling if there are new migrations
 
-## Convenções
+## Conventions
 
-- DI com awilix
-- Schemas gerados via `ts-json-schema-generator` — alterar os tipos TypeScript, não o JSON diretamente
-- Testes de integração precisam de banco disponível
+- DI with awilix
+- Schemas generated via `ts-json-schema-generator` — edit TypeScript types, not the JSON directly
+- Integration tests require a running database

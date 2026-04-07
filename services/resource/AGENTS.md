@@ -1,37 +1,37 @@
 # Resource Service
 
-Python. Gerencia recursos como imagens e arquivos. Dois componentes: `api/` (resource-api, porta 2022) e `consumer/` (resource-consumer, porta 2023).
+Python. Manages resources such as images and files. Two components: `api/` (resource-api, port 2022) and `consumer/` (resource-consumer, port 2023).
 
-## Comandos principais
+## Main commands
 
 ```bash
-./pre_commit.sh         # ruff + lint-imports + mypy + testes (rodar antes de commitar)
-python -m unittest      # Só testes
-ruff check --fix .      # Lint e auto-fix
-mypy -p api -p consumer -p common   # Verificação de tipos
+./pre_commit.sh         # ruff + lint-imports + mypy + tests (run before committing)
+python -m unittest      # Tests only
+ruff check --fix .      # Lint and auto-fix
+mypy -p api -p consumer -p common   # Type checking
 ```
 
-## Variáveis de ambiente
+## Environment variables
 
-| Variável               | Descrição                          |
-|------------------------|------------------------------------|
-| `DISABLE_LOCALSTACK`   | `true` em dev local sem LocalStack |
-| `LOCAL_STORAGE_PATH`   | Caminho para armazenamento local   |
-| `CONSUMER_URL`         | URL do consumer (usada pela api)   |
+| Variable               | Description                              |
+|------------------------|------------------------------------------|
+| `DISABLE_LOCALSTACK`   | Set to `true` in local dev without LocalStack |
+| `LOCAL_STORAGE_PATH`   | Path for local storage                   |
+| `CONSUMER_URL`         | Consumer URL (used by the API)           |
 
-## Estrutura
+## Structure
 
 ```
-api/            # Resource API (porta 2022)
-consumer/       # Resource Consumer (porta 2023)
-common/         # Código compartilhado
-resources/      # Arquivos de recursos
-tests/          # Testes
+api/            # Resource API (port 2022)
+consumer/       # Resource Consumer (port 2023)
+common/         # Shared code
+resources/      # Resource files
+tests/          # Tests
 ```
 
-## Convenções
+## Conventions
 
-- Ruff para lint (configurado em `ruff.toml`)
-- Mypy para tipos (configurado em `mypy.ini`)
-- Testes com `unittest`
-- Armazenamento local em `storage/resource/` (mapeado via volume no docker)
+- Ruff for linting (configured in `ruff.toml`)
+- Mypy for types (configured in `mypy.ini`)
+- Tests with `unittest`
+- Local storage in `storage/resource/` (mapped via docker volume)
