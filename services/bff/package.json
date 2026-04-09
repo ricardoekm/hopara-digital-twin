@@ -28,7 +28,7 @@
     "@hopara/logger": "^1.4.2",
     "@types/bluebird": "^3.5.42",
     "awilix": "^6.1.0",
-    "axios": "^1.13.5",
+    "axios": "^1.15.0",
     "bluebird": "^3.7.2",
     "compression": "^1.7.4",
     "config": "^3.3.7",
