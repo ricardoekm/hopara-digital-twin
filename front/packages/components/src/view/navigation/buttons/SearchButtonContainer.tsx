@@ -13,9 +13,11 @@ export const mapState = (store: Store): StateProps => {
         const layer = store.layerStore.layers.getSearchables().getByRowsetId(rowsetId)
         if ( !layer ) return undefined as any
 
-        const query = store.queryStore.queries.findQuery(layer!.getPositionQueryKey())
+        const query = store.queryStore.queries.findQuery(layer.getPositionQueryKey())
         const rows = store.searchObjectListStore.rowsets[rowsetId].getPlacedRows().limit(3)
-        return {rowsetId, layer, rows, columns: query!.getColumns()}
+        if ( !query ) return undefined as any
+
+        return {rowsetId, layer, rows, columns: query.getColumns()}
       }).filter((x) => x),
     [
       store.searchObjectListStore.rowsets,
