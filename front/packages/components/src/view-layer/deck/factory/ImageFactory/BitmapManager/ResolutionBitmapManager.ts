@@ -133,12 +133,6 @@ export class ResolutionBitmapManager implements BitmapManager {
       this.lastVersion = version
     }
 
-    if (!viewport?.somePolygonInRange(boundsArray)) {
-      this.lastBreakpoint = ImageBreakpoint.xs
-      this.lastUrl = this.setResolution(imageUrl, this.lastBreakpoint).toString()
-      return this.lastUrl
-    }
-
     const breakpoint = this.getImagesBreakpoint(viewport, boundsArray)
     if (this.isAskingLowerResolution(breakpoint)) {
       return this.lastUrl
