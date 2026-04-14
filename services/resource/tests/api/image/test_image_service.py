@@ -347,7 +347,7 @@ class TestImageService(unittest.TestCase):
                                 'max_size': 512
                             },
                             'invalidation_urls': invalidation_urls
-                        }
+                        },
                         {
                             'cwd': cwd,
                             'type': 'image_resize',
