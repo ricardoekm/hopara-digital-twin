@@ -23,7 +23,7 @@ export class TemplateRepository {
             {},
             {
                headers,
-               timeout: 480 * 1000
+               timeout: 15 * 60 * 1000
             }
         )
         return response?.data
