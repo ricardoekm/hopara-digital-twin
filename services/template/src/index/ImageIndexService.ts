@@ -7,12 +7,15 @@ export type ResourceConfig = {
   url: string
 }
 
-const BATCH_SIZE = 5 
+export type ImageIndexConfig = {
+  batchSize: number
+}
 
 export class ImageIndexService {
   constructor(private readonly httpClient: AxiosInstance,
               private readonly resourceConfig: ResourceConfig,
-              private readonly resourceRepository: ResourceRepository
+              private readonly resourceRepository: ResourceRepository,
+              private readonly imageIndexConfig: ImageIndexConfig
   ) {}
 
   async index(templateId:string, imageFileName: string, tenant: string, authorization: string) {
@@ -34,13 +37,13 @@ export class ImageIndexService {
   async indexImages(images:string[], templateId: string, tenant: string, authorization: string) {
     if (!isEmpty(images)) {
       const promises = []
-      const imagesBatch = images.slice(0, BATCH_SIZE)
+      const imagesBatch = images.slice(0, this.imageIndexConfig.batchSize)
       for (const imageName of imagesBatch) {
         const promise = this.index(templateId, imageName, tenant, authorization)
         promises.push(promise)
       }
       await Promise.all(promises)
-      await this.indexImages(images.slice(BATCH_SIZE), templateId, tenant, authorization)
+      await this.indexImages(images.slice(this.imageIndexConfig.batchSize), templateId, tenant, authorization)
     }
   }
 }
