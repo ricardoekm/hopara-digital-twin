@@ -30,6 +30,9 @@ export type Config = {
     jwtIssuer: string,
     jwksUri: string
   },
+  imageIndex: {
+    batchSize: number
+  },
 }
 
 export const config: Config = {
@@ -46,4 +49,7 @@ export const config: Config = {
     enabled: cfg.get('auth.enabled') !== false,
   },
   fs: cfg.get('fs'),
+  imageIndex: {
+    batchSize: Number(cfg.get('imageIndex.batchSize')),
+  },
 }
