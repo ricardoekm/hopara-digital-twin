@@ -19,5 +19,8 @@
     "enabled": false,
     "jwtIssuer": "http://localhost:8088",
     "jwksUri": "http://localhost:8088/.well-known/dev.json"
+  },
+  "imageIndex": {
+    "batchSize": 2
   }
 }

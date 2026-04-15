@@ -19,5 +19,8 @@
     "enabled": "AUTH_ENABLED",
     "jwtIssuer": "AUTH_JWT_ISSUER",
     "jwksUri": "AUTH_JWKS_URI"
+  },
+  "imageIndex": {
+    "batchSize": "IMAGE_INDEX_BATCH_SIZE"
   }
 }

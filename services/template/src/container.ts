@@ -46,6 +46,7 @@ export const containerFactory = async (): Promise<AwilixContainer> => {
       config: asValue(config),
       datasetConfig: asValue(config.dataset),
       resourceConfig: asValue(config.resource),
+      imageIndexConfig: asValue(config.imageIndex),
 
       httpClient: asFunction(() => axios.create()).singleton(),
       fsConfig: asValue(config.fs),
