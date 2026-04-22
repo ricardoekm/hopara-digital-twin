@@ -14,4 +14,12 @@ public class DataSourceTest {
         assertEquals("hopara_io", schemas.get(0));
         assertEquals("public", schemas.get(1));
     }
+
+    @Test
+    void replace_kyrix_by_hopara_in_database_name() {
+        var dataSource = new DataSource();
+        dataSource.setDatabase("kyrix");
+
+        assertEquals("hopara", dataSource.getDatabase());
+    }
 }
