@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/kyrix/bff.git"
+    "url": "git+ssh://git@bitbucket.org/hopara/bff.git"
   },
   "author": "",
   "license": "AGPL-3.0-only",
-  "homepage": "https://bitbucket.org/kyrix/bff#readme",
+  "homepage": "https://bitbucket.org/hopara/bff#readme",
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.4.2",
     "@hopara/http-server": "^1.13.0",

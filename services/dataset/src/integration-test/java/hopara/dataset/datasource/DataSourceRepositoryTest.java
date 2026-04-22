@@ -20,7 +20,7 @@ public class DataSourceRepositoryTest extends IntegrationTest {
         var datasource = new DataSource();
         datasource.setName("test_ds");
         datasource.setUsername("username");
-        datasource.setPassword("kyrix");
+        datasource.setPassword("hopara");
         datasource.setDatabase("database");
         datasource.setPort(123);
         datasource.setHost("server");
@@ -41,7 +41,7 @@ public class DataSourceRepositoryTest extends IntegrationTest {
         var datasource = new DataSource();
         datasource.setName("test_ds");
         datasource.setUsername("username");
-        datasource.setPassword("kyrix");
+        datasource.setPassword("hopara");
         datasource.setDatabase("database");
         datasource.setPort(123);
         datasource.setHost("server");
@@ -55,7 +55,7 @@ public class DataSourceRepositoryTest extends IntegrationTest {
         updatedDataSource.setName("test_ds");
         updatedDataSource.setUsername("username1");
         updatedDataSource.setDatabase("database1");
-        updatedDataSource.setPassword("kyrix");
+        updatedDataSource.setPassword("hopara");
         updatedDataSource.setPort(1234);
         updatedDataSource.setHost("server1");
         updatedDataSource.setSchema("hopara1");

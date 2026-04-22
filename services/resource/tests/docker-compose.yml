@@ -12,14 +12,14 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: kyrix
-      POSTGRES_PASSWORD: kyrix
-      POSTGRES_DB: kyrix
+      POSTGRES_USER: hopara
+      POSTGRES_PASSWORD: hopara
+      POSTGRES_DB: hopara
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kyrix -d kyrix"]
+      test: ["CMD-SHELL", "pg_isready -U hopara -d hopara"]
       interval: 5s
       timeout: 5s
       retries: 5

@@ -39,9 +39,9 @@ flask run
 export OPENAI_API_KEY=[YOUR_OPENAI_API_KEY]
 export WANDB_PROJECT="smart-search"
 export RESOURCE_HOST=localhost
-export RESOURCE_PASS=kyrix
-export RESOURCE_USER=kyrix
-export RESOURCE_DB=kyrix
+export RESOURCE_PASS=hopara
+export RESOURCE_USER=hopara
+export RESOURCE_DB=hopara
 ```
 
 ## Subir o banco de treinamento local

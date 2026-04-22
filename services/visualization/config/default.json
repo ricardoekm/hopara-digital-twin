@@ -20,10 +20,10 @@
       "url": "http://localhost:8085"
     },
     "database": {
-        "user": "kyrix",
-        "password": "kyrix",
+        "user": "hopara",
+        "password": "hopara",
         "host": "localhost",
-        "database": "kyrix",
+        "database": "hopara",
         "port": 5432,
         "poolMin": 5,
         "poolMax": 30,

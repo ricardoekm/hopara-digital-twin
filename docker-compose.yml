@@ -67,7 +67,7 @@ services:
       - ${STORAGE_DIR:-./storage}/postgres:/var/lib/postgresql/data  
     command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all  -c listen_addresses='*'
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kyrix"]
+      test: ["CMD-SHELL", "pg_isready -U hopara"]
       interval: 10s
       timeout: 5s
       retries: 6
@@ -79,8 +79,8 @@ services:
     environment:
       - PORT=8081
       - DB_HOST=db
-      - DB_USER=kyrix
-      - DB_PASSWORD=kyrix
+      - DB_USER=hopara
+      - DB_PASSWORD=hopara
       - DATASET_URL=http://host.docker.internal:8000
       - TEMPLATE_URL=http://host.docker.internal:8089
     ports:
@@ -98,7 +98,7 @@ services:
 
   dataset:
     image: hopara/dataset:latest
-    entrypoint: ["java", "-DdatabaseServer=db", "-DdatabaseUsername=kyrix", "-DdatabasePassword=kyrix", "-DdatabaseName=kyrix", "-Dspring.main.allow-bean-definition-overriding=true","-Dspring.jmx.enabled=false","-Dspring.jdbc.getParameterType.ignore=true","-Dlogging.level.kyrix.dataset.row.read=debug","-Xms512m","-Xmx2g", "-jar","/app.jar"]
+    entrypoint: ["java", "-DdatabaseServer=db", "-DdatabaseUsername=hopara", "-DdatabasePassword=hopara", "-DdatabaseName=hopara", "-Dspring.main.allow-bean-definition-overriding=true","-Dspring.jmx.enabled=false","-Dspring.jdbc.getParameterType.ignore=true","-Dlogging.level.hopara.dataset.row.read=debug","-Xms512m","-Xmx2g", "-jar","/app.jar"]
     ports:
       - "8000:8000"
     environment:

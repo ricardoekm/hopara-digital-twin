@@ -33,7 +33,7 @@ public class EnvPasswordRepository implements PasswordRepository {
 
     public String find(String name) {
         if ( isDevDatasource(name) ) {
-            return "kyrix";
+            return "hopara";
         }
 
         if ( hasEnvPassword(name) ) {

@@ -49,7 +49,7 @@ module.exports.main = () => {
   const CONFIG = {
     gmtKey: process.env.GTM_KEY || getGTMKey(),
     gtagKey: process.env.GTAG_KEY || gtagKey(),
-    appName: process.env.GTAG_APP_NAME || 'Kyrix',
+    appName: process.env.GTAG_APP_NAME || 'Hopara',
     appVersion: appVersion(),
   }
    
