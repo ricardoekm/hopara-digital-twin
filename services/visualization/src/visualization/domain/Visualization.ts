@@ -11,7 +11,7 @@ import {
 } from './spec/Visualization.js'
 import {QueryKeys} from '../../data/QueryKeys.js'
 import {QueryKey} from '../../data/QueryKey.js'
-import {v4 as uuid} from 'uuid'
+import {randomUUID} from 'node:crypto'
 import {Actions} from '../../layer/domain/spec/Action.js'
 import { FixedZoomRange } from '../../layer/domain/spec/FixedZoomRange.js'
 import { ThreeDLights } from '../../lights/3DLights.js'
@@ -47,7 +47,7 @@ export class Visualization {
   constructor(props?: Partial<Visualization>) {
     Object.assign(this, props ?? {})
 
-    this.id = this.id ? this.id.toString() : uuid()
+    this.id = this.id ? this.id.toString() : randomUUID()
 
     this.filters = new Filters(...(this.filters ?? []))
     this.zoomBehavior = {
@@ -93,7 +93,7 @@ export class Visualization {
   duplicate(name: string): Visualization {
     return new Visualization({
       ...this,
-      id: uuid(),
+      id: randomUUID(),
       name,
       group: undefined,
     })

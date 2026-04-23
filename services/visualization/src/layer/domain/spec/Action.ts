@@ -1,6 +1,6 @@
 import { ZoomValue } from './ZoomRange.js'
 import { Visible } from './Visible.js'
-import { v4 as uuidv4 } from 'uuid'
+import { randomUUID } from 'node:crypto'
 
 export type TemplateString = string
 
@@ -36,7 +36,7 @@ export class ActionBase {
   constructor(props?: Partial<ActionBase>) {
     Object.assign(this, props ?? {})
     if (!this.id) {
-      this.id = uuidv4()
+      this.id = randomUUID()
     }
   }
 }
