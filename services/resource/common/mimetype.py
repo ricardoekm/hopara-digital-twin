@@ -5,6 +5,10 @@ def is_gltf(buffer: bytes) -> bool:
     return buffer.startswith(b'glTF')
 
 
+def is_png(buffer: bytes) -> bool:
+    return buffer.startswith(b'\x89PNG\r\n\x1a\n')
+
+
 def is_svg(buffer: bytes) -> bool:
     head = buffer[:1024].decode("utf-8", errors="ignore").lower()
     return "<svg" in head
@@ -17,6 +21,8 @@ def is_webp(buffer: bytes) -> bool:
 def discover_mimetype(buffer: bytes) -> str:
     if is_gltf(buffer):
         return 'model/gltf-binary'
+    if is_png(buffer):
+        return 'image/png'
     if is_svg(buffer):
         return 'image/svg+xml'
     if is_webp(buffer):
