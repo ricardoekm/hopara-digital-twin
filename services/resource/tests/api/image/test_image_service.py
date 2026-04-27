@@ -426,7 +426,8 @@ class TestImageService(unittest.TestCase):
                     'tenant': any_tenant,
                     'library': any_library,
                     'name': any_name,
-                    'progress': progress
+                    'progress': progress,
+                    'event': 'GENERATE_PROGRESS',
                 }
             if invalidate:
                 s['invalidation_urls'] = [
