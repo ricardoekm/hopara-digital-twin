@@ -165,7 +165,8 @@ class TestMainWorker(unittest.TestCase):
             'library': 'any_target',
             'tenant': any_tenant,
             'name': 'any_name',
-            'progress': 0.5
+            'progress': 0.5,
+            'event': 'GENERATE_PROGRESS',
         }
 
         # Common test data

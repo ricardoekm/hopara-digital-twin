@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk:23
+FROM eclipse-temurin:23-jre
 
 RUN apt-get update && apt-get install -y --no-install-recommends wget && rm -rf /var/lib/apt/lists/*
 
@@ -22,5 +22,5 @@ ENTRYPOINT ["java", \
             "--add-opens=java.base/java.nio=ALL-UNNAMED", \
             "-Duser.timezone=GMT", \            
             "-Ddd.http.server.error.statuses=403", \
-            "-Xms1g","-Xmx6g","-XX:+HeapDumpOnOutOfMemoryError", \
+            "-Xms1g","-Xmx4g","-XX:+HeapDumpOnOutOfMemoryError", \
             "-XX:HeapDumpPath=memoryDump.dmp","-jar","/app.jar"]

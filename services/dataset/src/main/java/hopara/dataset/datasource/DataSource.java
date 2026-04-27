@@ -142,6 +142,10 @@ public class DataSource {
     }
     
     public String getDatabase() {
+        // For legacy reasons
+        if ( "kyrix".equalsIgnoreCase(database) ) {
+            return "hopara";
+        }
         return database;
     }
 

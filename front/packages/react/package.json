@@ -28,7 +28,7 @@
     "check-types": "echo \"not implemented\""
   },
   "bugs": {
-    "url": "https://bitbucket.org/kyrix/front/issues"
+    "url": "https://bitbucket.org/hopara/front/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",

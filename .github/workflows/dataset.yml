@@ -36,7 +36,7 @@ jobs:
       postgres:
         image: hopara/postgres:latest
         options: >-
-          --health-cmd "pg_isready -U kyrix"
+          --health-cmd "pg_isready -U hopara"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5

@@ -5,7 +5,7 @@ interface RetryOptions {
   retryDelayMs: number
 }
 
-export async function connectWithRetry<T>(connect: () => Promise<T>,options: RetryOptions, logger: Logger): Promise<T> {
+export async function connectWithRetry<T>(connect: () => Promise<T>, options: RetryOptions, logger: Logger): Promise<T> {
   const { retryAttempts, retryDelayMs } = options
 
   for (let attempt = 1; attempt <= retryAttempts + 1; attempt++) {
@@ -21,7 +21,7 @@ export async function connectWithRetry<T>(connect: () => Promise<T>,options: Ret
         throw error
       }
       logger.warn(`connection attempt ${attempt} failed, retrying in ${retryDelayMs}ms...`, { error })
-      await new Promise(resolve => setTimeout(resolve, retryDelayMs))
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs))
     }
   }
 

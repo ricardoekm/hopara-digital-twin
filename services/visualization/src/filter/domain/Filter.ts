@@ -1,4 +1,4 @@
-import {v4 as uuid} from 'uuid'
+import {randomUUID} from 'node:crypto'
 
 import {QueryKey} from '../../data/QueryKey.js'
 import {Data} from '../../data/domain/spec/Data.js'
@@ -15,7 +15,7 @@ class Filter {
   constructor(props: Partial<FilterSpec>) {
     Object.assign(this, props)
     if (!props.id) {
-      this.id = uuid()
+      this.id = randomUUID()
     }
   }
 
