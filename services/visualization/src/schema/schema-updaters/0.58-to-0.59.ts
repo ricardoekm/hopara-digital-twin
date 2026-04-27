@@ -4,11 +4,10 @@ import {BaseMigration} from './BaseMigration.js'
 
 export class SchemaMigration058to059 extends BaseMigration {
   migrateActions(actions:any[]) {
-    const newActions = actions.map(action => {
+    const newActions = actions.map((action) => {
       if (action.autoTrigger) {
         return {...action, trigger: 'OBJECT_CLICK'}
-      }
-      else {
+      } else {
         return action
       }
     })

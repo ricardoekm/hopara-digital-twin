@@ -4,7 +4,7 @@
   "private": true,
   "description": "> TODO: description",
   "author": "Lucas Nascimento <lucsbarros@gmail.com>",
-  "homepage": "https://bitbucket.org/kyrix/front#readme",
+  "homepage": "https://bitbucket.org/hopara/front#readme",
   "license": "AGPL-3.0-only",
   "main": "src/index.cjs",
   "directories": {
@@ -15,10 +15,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/kyrix/front.git"
+    "url": "git+ssh://git@bitbucket.org/hopara/front.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/kyrix/front/issues"
+    "url": "https://bitbucket.org/hopara/front/issues"
   },
   "dependencies": {
     "@hopara/fpsmeter": "2.4.66",

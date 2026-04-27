@@ -2,7 +2,7 @@ CREATE USER app WITH PASSWORD 'app';
 CREATE USER dataset WITH PASSWORD 'dataset';
 CREATE USER hopara_io WITH PASSWORD 'hopara_io';
 
-GRANT hopara_io to kyrix;
+GRANT hopara_io to hopara;
 CREATE SCHEMA AUTHORIZATION hopara_io;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA hopara_io grant all on tables to hopara_io;

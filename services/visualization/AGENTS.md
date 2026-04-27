@@ -36,7 +36,7 @@ out/schemas/            # Generated JSON schemas — do not edit manually
 
 - PostgreSQL via TypeORM
 - Variables: `DB_HOST`, `DB_USER`, `DB_PASSWORD`
-- Locally: `db` in docker-compose (port 5432, user/pass: kyrix)
+- Locally: `db` in docker-compose (port 5432, user/pass: hopara)
 - Always run `yarn migrate` after pulling if there are new migrations
 
 ## Conventions

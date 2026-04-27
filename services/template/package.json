@@ -16,11 +16,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/kyrix/template.git"
+    "url": "git+ssh://git@bitbucket.org/hopara/template.git"
   },
   "author": "",
   "license": "AGPL-3.0-only",
-  "homepage": "https://bitbucket.org/kyrix/template#readme",
+  "homepage": "https://bitbucket.org/hopara/template#readme",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.49.0",
     "@hopara/http-server": "^1.13.0",

@@ -1,6 +1,6 @@
 import {TemplateRepository} from '../repository/TemplateRepository.js'
 import {VisualizationService, VisualizationServiceResponse} from './visualization-service.js'
-import {v4 as uuid} from 'uuid'
+import {randomUUID} from 'node:crypto'
 import {UserInfo} from '@hopara/http-server'
 import {VisualizationSpec} from '../domain/spec/Visualization.js'
 import { getCurrentAppVersion } from '../../schema/schema-repository.js'
@@ -25,7 +25,7 @@ export class TemplateVisualizationService {
       return visualizationConfig.id
     }
 
-    return uuid()
+    return randomUUID()
   }
 
   private async doCreate(visualizationSpec: VisualizationSpec, index: number, 
@@ -47,7 +47,7 @@ export class TemplateVisualizationService {
       if ( visualizationSpec.layers ) {
         for ( const layer of visualizationSpec.layers) {
           if (!layer.id) {
-            layer.id = uuid()
+            layer.id = randomUUID()
           }
         }
       }
