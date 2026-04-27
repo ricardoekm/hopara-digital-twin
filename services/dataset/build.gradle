@@ -90,6 +90,7 @@ implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-u
 	implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.2.1'
 		
 	implementation group: 'software.amazon.awssdk', name: 'secretsmanager', version: '2.14.7'
+	implementation group: 'com.google.cloud', name: 'google-cloud-secretmanager', version: '2.64.0'
 	
 	// Databases
 	implementation group: 'com.singlestore', name: 'singlestore-jdbc-client', version: '1.1.5'
