@@ -54,7 +54,8 @@ class TestConsumer(unittest.TestCase):
                 'tenant': 'hopara.io',
                 'library': 'any_library',
                 'name': 'any_name',
-                'progress': 0.1
+                'progress': 0.1,
+                'event': 'GENERATE_PROGRESS',
             },
             "type": "copy"
         })
