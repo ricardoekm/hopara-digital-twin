@@ -1,8 +1,11 @@
 package hopara.dataset.bean;
 
+import java.io.IOException;
+
 import org.apache.tomcat.util.buf.EncodedSolidusHandling;
 import org.duckdb.DuckDBArray;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -27,11 +30,13 @@ import hopara.dataset.datafile.s3.S3DataFileRepository;
 import hopara.dataset.datafile.s3.S3DataFileTableRepository;
 import hopara.dataset.datasource.password.DatabasePasswordRepository;
 import hopara.dataset.datasource.password.EnvPasswordRepository;
+import hopara.dataset.datasource.password.GcpSecretManagerPasswordRepository;
 import hopara.dataset.datasource.password.PasswordRepository;
 import hopara.dataset.datasource.password.SecretsManagerPasswordRepository;
 import hopara.dataset.row.converter.PostgresJsonConverter;
 
 import jakarta.servlet.Filter;
+import com.google.cloud.secretmanager.v1.SecretManagerServiceClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 
@@ -107,6 +112,10 @@ public class BeanFactory {
 		if ( "database".equals(passwordStrategy) ) {
 			return new DatabasePasswordRepository();
 		}
+
+		if ( "gcpSecretManager".equals(passwordStrategy) ) {
+			return new GcpSecretManagerPasswordRepository();
+		}
 		
 		return new SecretsManagerPasswordRepository();
 	}
@@ -116,6 +125,12 @@ public class BeanFactory {
 	    return SecretsManagerClient.builder()
 	                               .region(Region.US_EAST_1)
 	                               .build();
+	}
+
+	@Bean
+	@ConditionalOnProperty(name = "dataSource.passwordStrategy", havingValue = "gcpSecretManager")
+	public SecretManagerServiceClient gcpSecretManagerClient() throws IOException {
+		return SecretManagerServiceClient.create();
 	}
 
 	@Bean
