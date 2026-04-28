@@ -4,7 +4,6 @@ import {Action, ActionType} from '../Action'
 import {ListActionPillButton} from '@hopara/design-system/src/buttons/ListActionPillButton'
 import {i18n} from '@hopara/i18n'
 import {DraggableList, ListItemData} from '@hopara/design-system/src/list'
-import {v4 as uuid} from 'uuid'
 import {Empty} from '@hopara/design-system/src/empty/Empty'
 import {Layer} from '../../layer/Layer'
 import {Icon} from '@hopara/design-system/src/icons/Icon'
@@ -78,7 +77,7 @@ export class ActionsEditor extends PureComponent<Props> {
             sublist={this.props.sublist}
             items={this.props.items.map((item: Action) => {
               return {
-                id: item.id ?? uuid(),
+                id: item.id ?? crypto.randomUUID(),
                 name: item.title,
                 icon: getIconFromActionType(item.type),
               }

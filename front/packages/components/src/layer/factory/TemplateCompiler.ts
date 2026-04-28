@@ -2,7 +2,6 @@ import { isEmpty } from 'lodash'
 import { Layer, PlainLayer } from '../Layer'
 import { LayerTemplate, TemplateForm } from '../template/domain/LayerTemplate'
 import { nullToUndefined } from './NullToUndefined'
-import {v4 as uuidv4} from 'uuid'
 
 export class TemplateCompiler {
   layerTemplates: LayerTemplate[]
@@ -33,7 +32,7 @@ export class TemplateCompiler {
   getIdMap(layerCount: number): Record<string, string> {
     const idMap: Record<string, string> = {}
     for (let i = 0; i < layerCount; i++) {
-      idMap[`{{id#${i}}}`] = uuidv4()
+      idMap[`{{id#${i}}}`] = crypto.randomUUID()
     }
     return idMap
   }

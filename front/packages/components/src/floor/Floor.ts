@@ -1,5 +1,4 @@
 import {i18n} from '@hopara/i18n'
-import {v4 as uuidv4} from 'uuid'
 import wordsToNumbers from '@hopara/multilingual-number-parser'
 import {naturalCompare} from '@discoveryjs/natural-compare'
 
@@ -60,7 +59,7 @@ export class Floor {
       props = {name: props}
     }
     this.name = props.name ?? i18n('FLOOR_NAME')
-    this.id = props.id ?? uuidv4()
+    this.id = props.id ?? crypto.randomUUID()
     this.acronym = props.acronym ?? getAcronymByName(this.name)
   }
 

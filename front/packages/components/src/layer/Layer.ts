@@ -11,7 +11,6 @@ import {QueryKey} from '@hopara/dataset/src/query/Queries'
 import {LayerType} from './LayerType'
 import {Details} from '../details/Details'
 import {Actions} from '../action/Actions'
-import {v4 as uuidv4} from 'uuid'
 import {Layers} from './Layers'
 import {isEmpty} from 'lodash'
 import {VisualizationType} from '../visualization/Visualization'
@@ -189,7 +188,7 @@ export class Layer implements QueryHolder {
     Object.assign(this, props)
 
     this.lastModified = new Date()
-    if (!this.id) this.id = uuidv4()
+    if (!this.id) this.id = crypto.randomUUID()
     if (this.data) this.data = new Data(this.data)
     this.children = new Layers(...(this.children ?? []))
   }
