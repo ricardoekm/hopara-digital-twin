@@ -1,6 +1,5 @@
 import {Visible} from '../layer/Visible'
 import {ZoomValue} from '../zoom/ZoomValue'
-import {v4 as uuidv4} from 'uuid'
 import {i18n} from '@hopara/i18n'
 
 export type TemplateString = string
@@ -36,7 +35,7 @@ class BaseAction {
 
   constructor(props?: Partial<BaseAction>) {
     Object.assign(this, props ?? {})
-    this.id = props?.id ?? uuidv4()
+    this.id = props?.id ?? crypto.randomUUID()
     this.title = props?.title ?? i18n('NEW_ACTION')
   }
 }

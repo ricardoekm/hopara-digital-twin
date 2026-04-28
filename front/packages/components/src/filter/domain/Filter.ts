@@ -1,6 +1,5 @@
  
 import { Data } from '@hopara/encoding'
-import {v4 as uuidv4} from 'uuid'
 import {classToPlain} from 'class-transformer'
 import 'reflect-metadata'
 import {i18n} from '@hopara/i18n'
@@ -27,7 +26,7 @@ export class Filter {
 
   constructor(props?: Partial<Filter>) {
     Object.assign(this, props)
-    this.id = props?.id ?? uuidv4()
+    this.id = props?.id ?? crypto.randomUUID()
     this.data = new Data(this.data ?? {})
     this.values = this.values ?? []
   }

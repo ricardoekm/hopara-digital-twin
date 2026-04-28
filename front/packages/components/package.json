@@ -131,7 +131,6 @@
     "supercluster": "^8.0.1",
     "tsyringe": "^4.10.0",
     "typesafe-actions": "^5.1.0",
-    "uuid": "^9.0.0",
     "vega": "^5.33.0",
     "vega-lite": "^5.1.1"
   },

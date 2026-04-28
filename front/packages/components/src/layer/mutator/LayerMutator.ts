@@ -13,7 +13,6 @@ import {EncodingAnimation} from '../EncodingAnimation'
 import {LayerFactory} from '../factory/LayerFactory'
 import {Layers} from '../Layers'
 import {i18n} from '@hopara/i18n'
-import {v4 as uuidv4} from 'uuid'
 import {Column} from '@hopara/dataset'
 import {SizeUnits} from '@hopara/encoding/src/size/SizeEncoding'
 import {VisualizationType} from '../../visualization/Visualization'
@@ -244,10 +243,10 @@ export class LayerMutator {
 
   duplicate(layer: Layer) {
     let duplicatedLayer = this.layerFactory.duplicate(layer)
-    duplicatedLayer = this.mutate(duplicatedLayer, {id: uuidv4(), name: `${duplicatedLayer.name} (${i18n('COPY')})`})
+    duplicatedLayer = this.mutate(duplicatedLayer, {id: crypto.randomUUID(), name: `${duplicatedLayer.name} (${i18n('COPY')})`})
     if (duplicatedLayer.hasChildren()) {
       const children = duplicatedLayer.children!.map((child) => this.mutate(child, {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         parentId: duplicatedLayer.getId(),
       }))
       duplicatedLayer = this.mutate(duplicatedLayer, {children: new Layers(...children)})

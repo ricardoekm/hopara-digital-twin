@@ -2863,7 +2863,6 @@ __metadata:
     supercluster: "npm:^8.0.1"
     tsyringe: "npm:^4.10.0"
     typesafe-actions: "npm:^5.1.0"
-    uuid: "npm:^9.0.0"
     vega: "npm:^5.33.0"
     vega-lite: "npm:^5.1.1"
   languageName: unknown
