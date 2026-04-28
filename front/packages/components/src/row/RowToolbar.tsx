@@ -5,7 +5,7 @@ import {RowSavedStatusComponent} from './RowSavedStatusComponent'
 import {RowSavedStatus} from './RowHistoryStore'
 import {i18n} from '@hopara/i18n'
 import Visualization from '../visualization/Visualization'
-import {Row} from '@hopara/dataset'
+import {Row, Rows} from '@hopara/dataset'
 import {Layer} from '../layer/Layer'
 import {CanvasNavigationBar} from '@hopara/design-system/src/navigation/CanvasNavigationBar'
 import {CanvasNavigationButtonGroup} from '@hopara/design-system/src/navigation/CanvasNavigationButtonGroup'
@@ -62,6 +62,7 @@ export interface StateProps {
   allowRotation?: boolean;
   allowImageEdit?: boolean;
   hasViewField?: boolean;
+  rows: Rows;
 }
 
 export interface ActionProps {
@@ -74,8 +75,8 @@ export interface ActionProps {
   onShowModelHistoryClick: () => void;
   onCropCancel: () => void;
   onCropApply: () => void;
-  onBringForwardClick: () => void;
-  onSendBackwardClick: () => void;
+  onBringToFrontClick: () => void;
+  onSendToBackClick: () => void;
   onFitToImageClick: () => void;
   onFitToBuildingClick: () => void;
   onFitToRoomClick: () => void;
@@ -420,17 +421,17 @@ export class RowToolbar extends PureComponent<StateProps & ActionProps, {
         {this.props.canUpdateOrder && <>
           <CanvasNavigationButton
               icon="bring-forward"
-              label={i18n(`BRING_FORWARD`)}
+              label={i18n(`BRING_TO_FRONT`)}
               tooltipPlacement="top"
               disabled={this.props.isFitting}
-              onClick={() => this.props.onBringForwardClick()}/>
+              onClick={() => this.props.onBringToFrontClick()}/>
 
          <CanvasNavigationButton
               icon="send-backward"
-              label={i18n(`SEND_BACKWARD`)}
+              label={i18n(`SEND_TO_BACK`)}
               tooltipPlacement="top"
               disabled={this.props.isFitting}
-              onClick={() => this.props.onSendBackwardClick()}/>
+              onClick={() => this.props.onSendToBackClick()}/>
 
 
           <CanvasNavigationDivider/>

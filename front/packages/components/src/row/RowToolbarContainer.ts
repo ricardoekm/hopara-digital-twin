@@ -12,7 +12,7 @@ import {RowSavedStatus} from './RowHistoryStore'
 import {Coordinates, toGeometry, toPoint, toPolygon} from '@hopara/spatial'
 import {useMemo} from 'react'
 import ViewState from '../view-state/ViewState'
-import {Row} from '@hopara/dataset'
+import {Row, Rows} from '@hopara/dataset'
 import {Layer} from '../layer/Layer'
 import {isEqual} from 'lodash/fp'
 import {getRowBounds} from '../zoom/translate/RowBounds'
@@ -140,7 +140,8 @@ const mapState = (store: Store): StateProps => {
     isGeneratingImage: generateState?.status === ResourceGenerateStatus.GENERATING,
     allowRotation: !!(store.viewLayers.rowSelection?.allowRotation),
     allowImageEdit: !!(store.viewLayers.rowSelection?.allowImageEdit),
-    hasViewField: !!(selectedLayer?.encoding.image?.view?.field) && positionQuery?.getColumns().has(selectedLayer.encoding.image.view.field)
+    hasViewField: !!(selectedLayer?.encoding.image?.view?.field) && positionQuery?.getColumns().has(selectedLayer.encoding.image.view.field),
+    rows: store.rowsetStore.getRowset(selectedLayer?.getRowsetId())?.rows ?? Rows.empty()
   }
 }
 
@@ -239,21 +240,25 @@ const mapActions = (dispatch: Dispatch, stateProps: StateProps): ActionProps => 
         rowsetId: stateProps.rowsetId!
       }))
     },
-    onBringForwardClick: () => {
+    onBringToFrontClick: () => {
+      const zValues = stateProps.rows.getValues(Z_INDEX_COLUMN_NAME).filter((v): v is number => !isNil(v))
+      const maxZ = zValues.reduce((acc, v) => v > acc ? v : acc, 0)
       dispatch(actions.object.zIndexUpdated({
         row: stateProps.row!,
         updatedFields: {
-          [Z_INDEX_COLUMN_NAME]: stateProps.row!.getValue(Z_INDEX_COLUMN_NAME) as number + 1
+          [Z_INDEX_COLUMN_NAME]: maxZ + 1
         },
         rowsetId: stateProps.rowsetId!,
         data: stateProps.layer!.getPositionData()
       }))
     },
-    onSendBackwardClick: () => {
-       dispatch(actions.object.zIndexUpdated({
+    onSendToBackClick: () => {
+      const zValues = stateProps.rows.getValues(Z_INDEX_COLUMN_NAME).filter((v): v is number => !isNil(v))
+      const minZ = zValues.reduce((acc, v) => v < acc ? v : acc, 0)
+      dispatch(actions.object.zIndexUpdated({
         row: stateProps.row!,
         updatedFields: {
-          [Z_INDEX_COLUMN_NAME]: stateProps.row!.getValue(Z_INDEX_COLUMN_NAME) as number - 1
+          [Z_INDEX_COLUMN_NAME]: minZ - 1
         },
         rowsetId: stateProps.rowsetId!,
         data: stateProps.layer!.getPositionData()
