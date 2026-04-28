@@ -242,10 +242,11 @@ const mapActions = (dispatch: Dispatch, stateProps: StateProps): ActionProps => 
     },
     onBringToFrontClick: () => {
       const zValues = stateProps.rows.getValues(Z_INDEX_COLUMN_NAME).filter((v): v is number => !isNil(v))
+      const maxZ = zValues.reduce((acc, v) => v > acc ? v : acc, 0)
       dispatch(actions.object.zIndexUpdated({
         row: stateProps.row!,
         updatedFields: {
-          [Z_INDEX_COLUMN_NAME]: (zValues.length ? Math.max(...zValues) : 0) + 1
+          [Z_INDEX_COLUMN_NAME]: maxZ + 1
         },
         rowsetId: stateProps.rowsetId!,
         data: stateProps.layer!.getPositionData()
@@ -253,10 +254,11 @@ const mapActions = (dispatch: Dispatch, stateProps: StateProps): ActionProps => 
     },
     onSendToBackClick: () => {
       const zValues = stateProps.rows.getValues(Z_INDEX_COLUMN_NAME).filter((v): v is number => !isNil(v))
+      const minZ = zValues.reduce((acc, v) => v < acc ? v : acc, 0)
       dispatch(actions.object.zIndexUpdated({
         row: stateProps.row!,
         updatedFields: {
-          [Z_INDEX_COLUMN_NAME]: (zValues.length ? Math.min(...zValues) : 0) - 1
+          [Z_INDEX_COLUMN_NAME]: minZ - 1
         },
         rowsetId: stateProps.rowsetId!,
         data: stateProps.layer!.getPositionData()
