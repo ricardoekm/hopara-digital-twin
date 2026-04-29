@@ -26,5 +26,6 @@ module.exports = {
   roots: ['<rootDir>/src', '<rootDir>../../__mocks__'],
   testEnvironment: 'jsdom',
   injectGlobals: true,
+  setupFiles: ['<rootDir>../../jest.setup.cjs'],
   transformIgnorePatterns: ['/node_modules/(?!@material/material-color-utilities/)'],
 }
