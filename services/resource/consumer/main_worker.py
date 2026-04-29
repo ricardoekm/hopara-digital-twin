@@ -95,6 +95,7 @@ class MainWorker:
             step = payload
 
         cwd = step.get('cwd', '')
+        write_cwd = step.get('destination_cwd', cwd)
         self.validate_step(step)
         step_type = step['type']
         worker = self.workers.get(step_type)
@@ -113,10 +114,10 @@ class MainWorker:
 
         destination = self.get_destinations_from_step(step)[0]
 
-        if not self.storage.file_exists(destination, cwd=cwd) or not step.get('use_cache', False):
+        if not self.storage.file_exists(destination, cwd=write_cwd) or not step.get('use_cache', False):
             input_buffer, original_metadata = self.get_input_data(cwd, data)
             output_buffers, metadata = worker.process(step["data"], input_buffer, original_metadata)
-            self.upload(step, output_buffers, metadata, cwd=cwd)
+            self.upload(step, output_buffers, metadata, cwd=write_cwd)
             self.cache.invalidate(step.get('invalidation_urls', []))
 
         steps = payload.get('steps', [])
