@@ -19,7 +19,7 @@ import hopara.dataset.pool.MultiTenantConnectionPool;
 @Configuration
 public class DataAccessFactory {
 
-    @Value("${dataQueryTimeout:10000}")
+    @Value("${dataQueryTimeout:60}")
     private int queryTimeout;
 
     @Bean
