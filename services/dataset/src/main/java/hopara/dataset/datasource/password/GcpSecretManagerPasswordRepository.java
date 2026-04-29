@@ -39,17 +39,11 @@ public class GcpSecretManagerPasswordRepository implements PasswordRepository {
     }
 
     private String getProjectId() {
-        var envProjectId = System.getenv("GOOGLE_CLOUD_PROJECT");
-
         if (StringUtils.hasText(configuredProjectId)) {
             return configuredProjectId;
         }
 
-        if (StringUtils.hasText(envProjectId)) {
-            return envProjectId;
-        }
-
-        throw new IllegalStateException("Missing gcp.projectId and GOOGLE_CLOUD_PROJECT is not set.");
+        throw new IllegalStateException("Missing gcp.projectId");
     }
 
     private String getSecretName(String name) {
