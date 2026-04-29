@@ -5,7 +5,7 @@ import jwt
 from flask import jsonify, request
 from jwt import PyJWKClient
 
-AUTH_ENABLED = os.environ.get('AUTH_ENABLED', False) != False
+AUTH_ENABLED = bool(os.environ.get('AUTH_ENABLED', False))
 
 def get_public_key(uri):
     jwks_client = PyJWKClient(uri)

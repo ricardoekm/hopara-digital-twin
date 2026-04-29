@@ -95,7 +95,7 @@ class MainWorker:
             step = payload
 
         cwd = step.get('cwd', '')
-        write_cwd = step.get('destination_cwd', cwd)
+        write_cwd = step.get('destination_cwd') or cwd
         self.validate_step(step)
         step_type = step['type']
         worker = self.workers.get(step_type)
