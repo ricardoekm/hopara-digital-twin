@@ -250,7 +250,7 @@ class TestMainWorker(unittest.TestCase):
 
         # Execute
         result = self.main_worker.process_sync(self.valid_payload)
-        self.assertEquals(result, ResourceState.PROCESSING)
+        self.assertEqual(result, ResourceState.PROCESSING)
 
         # Verify
         mock_thread.start.assert_called_once()
