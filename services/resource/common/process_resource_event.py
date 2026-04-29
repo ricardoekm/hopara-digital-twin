@@ -73,3 +73,4 @@ class ResourceStep(RequiredProcessResourceEvent, total=False):
     notification: Optional[ResourceStepNotification]
     steps: List['ResourceStep']
     data: EventData
+    destination_cwd: Optional[str]
