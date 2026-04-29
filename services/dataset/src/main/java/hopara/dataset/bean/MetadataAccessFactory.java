@@ -68,7 +68,7 @@ public class MetadataAccessFactory {
     @Value("${metadataPoolNumHelperThreads:50}")
     private int numHelperThreads;
 
-    @Value("${metadataQueryTimeout:5000}")
+    @Value("${metadataQueryTimeout:60}")
     private int queryTimeout;
 
     @Value("${metadataPoolCheckoutTimeout:5000}")
