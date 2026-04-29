@@ -153,6 +153,35 @@ class TestMainWorker(unittest.TestCase):
         self.fake_queue.send_message.assert_called_once_with(
             {'type': 'sequential', 'steps': [{'type': 'next_step', 'data': {}}]})
 
+    def test_process_payload_with_destination_cwd_reads_from_cwd_writes_to_destination_cwd(self):
+        source_cwd = 'source/cwd'
+        dest_cwd = 'destination/cwd'
+
+        output_buffer = [b'processed-output']
+        output_metadata = {'processed': True}
+        self.fake_storage.get.return_value = (self.mock_input_buffer, self.mock_metadata)
+        self.fake_storage.file_exists.return_value = False
+        self.fake_worker.process.return_value = (output_buffer, output_metadata)
+
+        payload: Any = {
+            'cwd': source_cwd,
+            'destination_cwd': dest_cwd,
+            'type': 'any_worker_type',
+            'data': {
+                'origin': 'input.jpg',
+                'destination': 'output.jpg',
+                'metadata': {}
+            },
+        }
+
+        self.main_worker.process_payload(payload)
+
+        self.fake_storage.get.assert_called_once_with('input.jpg', cwd=source_cwd)
+        self.fake_storage.file_exists.assert_called_once_with('output.jpg', cwd=dest_cwd)
+        self.fake_storage.upload.assert_called_once_with(
+            output_buffer[0], 'output.jpg', output_metadata, cwd=dest_cwd
+        )
+
     def test_process_payload_should_send_notification(self):
         output_buffer = [b'processed-output']
         output_metadata = {'processed': True}
@@ -221,7 +250,7 @@ class TestMainWorker(unittest.TestCase):
 
         # Execute
         result = self.main_worker.process_sync(self.valid_payload)
-        self.assertEquals(result, ResourceState.PROCESSING)
+        self.assertEqual(result, ResourceState.PROCESSING)
 
         # Verify
         mock_thread.start.assert_called_once()
