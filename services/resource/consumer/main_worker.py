@@ -96,12 +96,12 @@ class MainWorker:
 
         cwd = step.get('cwd', '')
         write_cwd = step.get('destination_cwd') or cwd
-        self.validate_step(step)
         step_type = step['type']
         worker = self.workers.get(step_type)
         if not worker:
             # Silently ignore, as this can happen for cloud features
             return ResourceState.SUCCESS
+        self.validate_step(step)
 
         data: Any = step.get('data', {})
         origin = data.get('origin')
